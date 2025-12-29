@@ -1,4 +1,3 @@
-# main.py
 import os
 from dotenv import load_dotenv
 from grid_client import GridClient
@@ -23,64 +22,49 @@ def main():
         print("✅ Tournaments endpoint is working.")
 
     print("\n--- 2. Fetching Recent Series (Matches) ---")
-    series_data = client.get_recent_series(limit=5)
+    series_data = client.get_recent_series(limit=3)
 
     if series_data:
         all_series = series_data.get('allSeries', {})
         print(f"✅ SUCCESS! Found {all_series.get('totalCount')} series available.")
-        print("Here are the first 5 loaded matches:\n")
+        print("Processing top 3 matches with Live Data Analysis:\n")
 
         for edge in all_series.get('edges', []):
             match = edge['node']
             match_id = match['id']
-            start_time = match['startTimeScheduled']
-
-            tourn_name = match.get('tournament', {}).get('nameShortened', 'Unknown Tournament')
-
             teams = match.get('teams', [])
             if teams and len(teams) >= 2:
-                team_a = teams[0].get('baseInfo', {}).get('name', 'Unknown')
-                team_b = teams[1].get('baseInfo', {}).get('name', 'Unknown')
-                versus = f"{team_a} vs {team_b}"
+                team_a_name = teams[0].get('baseInfo', {}).get('name', 'Unknown')
+                team_b_name = teams[1].get('baseInfo', {}).get('name', 'Unknown')
+                versus = f"{team_a_name} vs {team_b_name}"
             else:
                 versus = "TBD vs TBD"
+            print(f"📢 Match: {versus} (ID: {match_id})")
 
-            print(f"[{start_time}] {versus}")
-            print(f"   Tournament: {tourn_name} | ID: {match_id}")
-            
-            # --- Integration of MatchAnalyzer ---
-            print("   Running Analysis...")
-            details = client.get_match_details(match_id)
-            if details:
-                analyzer = MatchAnalyzer(details)
-                
-                # Analyze first player of first team as an example
-                if teams:
-                    first_team_name = teams[0].get('baseInfo', {}).get('name')
-                    # We need to find a player name from the details
-                    try:
-                        first_game = details.get('series', {}).get('games', [])[0]
-                        first_player = first_game['teams'][0]['players'][0]['player']['baseInfo']['name']
-                        
-                        print(f"   > {analyzer.analyze_opening_deaths(first_player)}")
-                        print(f"   > {analyzer.analyze_economy_impact(first_team_name)}")
-                    except (IndexError, KeyError):
-                        print("   > No player/game data available for detailed analysis.")
+            # --- Live Data Flow (Moneyball Logic) ---
+            state_data = client.get_series_state(match_id)
+            if not state_data or not state_data.get('games'):
+                print("   ⚠️ No live game data available yet. Waiting for start...")
+                print("-" * 40)
+                continue
 
+            analyzer = MatchAnalyzer(state_data)
+            try:
+                first_game = state_data['games'][0]
+
+                if len(first_game['teams']) > 0:
+                    team_live = first_game['teams'][0]
+                    team_name = team_live['name']
+
+                    if len(team_live['players']) > 0:
+                        player_name = team_live['players'][0]['name']
+                        print(f"   👤 Analyzing Player: {player_name}")
+                        print(f"   > {analyzer.analyze_player_performance(player_name)}")
+                    print(f"   🛡️ Analyzing Team Economy: {team_name}")
+                    print(f"   > {analyzer.analyze_team_economy(team_name)}")
+            except (IndexError, KeyError) as e:
+                print(f"   > Analysis skipped: Data structure mismatch ({e})")
             print("-" * 40)
-
-    print("\n--- 3. Fetching Team Statistics & Moneyball Insight ---")
-    team_id = "83" # Example team ID
-    team_stats = client.get_team_stats(team_id)
-    if team_stats:
-        # Initialize MatchAnalyzer with the returned statistics data
-        analyzer = MatchAnalyzer(team_stats)
-        insight = analyzer.analyze_team_moneyball(team_stats)
-        print(f"📊 Team Statistics Insight (ID: {team_id}):")
-        print(f"   {insight}")
-    else:
-        print(f"❌ Could not fetch statistics for team ID: {team_id}")
-
 
 if __name__ == "__main__":
     main()

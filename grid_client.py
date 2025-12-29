@@ -3,8 +3,9 @@ import requests
 import json
 
 class GridClient:
-    # Open Platform Endpoint
+    # Open Platform Endpoints
     API_URL = "https://api-op.grid.gg/central-data/graphql"
+    LIVE_URL = "https://api-op.grid.gg/live-data-feed/series-state/graphql"
 
     def __init__(self, api_key):
         if not api_key:
@@ -16,11 +17,13 @@ class GridClient:
             "x-api-key": self.api_key
         }
 
-    def _execute_query(self, query, variables=None):
+    def _execute_query(self, query, variables=None, url=None):
         """Internal method to execute GraphQL queries."""
+        if url is None:
+            url = self.API_URL
         try:
             response = requests.post(
-                self.API_URL,
+                url,
                 json={'query': query, 'variables': variables},
                 headers=self.headers
             )
@@ -153,3 +156,32 @@ class GridClient:
         }}
         """
         return self._execute_query(query)
+
+    def get_series_state(self, series_id):
+        """
+        Retrieves live series state including real-time player stats.
+        Uses the Live Data Feed endpoint.
+        """
+        query = """
+        query GetSeriesState($id: ID!) {
+          seriesState(id: $id) {
+            id
+            valid
+            games {
+              id
+              sequenceNumber
+              teams {
+                name
+                players {
+                  name
+                  kills
+                  deaths
+                }
+              }
+            }
+          }
+        }
+        """
+        variables = {"id": series_id}
+        data = self._execute_query(query, variables, url=self.LIVE_URL)
+        return data['seriesState'] if data else None
