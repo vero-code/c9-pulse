@@ -1,13 +1,30 @@
 import os
 from dotenv import load_dotenv
+from grid_client import GridClient
 
 # Load variables from .env file
 load_dotenv()
 
-# Retrieve the GRID API key
-grid_api_key = os.getenv("GRID_API_KEY")
+def main():
+    api_key = os.getenv("GRID_API_KEY")
 
-if grid_api_key:
-    print(f"Successfully loaded GRID API key: {grid_api_key[:4]}...")
-else:
-    print("Failed to load GRID_API_KEY. Make sure it is set in the .env file.")
+    try:
+        client = GridClient(api_key)
+        print(f"✅ Client initialized for: {client.API_URL}")
+    except ValueError as e:
+        print(e)
+        return
+
+    print("Fetching tournaments...")
+    data = client.get_tournaments(limit=3)
+
+    if data:
+        tournaments = data.get('tournaments', {})
+        print(f"✅ SUCCESS! Total tournaments: {tournaments.get('totalCount')}")
+
+        for edge in tournaments.get('edges', []):
+            t = edge['node']
+            print(f"- {t['name']} (ID: {t['id']})")
+
+if __name__ == "__main__":
+    main()
