@@ -55,3 +55,32 @@ class GridClient:
         }}
         """
         return self._execute_query(query)
+
+    def get_recent_series(self, limit=5):
+        """Retrieves a list of recent series (matches) from any tournament."""
+        # Using 'baseInfo' as discovered in the GQL Playground documentation
+        query = f"""
+        query GetRecentSeries {{
+          allSeries(
+            first: {limit}
+            orderBy: StartTimeScheduled
+          ) {{
+            totalCount
+            edges {{
+              node {{
+                id
+                startTimeScheduled
+                tournament {{
+                    nameShortened
+                }}
+                teams {{
+                  baseInfo {{
+                    name
+                  }}
+                }}
+              }}
+            }}
+          }}
+        }}
+        """
+        return self._execute_query(query)

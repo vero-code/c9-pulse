@@ -15,16 +15,38 @@ def main():
         print(e)
         return
 
-    print("Fetching tournaments...")
-    data = client.get_tournaments(limit=3)
+    print("\n--- 1. Checking Tournaments ---")
+    tournaments_data = client.get_tournaments(limit=1)
+    if tournaments_data:
+        print("✅ Tournaments endpoint is working.")
 
-    if data:
-        tournaments = data.get('tournaments', {})
-        print(f"✅ SUCCESS! Total tournaments: {tournaments.get('totalCount')}")
+    print("\n--- 2. Fetching Recent Series (Matches) ---")
+    series_data = client.get_recent_series(limit=5)
 
-        for edge in tournaments.get('edges', []):
-            t = edge['node']
-            print(f"- {t['name']} (ID: {t['id']})")
+    if series_data:
+        all_series = series_data.get('allSeries', {})
+        print(f"✅ SUCCESS! Found {all_series.get('totalCount')} series available.")
+        print("Here are the first 5 loaded matches:\n")
+
+        for edge in all_series.get('edges', []):
+            match = edge['node']
+            match_id = match['id']
+            start_time = match['startTimeScheduled']
+
+            tourn_name = match.get('tournament', {}).get('nameShortened', 'Unknown Tournament')
+
+            teams = match.get('teams', [])
+            if teams and len(teams) >= 2:
+                team_a = teams[0].get('baseInfo', {}).get('name', 'Unknown')
+                team_b = teams[1].get('baseInfo', {}).get('name', 'Unknown')
+                versus = f"{team_a} vs {team_b}"
+            else:
+                versus = "TBD vs TBD"
+
+            print(f"[{start_time}] {versus}")
+            print(f"   Tournament: {tourn_name} | ID: {match_id}")
+            print("-" * 40)
+
 
 if __name__ == "__main__":
     main()
