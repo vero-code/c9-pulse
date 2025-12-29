@@ -84,3 +84,42 @@ class GridClient:
         }}
         """
         return self._execute_query(query)
+
+    def get_match_details(self, series_id):
+        """
+        Retrieves detailed information for a specific series.
+        Includes games, teams, players, and performance stats.
+        """
+        query = """
+        query GetMatchDetails($id: ID!) {
+          series(id: $id) {
+            id
+            format {
+              name
+            }
+            games {
+              id
+              sequenceNumber
+              teams {
+                baseInfo {
+                  name
+                }
+                players {
+                  player {
+                    baseInfo {
+                      name
+                    }
+                  }
+                  stats {
+                    kills
+                    deaths
+                    assists
+                  }
+                }
+              }
+            }
+          }
+        }
+        """
+        variables = {"id": series_id}
+        return self._execute_query(query, variables)
