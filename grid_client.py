@@ -1,3 +1,4 @@
+# grid_client.py
 import requests
 import json
 
@@ -123,3 +124,32 @@ class GridClient:
         """
         variables = {"id": series_id}
         return self._execute_query(query, variables)
+
+    def get_team_stats(self, team_id="83"):
+        """Retrieves statistics for a specific team over the last three months."""
+        query = f"""
+        query TeamStatisticsForLastThreeMonths {{
+          teamStatistics(teamId: "{team_id}", filter: {{ timeWindow: LAST_3_MONTHS }}) {{
+            series {{
+              count
+              kills {{
+                sum
+                avg
+              }}
+            }}
+            game {{
+              count
+              wins {{
+                percentage
+              }}
+            }}
+            segment {{
+              deaths {{
+                sum
+                avg
+              }}
+            }}
+          }}
+        }}
+        """
+        return self._execute_query(query)

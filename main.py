@@ -1,6 +1,8 @@
+# main.py
 import os
 from dotenv import load_dotenv
 from grid_client import GridClient
+from analyzer import MatchAnalyzer
 
 # Load variables from .env file
 load_dotenv()
@@ -45,7 +47,39 @@ def main():
 
             print(f"[{start_time}] {versus}")
             print(f"   Tournament: {tourn_name} | ID: {match_id}")
+            
+            # --- Integration of MatchAnalyzer ---
+            print("   Running Analysis...")
+            details = client.get_match_details(match_id)
+            if details:
+                analyzer = MatchAnalyzer(details)
+                
+                # Analyze first player of first team as an example
+                if teams:
+                    first_team_name = teams[0].get('baseInfo', {}).get('name')
+                    # We need to find a player name from the details
+                    try:
+                        first_game = details.get('series', {}).get('games', [])[0]
+                        first_player = first_game['teams'][0]['players'][0]['player']['baseInfo']['name']
+                        
+                        print(f"   > {analyzer.analyze_opening_deaths(first_player)}")
+                        print(f"   > {analyzer.analyze_economy_impact(first_team_name)}")
+                    except (IndexError, KeyError):
+                        print("   > No player/game data available for detailed analysis.")
+
             print("-" * 40)
+
+    print("\n--- 3. Fetching Team Statistics & Moneyball Insight ---")
+    team_id = "83" # Example team ID
+    team_stats = client.get_team_stats(team_id)
+    if team_stats:
+        # Initialize MatchAnalyzer with the returned statistics data
+        analyzer = MatchAnalyzer(team_stats)
+        insight = analyzer.analyze_team_moneyball(team_stats)
+        print(f"📊 Team Statistics Insight (ID: {team_id}):")
+        print(f"   {insight}")
+    else:
+        print(f"❌ Could not fetch statistics for team ID: {team_id}")
 
 
 if __name__ == "__main__":
