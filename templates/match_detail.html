@@ -64,9 +64,16 @@
     <div class="container">
         <a href="/" class="btn btn-secondary mb-4">&larr; Back to Matches</a>
         
-        <h2 class="mb-4">Live Analysis (ID: {{ match_id }})</h2>
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="mb-0">Live Analysis (ID: {{ match_id }})</h2>
+            <button id="startAnalysisBtn" class="btn btn-info text-white fw-bold px-4">
+                <span id="btnText">Start Analysis</span>
+                <span id="btnSpinner" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+            </button>
+        </div>
 
-        {% if economy_history %}
+        <div id="analysisContent" class="d-none">
+            {% if economy_history %}
         <div class="card mb-4 shadow-sm">
             <div class="card-header bg-dark text-info">
                 <h5 class="mb-0">Team Economy Trend</h5>
@@ -138,68 +145,94 @@
                 </div>
             </div>
             {% endfor %}
-            
-            <script>
-                document.querySelectorAll('.progress-bar').forEach(bar => {
-                    const width = bar.getAttribute('data-width');
-                    bar.style.width = width + '%';
-                });
-
-                {% if economy_history %}
-                const ctx = document.getElementById('economyChart').getContext('2d');
-                new Chart(ctx, {
-                    type: 'line',
-                    data: {
-                        labels: {{ economy_history.rounds | tojson }},
-                        datasets: [
-                            {
-                                label: '{{ analysis[0].team_name }}',
-                                data: {{ economy_history.team_a | tojson }},
-                                borderColor: '#00aeef',
-                                backgroundColor: 'rgba(0, 174, 239, 0.1)',
-                                fill: true,
-                                tension: 0.3
-                            },
-                            {
-                                label: '{{ analysis[1].team_name }}',
-                                data: {{ economy_history.team_b | tojson }},
-                                borderColor: '#ffffff',
-                                backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                                fill: true,
-                                tension: 0.3
-                            }
-                        ]
-                    },
-                    options: {
-                        responsive: true,
-                        plugins: {
-                            legend: {
-                                labels: { color: '#ffffff' }
-                            }
-                        },
-                        scales: {
-                            y: {
-                                beginAtZero: true,
-                                grid: { color: '#2d3238' },
-                                ticks: { color: '#ffffff' },
-                                title: {
-                                    display: true,
-                                    text: 'Value ($)',
-                                    color: '#ffffff'
-                                }
-                            },
-                            x: {
-                                grid: { color: '#2d3238' },
-                                ticks: { color: '#ffffff' }
-                            }
-                        }
-                    }
-                });
-                {% endif %}
-            </script>
+        </div>
         {% else %}
         <p>No analysis data available.</p>
         {% endif %}
     </div>
+
+    <script>
+        document.getElementById('startAnalysisBtn').addEventListener('click', function() {
+            const btn = this;
+            const text = document.getElementById('btnText');
+            const spinner = document.getElementById('btnSpinner');
+            const content = document.getElementById('analysisContent');
+
+            btn.disabled = true;
+            text.innerText = 'Analyzing...';
+            spinner.classList.remove('d-none');
+
+            setTimeout(() => {
+                spinner.classList.add('d-none');
+                text.innerText = 'Analysis Complete';
+                btn.classList.remove('btn-info');
+                btn.classList.add('btn-success');
+                content.classList.remove('d-none');
+
+                {% if economy_history %}
+                initChart();
+                {% endif %}
+            }, 1500);
+        });
+
+        document.querySelectorAll('.progress-bar').forEach(bar => {
+            const width = bar.getAttribute('data-width');
+            bar.style.width = width + '%';
+        });
+
+        {% if economy_history %}
+        function initChart() {
+            const ctx = document.getElementById('economyChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: {{ economy_history.rounds | tojson }},
+                    datasets: [
+                        {
+                            label: '{{ analysis[0].team_name }}',
+                            data: {{ economy_history.team_a | tojson }},
+                            borderColor: '#00aeef',
+                            backgroundColor: 'rgba(0, 174, 239, 0.1)',
+                            fill: true,
+                            tension: 0.3
+                        },
+                        {
+                            label: '{{ analysis[1].team_name }}',
+                            data: {{ economy_history.team_b | tojson }},
+                            borderColor: '#ffffff',
+                            backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                            fill: true,
+                            tension: 0.3
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            labels: { color: '#ffffff' }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: { color: '#2d3238' },
+                            ticks: { color: '#ffffff' },
+                            title: {
+                                display: true,
+                                text: 'Value ($)',
+                                color: '#ffffff'
+                            }
+                        },
+                        x: {
+                            grid: { color: '#2d3238' },
+                            ticks: { color: '#ffffff' }
+                        }
+                    }
+                }
+            });
+        }
+        {% endif %}
+    </script>
 </body>
 </html>
