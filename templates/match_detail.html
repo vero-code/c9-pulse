@@ -90,61 +90,49 @@
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <!-- Left Column: Stats -->
-                        <div class="col-md-7 border-end border-secondary">
-                            <h5 class="text-info mb-3">Statistics</h5>
-                            <table class="table table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>Player</th>
-                                        <th>Stats</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {% for player in team.players %}
-                                    <tr>
-                                        <td><strong>{{ player.name }}</strong></td>
-                                        <td>
-                                            <div class="d-flex justify-content-between mb-1" style="font-size: 0.8rem;">
-                                                <span>K: {{ player.kills }}</span>
-                                                <span>D: {{ player.deaths }}</span>
-                                            </div>
-                                            {% set total = player.kills + player.deaths %}
-                                            {% set percentage = (player.kills / total * 100) if total > 0 else 50 %}
-                                            <div class="progress" style="height: 10px; background-color: #2d3238;">
-                                                <div class="progress-bar {% if percentage >= 50 %}bg-info{% else %}bg-secondary{% endif %}" 
-                                                     role="progressbar" 
-                                                     data-width="{{ percentage }}"
-                                                     style="width: 0%"
-                                                     aria-valuenow="{{ percentage }}" 
-                                                     aria-valuemin="0" 
-                                                     aria-valuemax="100">
+                        <div class="col-12">
+                            <h5 class="text-info mb-3">Players & Performance</h5>
+                            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
+                                {% for player in team.players %}
+                                <div class="col">
+                                    <div class="card h-100 bg-dark border-secondary shadow-sm">
+                                        <div class="card-body">
+                                            <h3 class="card-title text-info mb-1">{{ player.name }}</h3>
+                                            
+                                            <div class="mb-3">
+                                                <div class="d-flex justify-content-between mb-1" style="font-size: 0.85rem;">
+                                                    <span>Kills: <strong>{{ player.kills }}</strong></span>
+                                                    <span>Deaths: <strong>{{ player.deaths }}</strong></span>
+                                                </div>
+                                                {% set total = player.kills + player.deaths %}
+                                                {% set percentage = (player.kills / total * 100) if total > 0 else 50 %}
+                                                <div class="progress" style="height: 12px; background-color: #2d3238;">
+                                                    <div class="progress-bar {% if percentage >= 50 %}bg-info{% else %}bg-secondary{% endif %}" 
+                                                         role="progressbar" 
+                                                         data-width="{{ percentage }}"
+                                                         style="width: 0%"
+                                                         aria-valuenow="{{ percentage }}" 
+                                                         aria-valuemin="0" 
+                                                         aria-valuemax="100">
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </td>
-                                    </tr>
-                                    {% endfor %}
-                                </tbody>
-                            </table>
-                        </div>
-                        
-                        <!-- Right Column: AI Tips & Insights -->
-                        <div class="col-md-5">
-                            <h5 class="text-info mb-3">AI Tips & Insights</h5>
-                            <ul class="list-group list-group-flush">
-                                {% for player in team.players %}
-                                <li class="list-group-item bg-transparent text-white border-secondary px-0">
-                                    <small class="text-muted">{{ player.name }}:</small><br>
-                                    {% if "Excellent" in player.insight %}
-                                        <span class="text-success">{{ player.insight }}</span>
-                                    {% elif "High death" in player.insight %}
-                                        <span class="text-danger">{{ player.insight }}</span>
-                                    {% else %}
-                                        <span class="text-info">{{ player.insight }}</span>
-                                    {% endif %}
-                                </li>
+
+                                            <div class="ai-insight p-2 rounded" style="background-color: #1a1d21; font-size: 0.9rem;">
+                                                <small class="text-muted d-block mb-1">AI Insight:</small>
+                                                {% if "Excellent" in player.insight %}
+                                                    <span class="text-success">{{ player.insight }}</span>
+                                                {% elif "High death" in player.insight %}
+                                                    <span class="text-danger">{{ player.insight }}</span>
+                                                {% else %}
+                                                    <span class="text-info">{{ player.insight }}</span>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 {% endfor %}
-                            </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
