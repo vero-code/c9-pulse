@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Match Detail - C9 Pulse</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #f8f9fa; }
+        .insight-badge { font-size: 0.85rem; }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark mb-4">
+        <div class="container">
+            <a class="navbar-brand" href="/">C9 Pulse</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <a href="/" class="btn btn-secondary mb-4">&larr; Back to Matches</a>
+        
+        <h2 class="mb-4">Live Analysis (ID: {{ match_id }})</h2>
+
+        {% if error %}
+        <div class="alert alert-warning">
+            {{ error }}
+        </div>
+        {% elif analysis %}
+            {% for team in analysis %}
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                    <h4 class="mb-0">{{ team.team_name }}</h4>
+                    <span class="badge bg-light text-dark">{{ team.economy }}</span>
+                </div>
+                <div class="card-body">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Player</th>
+                                <th>Stats</th>
+                                <th>Live Insight</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for player in team.players %}
+                            <tr>
+                                <td><strong>{{ player.name }}</strong></td>
+                                <td>{{ player.stats }}</td>
+                                <td>
+                                    {% if "Excellent" in player.insight %}
+                                        <span class="text-success">{{ player.insight }}</span>
+                                    {% elif "High death" in player.insight %}
+                                        <span class="text-danger">{{ player.insight }}</span>
+                                    {% else %}
+                                        <span class="text-info">{{ player.insight }}</span>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+        <p>No analysis data available.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
