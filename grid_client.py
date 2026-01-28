@@ -172,6 +172,7 @@ class GridClient:
               sequenceNumber
               teams {
                 name
+                score
                 players {
                   name
                   kills
