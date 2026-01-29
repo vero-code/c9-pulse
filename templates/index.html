@@ -76,6 +76,28 @@
             </div>
             {% endfor %}
         </div>
+
+        {% if history %}
+        <h2 class="mt-5 mb-4">Analysis History</h2>
+        <div class="row">
+            {% for entry in history %}
+            <div class="col-md-6 col-lg-4 mb-3">
+                <div class="card h-100 shadow-sm border-info" onclick="location.href='/match/{{ entry.match_id }}'">
+                    <div class="card-body">
+                        <h5 class="card-title">Match ID: {{ entry.match_id }}</h5>
+                        <p class="card-text">
+                            Teams: 
+                            {% for team in entry.data.analysis %}
+                                {{ team.team_name }}{% if not loop.last %} vs {% endif %}
+                            {% endfor %}
+                        </p>
+                        <span class="badge bg-info">Saved</span>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
     </div>
 </body>
 </html>

@@ -3,6 +3,7 @@ from flask import Flask, render_template, request, redirect, url_for
 from dotenv import load_dotenv
 from grid_client import GridClient
 from analyzer import MatchAnalyzer
+from history_manager import save_match_to_history, get_match_history
 
 # Load environment variables
 load_dotenv()
@@ -42,7 +43,9 @@ def index():
                 'time': node.get('startTimeScheduled', 'N/A')
             })
     
-    return render_template('index.html', matches=matches)
+    history = get_match_history()
+    
+    return render_template('index.html', matches=matches, history=history)
 
 @app.route('/match/<match_id>')
 def match_detail(match_id):
@@ -100,6 +103,12 @@ def match_detail(match_id):
                     'insight': analyzer.analyze_player_performance(player_name)
                 })
             analysis_results.append(team_analysis)
+        
+        # Save to history
+        save_match_to_history(match_id, {
+            'analysis': analysis_results,
+            'economy_history': economy_history if 'economy_history' in locals() else None
+        })
     except (IndexError, KeyError) as e:
         return render_template('match_detail.html', match_id=match_id, error=f"Analysis error: {e}")
 
