@@ -3,7 +3,7 @@ from flask import Flask, render_template, request, redirect, url_for
 from dotenv import load_dotenv
 from grid_client import GridClient
 from analyzer import MatchAnalyzer
-from history_manager import save_match_to_history, get_match_history
+from history_manager import save_match_to_history, get_match_history, get_player_avg_kd
 
 # Load environment variables
 load_dotenv()
@@ -96,10 +96,17 @@ def match_detail(match_id):
             }
             for player in team.get('players', []):
                 player_name = player['name']
+                kills = player.get('kills', 0)
+                deaths = player.get('deaths', 0)
+                current_kd = round(kills / max(1, deaths), 2)
+                avg_kd = get_player_avg_kd(player_name)
+
                 team_analysis['players'].append({
                     'name': player_name,
-                    'kills': player.get('kills', 0),
-                    'deaths': player.get('deaths', 0),
+                    'kills': kills,
+                    'deaths': deaths,
+                    'current_kd': current_kd,
+                    'avg_kd': avg_kd,
                     'insight': analyzer.analyze_player_performance(player_name)
                 })
             analysis_results.append(team_analysis)

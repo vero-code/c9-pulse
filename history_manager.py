@@ -52,3 +52,28 @@ def get_match_history():
         except (json.JSONDecodeError, IOError):
             return []
     return []
+
+def get_player_avg_kd(player_name):
+    """
+    Calculates the average K/D ratio for a player based on history.
+    """
+    history = get_match_history()
+    total_kd = 0
+    match_count = 0
+
+    for entry in history:
+        analysis = entry.get('data', {}).get('analysis', [])
+        for team in analysis:
+            for player in team.get('players', []):
+                if player.get('name') == player_name:
+                    kills = player.get('kills', 0)
+                    deaths = player.get('deaths', 0)
+                    kd = kills / max(1, deaths)
+                    total_kd += kd
+                    match_count += 1
+                    break # Found player in this match, move to next match
+    
+    if match_count == 0:
+        return None
+    
+    return round(total_kd / match_count, 2)
