@@ -98,15 +98,19 @@ def match_detail(match_id):
                 player_name = player['name']
                 kills = player.get('kills', 0)
                 deaths = player.get('deaths', 0)
+                assists = player.get('killAssistsGiven', 0)
                 current_kd = round(kills / max(1, deaths), 2)
                 avg_kd = get_player_avg_kd(player_name)
+                trade_efficiency = analyzer.calculate_trade_efficiency(player_name)
 
                 team_analysis['players'].append({
                     'name': player_name,
                     'kills': kills,
                     'deaths': deaths,
+                    'assists': assists,
                     'current_kd': current_kd,
                     'avg_kd': avg_kd,
+                    'trade_efficiency': trade_efficiency,
                     'insight': analyzer.analyze_player_performance(player_name)
                 })
             analysis_results.append(team_analysis)

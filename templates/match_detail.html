@@ -109,11 +109,15 @@
                                             <div class="mb-3">
                                                 <div class="d-flex justify-content-between mb-1" style="font-size: 0.85rem;">
                                                     <span>Kills: <strong>{{ player.kills }}</strong></span>
+                                                    <span>Assists: <strong>{{ player.assists }}</strong></span>
                                                     <span>Deaths: <strong>{{ player.deaths }}</strong></span>
                                                 </div>
                                                 <div class="d-flex justify-content-between mb-1" style="font-size: 0.85rem;">
                                                     <span>Current K/D: <strong class="{% if player.current_kd >= 1.0 %}text-success{% else %}text-warning{% endif %}">{{ player.current_kd }}</strong></span>
                                                     <span>Avg K/D: <strong>{{ player.avg_kd if player.avg_kd else 'N/A' }}</strong></span>
+                                                </div>
+                                                <div class="d-flex justify-content-between mb-2" style="font-size: 0.85rem;">
+                                                    <span>Trade Efficiency: <strong class="text-info">{{ player.trade_efficiency }}</strong></span>
                                                 </div>
                                                 {% set total = player.kills + player.deaths %}
                                                 {% set percentage = (player.kills / total * 100) if total > 0 else 50 %}

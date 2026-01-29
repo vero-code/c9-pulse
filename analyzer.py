@@ -52,3 +52,19 @@ class MatchAnalyzer:
                         return "📈 Macro Review: Team winning exchanges. Economy looks strong."
 
         return f"Team {team_name} not found."
+
+    def calculate_trade_efficiency(self, player_name):
+        """
+        Calculates Trade Efficiency: (Kills + Assists) / Deaths
+        """
+        games = self.data.get('games', [])
+        for game in games:
+            for team in game.get('teams', []):
+                for p in team.get('players', []):
+                    if p.get('name') == player_name:
+                        kills = p.get('kills', 0)
+                        deaths = p.get('deaths', 0)
+                        assists = p.get('killAssistsGiven', 0)
+                        efficiency = round((kills + assists) / max(1, deaths), 2)
+                        return efficiency
+        return 0.0

@@ -177,6 +177,7 @@ class GridClient:
                   name
                   kills
                   deaths
+                  killAssistsGiven
                 }
               }
             }
