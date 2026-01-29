@@ -77,3 +77,36 @@ def get_player_avg_kd(player_name):
         return None
     
     return round(total_kd / match_count, 2)
+
+def get_first_blood_victim():
+    """
+    Identifies the player who most frequently has the highest death count in matches.
+    """
+    history = get_match_history()
+    victim_counts = {}
+
+    for entry in history:
+        analysis = entry.get('data', {}).get('analysis', [])
+        all_players = []
+        for team in analysis:
+            for player in team.get('players', []):
+                all_players.append(player)
+
+        if not all_players:
+            continue
+
+        # Find player(s) with maximum deaths in this match
+        max_deaths = max(p.get('deaths', 0) for p in all_players)
+        if max_deaths > 0:
+            for p in all_players:
+                if p.get('deaths', 0) == max_deaths:
+                    name = p.get('name')
+                    victim_counts[name] = victim_counts.get(name, 0) + 1
+
+    if not victim_counts:
+        return None
+
+    # Sort by count descending
+    sorted_victims = sorted(victim_counts.items(), key=lambda x: x[1], reverse=True)
+    top_victim, count = sorted_victims[0]
+    return {"name": top_victim, "count": count}

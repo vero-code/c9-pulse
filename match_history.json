@@ -226,5 +226,222 @@
                 ]
             }
         }
+    },
+    {
+        "match_id": "2618420",
+        "data": {
+            "analysis": [
+                {
+                    "team_name": "Fnatic",
+                    "economy": "📈 Macro Review: Team winning exchanges. Economy looks strong.",
+                    "players": [
+                        {
+                            "name": "Oscarinin",
+                            "kills": 7,
+                            "deaths": 0,
+                            "assists": 8,
+                            "current_kd": 7.0,
+                            "avg_kd": null,
+                            "trade_efficiency": 15.0,
+                            "insight": "🔥 Insight: Excellent performance (K/D 7.0). Keep playing aggressive."
+                        },
+                        {
+                            "name": "Razork",
+                            "kills": 5,
+                            "deaths": 3,
+                            "assists": 11,
+                            "current_kd": 1.67,
+                            "avg_kd": null,
+                            "trade_efficiency": 5.33,
+                            "insight": "🔥 Insight: Excellent performance (K/D 1.67). Keep playing aggressive."
+                        },
+                        {
+                            "name": "Humanoid",
+                            "kills": 3,
+                            "deaths": 3,
+                            "assists": 6,
+                            "current_kd": 1.0,
+                            "avg_kd": null,
+                            "trade_efficiency": 3.0,
+                            "insight": "✅ Insight: Stable performance."
+                        },
+                        {
+                            "name": "Noah",
+                            "kills": 4,
+                            "deaths": 2,
+                            "assists": 8,
+                            "current_kd": 2.0,
+                            "avg_kd": null,
+                            "trade_efficiency": 6.0,
+                            "insight": "🔥 Insight: Excellent performance (K/D 2.0). Keep playing aggressive."
+                        },
+                        {
+                            "name": "Jun",
+                            "kills": 1,
+                            "deaths": 1,
+                            "assists": 16,
+                            "current_kd": 1.0,
+                            "avg_kd": null,
+                            "trade_efficiency": 17.0,
+                            "insight": "✅ Insight: Stable performance."
+                        }
+                    ]
+                },
+                {
+                    "team_name": "Karmine Corp",
+                    "economy": "📉 Macro Review: Team is losing duels (K/D 0.45). Likely economy disadvantage.",
+                    "players": [
+                        {
+                            "name": "Cabochard",
+                            "kills": 0,
+                            "deaths": 4,
+                            "assists": 4,
+                            "current_kd": 0.0,
+                            "avg_kd": null,
+                            "trade_efficiency": 1.0,
+                            "insight": "✅ Insight: Stable performance."
+                        },
+                        {
+                            "name": "Bo",
+                            "kills": 3,
+                            "deaths": 7,
+                            "assists": 1,
+                            "current_kd": 0.43,
+                            "avg_kd": null,
+                            "trade_efficiency": 0.57,
+                            "insight": "✅ Insight: Stable performance."
+                        },
+                        {
+                            "name": "SAKEN",
+                            "kills": 3,
+                            "deaths": 2,
+                            "assists": 4,
+                            "current_kd": 1.5,
+                            "avg_kd": null,
+                            "trade_efficiency": 3.5,
+                            "insight": "✅ Insight: Stable performance."
+                        },
+                        {
+                            "name": "Upset",
+                            "kills": 2,
+                            "deaths": 2,
+                            "assists": 3,
+                            "current_kd": 1.0,
+                            "avg_kd": null,
+                            "trade_efficiency": 2.5,
+                            "insight": "✅ Insight: Stable performance."
+                        },
+                        {
+                            "name": "Targamas",
+                            "kills": 1,
+                            "deaths": 5,
+                            "assists": 4,
+                            "current_kd": 0.2,
+                            "avg_kd": null,
+                            "trade_efficiency": 1.0,
+                            "insight": "✅ Insight: Stable performance."
+                        }
+                    ]
+                }
+            ],
+            "economy_history": {
+                "rounds": [
+                    "R1",
+                    "R2",
+                    "R3",
+                    "R4",
+                    "R5",
+                    "R6",
+                    "R7",
+                    "R8",
+                    "R9",
+                    "R10",
+                    "R11",
+                    "R12",
+                    "R13",
+                    "R14",
+                    "R15",
+                    "R16",
+                    "R17",
+                    "R18",
+                    "R19",
+                    "R20",
+                    "R21",
+                    "R22",
+                    "R23",
+                    "R24",
+                    "R25",
+                    "R26",
+                    "R27",
+                    "R28",
+                    "R29",
+                    "R30"
+                ],
+                "team_a": [
+                    5000,
+                    5942,
+                    9364,
+                    6994,
+                    8997,
+                    7952,
+                    7408,
+                    5625,
+                    7787,
+                    5198,
+                    7973,
+                    7246,
+                    10530,
+                    11154,
+                    10520,
+                    12737,
+                    15601,
+                    19398,
+                    20092,
+                    20692,
+                    20230,
+                    18032,
+                    16842,
+                    20105,
+                    20185,
+                    17245,
+                    15097,
+                    15886,
+                    19176,
+                    22503
+                ],
+                "team_b": [
+                    5000,
+                    8763,
+                    8369,
+                    7177,
+                    4556,
+                    4521,
+                    5016,
+                    3489,
+                    2446,
+                    2000,
+                    2000,
+                    2000,
+                    2000,
+                    4052,
+                    2742,
+                    3051,
+                    2737,
+                    2000,
+                    2000,
+                    5517,
+                    8368,
+                    7701,
+                    5543,
+                    7834,
+                    9767,
+                    10095,
+                    9935,
+                    8979,
+                    8417,
+                    10232
+                ]
+            }
+        }
     }
 ]

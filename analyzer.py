@@ -68,3 +68,26 @@ class MatchAnalyzer:
                         efficiency = round((kills + assists) / max(1, deaths), 2)
                         return efficiency
         return 0.0
+
+    def find_potential_victim(self):
+        """
+        Identify the player with the most deaths in the current game state.
+        """
+        games = self.data.get('games', [])
+        if not games:
+            return None
+        
+        # Consider only the last game (usually the current one)
+        game = games[-1]
+        all_players = []
+        for team in game.get('teams', []):
+            for p in team.get('players', []):
+                all_players.append(p)
+        
+        if not all_players:
+            return None
+            
+        victim = max(all_players, key=lambda p: p.get('deaths', 0))
+        if victim.get('deaths', 0) > 0:
+            return victim
+        return None

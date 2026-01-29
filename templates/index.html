@@ -58,6 +58,16 @@
     </nav>
 
     <div class="container">
+        {% if fb_victim %}
+        <div class="alert alert-danger shadow-sm mb-4" role="alert">
+            <h4 class="alert-heading">🎯 First Blood Victim Detector</h4>
+            <p class="mb-0">
+                Most frequent victim by match results: <strong>{{ fb_victim.name }}</strong>
+                (leader in deaths in {{ fb_victim.count }} matches).
+            </p>
+        </div>
+        {% endif %}
+
         <h2 class="mb-4">Recent Matches</h2>
         <div class="row">
             {% for match in matches %}

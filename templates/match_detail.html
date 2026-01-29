@@ -66,10 +66,17 @@
         
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h2 class="mb-0">Live Analysis (ID: {{ match_id }})</h2>
-            <button id="startAnalysisBtn" class="btn btn-info text-white fw-bold px-4">
-                <span id="btnText">Start Analysis</span>
-                <span id="btnSpinner" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
-            </button>
+            <div class="d-flex gap-3 align-items-center">
+                {% if potential_victim %}
+                <span class="badge bg-danger p-2">
+                    💀 Potential FB Victim: {{ potential_victim.name }} ({{ potential_victim.deaths }} deaths)
+                </span>
+                {% endif %}
+                <button id="startAnalysisBtn" class="btn btn-info text-white fw-bold px-4">
+                    <span id="btnText">Start Analysis</span>
+                    <span id="btnSpinner" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                </button>
+            </div>
         </div>
 
         <div id="analysisContent" class="d-none">
