@@ -92,22 +92,25 @@ query GetSeriesState($id: ID!) {
     cd c9-pulse
     ```
     
-2.  **Install dependencies**
+2.  **Install uv** (if not installed)
+    Follow the instructions at [astral.sh/uv](https://astral.sh/uv).
+
+3.  **Install dependencies**
 
     ```
-    pip install -r requirements.txt
+    uv sync
     ```
     
-3.  **Configure Environment** Create a `.env` file in the root directory and add your key:
+4.  **Configure Environment** Create a `.env` file in the root directory and add your key:
 
     ```
     GRID_API_KEY=your_actual_api_key_here
     ```
     
-4.  **Run the Assistant**
+5.  **Run the Assistant**
 
     ```
-    python main.py
+    uv run main.py
     ```
 
 ----------

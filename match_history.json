@@ -241,7 +241,7 @@
                             "deaths": 0,
                             "assists": 8,
                             "current_kd": 7.0,
-                            "avg_kd": null,
+                            "avg_kd": 7.0,
                             "trade_efficiency": 15.0,
                             "insight": "🔥 Insight: Excellent performance (K/D 7.0). Keep playing aggressive."
                         },
@@ -251,7 +251,7 @@
                             "deaths": 3,
                             "assists": 11,
                             "current_kd": 1.67,
-                            "avg_kd": null,
+                            "avg_kd": 1.67,
                             "trade_efficiency": 5.33,
                             "insight": "🔥 Insight: Excellent performance (K/D 1.67). Keep playing aggressive."
                         },
@@ -261,7 +261,7 @@
                             "deaths": 3,
                             "assists": 6,
                             "current_kd": 1.0,
-                            "avg_kd": null,
+                            "avg_kd": 1.0,
                             "trade_efficiency": 3.0,
                             "insight": "✅ Insight: Stable performance."
                         },
@@ -271,7 +271,7 @@
                             "deaths": 2,
                             "assists": 8,
                             "current_kd": 2.0,
-                            "avg_kd": null,
+                            "avg_kd": 2.0,
                             "trade_efficiency": 6.0,
                             "insight": "🔥 Insight: Excellent performance (K/D 2.0). Keep playing aggressive."
                         },
@@ -281,7 +281,7 @@
                             "deaths": 1,
                             "assists": 16,
                             "current_kd": 1.0,
-                            "avg_kd": null,
+                            "avg_kd": 1.0,
                             "trade_efficiency": 17.0,
                             "insight": "✅ Insight: Stable performance."
                         }
@@ -297,7 +297,7 @@
                             "deaths": 4,
                             "assists": 4,
                             "current_kd": 0.0,
-                            "avg_kd": null,
+                            "avg_kd": 0.0,
                             "trade_efficiency": 1.0,
                             "insight": "✅ Insight: Stable performance."
                         },
@@ -307,7 +307,7 @@
                             "deaths": 7,
                             "assists": 1,
                             "current_kd": 0.43,
-                            "avg_kd": null,
+                            "avg_kd": 0.43,
                             "trade_efficiency": 0.57,
                             "insight": "✅ Insight: Stable performance."
                         },
@@ -317,7 +317,7 @@
                             "deaths": 2,
                             "assists": 4,
                             "current_kd": 1.5,
-                            "avg_kd": null,
+                            "avg_kd": 1.5,
                             "trade_efficiency": 3.5,
                             "insight": "✅ Insight: Stable performance."
                         },
@@ -327,7 +327,7 @@
                             "deaths": 2,
                             "assists": 3,
                             "current_kd": 1.0,
-                            "avg_kd": null,
+                            "avg_kd": 1.0,
                             "trade_efficiency": 2.5,
                             "insight": "✅ Insight: Stable performance."
                         },
@@ -337,7 +337,7 @@
                             "deaths": 5,
                             "assists": 4,
                             "current_kd": 0.2,
-                            "avg_kd": null,
+                            "avg_kd": 0.2,
                             "trade_efficiency": 1.0,
                             "insight": "✅ Insight: Stable performance."
                         }
@@ -458,7 +458,7 @@
                             "deaths": 2,
                             "assists": 1,
                             "current_kd": 0.5,
-                            "avg_kd": null,
+                            "avg_kd": 0.5,
                             "trade_efficiency": 1.0,
                             "insight": "✅ Insight: Stable performance."
                         },
@@ -468,7 +468,7 @@
                             "deaths": 4,
                             "assists": 1,
                             "current_kd": 0.25,
-                            "avg_kd": null,
+                            "avg_kd": 0.25,
                             "trade_efficiency": 0.5,
                             "insight": "✅ Insight: Stable performance."
                         },
@@ -478,7 +478,7 @@
                             "deaths": 1,
                             "assists": 2,
                             "current_kd": 0.0,
-                            "avg_kd": null,
+                            "avg_kd": 0.0,
                             "trade_efficiency": 2.0,
                             "insight": "✅ Insight: Stable performance."
                         },
@@ -488,7 +488,7 @@
                             "deaths": 4,
                             "assists": 1,
                             "current_kd": 0.0,
-                            "avg_kd": null,
+                            "avg_kd": 0.0,
                             "trade_efficiency": 0.25,
                             "insight": "✅ Insight: Stable performance."
                         },
@@ -498,7 +498,7 @@
                             "deaths": 4,
                             "assists": 2,
                             "current_kd": 0.0,
-                            "avg_kd": null,
+                            "avg_kd": 0.0,
                             "trade_efficiency": 0.5,
                             "insight": "✅ Insight: Stable performance."
                         }
@@ -514,7 +514,7 @@
                             "deaths": 1,
                             "assists": 9,
                             "current_kd": 2.0,
-                            "avg_kd": null,
+                            "avg_kd": 2.0,
                             "trade_efficiency": 11.0,
                             "insight": "🔥 Insight: Excellent performance (K/D 2.0). Keep playing aggressive."
                         },
@@ -524,7 +524,7 @@
                             "deaths": 0,
                             "assists": 11,
                             "current_kd": 2.0,
-                            "avg_kd": null,
+                            "avg_kd": 2.0,
                             "trade_efficiency": 13.0,
                             "insight": "🔥 Insight: Excellent performance (K/D 2.0). Keep playing aggressive."
                         },
@@ -534,7 +534,7 @@
                             "deaths": 0,
                             "assists": 2,
                             "current_kd": 3.0,
-                            "avg_kd": null,
+                            "avg_kd": 3.0,
                             "trade_efficiency": 5.0,
                             "insight": "🔥 Insight: Excellent performance (K/D 3.0). Keep playing aggressive."
                         },
@@ -544,7 +544,7 @@
                             "deaths": 1,
                             "assists": 4,
                             "current_kd": 8.0,
-                            "avg_kd": null,
+                            "avg_kd": 8.0,
                             "trade_efficiency": 12.0,
                             "insight": "🔥 Insight: Excellent performance (K/D 8.0). Keep playing aggressive."
                         },
@@ -554,7 +554,7 @@
                             "deaths": 0,
                             "assists": 15,
                             "current_kd": 0.0,
-                            "avg_kd": null,
+                            "avg_kd": 0.0,
                             "trade_efficiency": 15.0,
                             "insight": "✅ Insight: Stable performance."
                         }
