@@ -11,14 +11,18 @@ INSIGHT_TEMPLATES = {
         "{player}, you're feeding. {deaths} deaths. Tighten up your defense or we lose this."
     ],
     "good_kd": [
-        "Good work, {player}. K/D of {ratio} is what I like to see. Keep that pressure on.",
-        "Finally, someone showing some backbone. {player} is carrying with a {ratio} K/D. Keep it up.",
-        "Solid performance, {player}. {ratio} K/D. Don't get cocky, stay focused."
+        "Absolute clinical performance, {player}. That {ratio} K/D is pure class.",
+        "{player} is absolutely cooking today! Look at that {ratio} K/D.",
+        "Total dominance from {player}. Keep punishing them.",
+        "That's some high-level impact, {player}. Exactly what the team needs.",
+        "You're making them look like amateurs, {player}. Godlike."
     ],
     "stable": [
-        "Doing your job, {player}. Keep it steady.",
-        "Stable performance. No complaints for now.",
-        "Consistency is key. Keep holding your line."
+        "Solid as a rock, {player}. You're our anchor.",
+        "Love the discipline. Keep playing your game.",
+        "You're winning the mental battle. Stay sharp.",
+        "That's the consistency of a pro. Keep it rolling.",
+        "Perfect execution. You're in the zone."
     ],
     "team_losing": [
         "The team is falling apart. K/D {ratio}. If we don't start winning duels, we're done.",
@@ -29,6 +33,25 @@ INSIGHT_TEMPLATES = {
         "Strong presence on the map. Winning exchanges. Don't let up.",
         "Economy looks solid because you're actually hitting your shots. Good.",
         "The momentum is ours. Close this out."
+    ],
+    "clutch": [
+        "Ice in your veins! What a massive clutch!",
+        "They had the numbers, but you had the skill. Incredible!",
+        "You just saved our skins. That was a championship-level clutch.",
+        "Never a doubt! You read them like an open book.",
+        "That's how legends are made. Huge play!"
+    ],
+    "ace": [
+        "The whole team? By yourself? You're a monster, {player}!",
+        "That was a masterpiece! An ace they'll never forget.",
+        "Sit down! {player} just sent the entire enemy squad home.",
+        "Unstoppable! You just put the whole server on notice.",
+        "Clean. Surgical. That's how you deliver an Ace."
+    ],
+    "death_streak": [
+        "You're on a death streak. Wake up and focus!",
+        "Stop dying! That's {deaths} deaths in a row. Change your position.",
+        "Death after death. You're throwing! Get it together."
     ]
 }
 
