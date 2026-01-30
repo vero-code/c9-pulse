@@ -91,3 +91,47 @@ class MatchAnalyzer:
         if victim.get('deaths', 0) > 0:
             return victim
         return None
+
+    def calculate_economy_risk(self, team_name):
+        """
+        Calculates "Economy Risk": The chance of losing a round due to poor buy.
+        Calculated based on recent K/D trends.
+        """
+        games = self.data.get('games', [])
+        if not games:
+            return 50  # Default middle risk
+
+        # Use the latest game state
+        game = games[-1]
+        target_team = None
+        opponent_team = None
+
+        for team in game.get('teams', []):
+            if team.get('name') == team_name:
+                target_team = team
+            else:
+                opponent_team = team
+
+        if not target_team or not opponent_team:
+            return 50
+
+        def get_team_kd(team):
+            players = team.get('players', [])
+            kills = sum(p.get('kills', 0) for p in players)
+            deaths = sum(p.get('deaths', 0) for p in players)
+            return kills / max(1, deaths)
+
+        target_kd = get_team_kd(target_team)
+        opp_kd = get_team_kd(opponent_team)
+
+        # Base risk is 50%. 
+        # If target team has lower K/D than opponent, risk increases.
+        # We use a simple sigmoid-like mapping or linear mapping with bounds.
+        # Difference in K/D of 1.0 could mean significant risk difference.
+        
+        kd_diff = opp_kd - target_kd
+        # If kd_diff is 1.0 (e.g. Opp KD 1.5, Target KD 0.5), risk should be high.
+        risk = 50 + (kd_diff * 25)
+        
+        # Clamp between 5% and 95%
+        return round(max(5, min(95, risk)), 1)

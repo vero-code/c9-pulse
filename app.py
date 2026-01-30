@@ -93,6 +93,7 @@ def match_detail(match_id):
             team_analysis = {
                 'team_name': team['name'],
                 'economy': analyzer.analyze_team_economy(team['name']),
+                'economy_risk': analyzer.calculate_economy_risk(team['name']),
                 'players': []
             }
             for player in team.get('players', []):

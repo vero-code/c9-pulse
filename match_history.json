@@ -451,6 +451,7 @@
                 {
                     "team_name": "Rogue",
                     "economy": "📉 Macro Review: Team is losing duels (K/D 0.13). Likely economy disadvantage.",
+                    "economy_risk": 95,
                     "players": [
                         {
                             "name": "Szygenda",
@@ -507,6 +508,7 @@
                 {
                     "team_name": "Team Heretics",
                     "economy": "📈 Macro Review: Team winning exchanges. Economy looks strong.",
+                    "economy_risk": 5,
                     "players": [
                         {
                             "name": "Wunder",
@@ -621,6 +623,198 @@
                     16831,
                     17684,
                     18524
+                ]
+            }
+        }
+    },
+    {
+        "match_id": "2618419",
+        "data": {
+            "analysis": [
+                {
+                    "team_name": "SK Gaming",
+                    "economy": "📈 Macro Review: Team winning exchanges. Economy looks strong.",
+                    "economy_risk": 5,
+                    "players": [
+                        {
+                            "name": "Irrelevant",
+                            "kills": 6,
+                            "deaths": 1,
+                            "assists": 6,
+                            "current_kd": 6.0,
+                            "avg_kd": null,
+                            "trade_efficiency": 12.0,
+                            "insight": "🔥 Insight: Excellent performance (K/D 6.0). Keep playing aggressive."
+                        },
+                        {
+                            "name": "Isma",
+                            "kills": 3,
+                            "deaths": 0,
+                            "assists": 12,
+                            "current_kd": 3.0,
+                            "avg_kd": null,
+                            "trade_efficiency": 15.0,
+                            "insight": "🔥 Insight: Excellent performance (K/D 3.0). Keep playing aggressive."
+                        },
+                        {
+                            "name": "Nisqy",
+                            "kills": 1,
+                            "deaths": 2,
+                            "assists": 6,
+                            "current_kd": 0.5,
+                            "avg_kd": null,
+                            "trade_efficiency": 3.5,
+                            "insight": "✅ Insight: Stable performance."
+                        },
+                        {
+                            "name": "Exakick",
+                            "kills": 5,
+                            "deaths": 1,
+                            "assists": 5,
+                            "current_kd": 5.0,
+                            "avg_kd": null,
+                            "trade_efficiency": 10.0,
+                            "insight": "🔥 Insight: Excellent performance (K/D 5.0). Keep playing aggressive."
+                        },
+                        {
+                            "name": "Doss",
+                            "kills": 1,
+                            "deaths": 0,
+                            "assists": 14,
+                            "current_kd": 1.0,
+                            "avg_kd": null,
+                            "trade_efficiency": 15.0,
+                            "insight": "✅ Insight: Stable performance."
+                        }
+                    ]
+                },
+                {
+                    "team_name": "Rogue",
+                    "economy": "📉 Macro Review: Team is losing duels (K/D 0.25). Likely economy disadvantage.",
+                    "economy_risk": 95,
+                    "players": [
+                        {
+                            "name": "Szygenda",
+                            "kills": 0,
+                            "deaths": 3,
+                            "assists": 2,
+                            "current_kd": 0.0,
+                            "avg_kd": 0.5,
+                            "trade_efficiency": 0.67,
+                            "insight": "✅ Insight: Stable performance."
+                        },
+                        {
+                            "name": "Markoon",
+                            "kills": 0,
+                            "deaths": 3,
+                            "assists": 4,
+                            "current_kd": 0.0,
+                            "avg_kd": 0.25,
+                            "trade_efficiency": 1.33,
+                            "insight": "✅ Insight: Stable performance."
+                        },
+                        {
+                            "name": "Larssen",
+                            "kills": 1,
+                            "deaths": 5,
+                            "assists": 3,
+                            "current_kd": 0.2,
+                            "avg_kd": 0.0,
+                            "trade_efficiency": 0.8,
+                            "insight": "✅ Insight: Stable performance."
+                        },
+                        {
+                            "name": "Comp",
+                            "kills": 3,
+                            "deaths": 2,
+                            "assists": 0,
+                            "current_kd": 1.5,
+                            "avg_kd": 0.0,
+                            "trade_efficiency": 1.5,
+                            "insight": "✅ Insight: Stable performance."
+                        },
+                        {
+                            "name": "Zoelys",
+                            "kills": 0,
+                            "deaths": 3,
+                            "assists": 4,
+                            "current_kd": 0.0,
+                            "avg_kd": 0.0,
+                            "trade_efficiency": 1.33,
+                            "insight": "✅ Insight: Stable performance."
+                        }
+                    ]
+                }
+            ],
+            "economy_history": {
+                "rounds": [
+                    "R1",
+                    "R2",
+                    "R3",
+                    "R4",
+                    "R5",
+                    "R6",
+                    "R7",
+                    "R8",
+                    "R9",
+                    "R10",
+                    "R11",
+                    "R12",
+                    "R13",
+                    "R14",
+                    "R15",
+                    "R16",
+                    "R17",
+                    "R18",
+                    "R19",
+                    "R20",
+                    "R21"
+                ],
+                "team_a": [
+                    5000,
+                    2668,
+                    6550,
+                    10466,
+                    7558,
+                    11471,
+                    12175,
+                    15083,
+                    17707,
+                    19030,
+                    17455,
+                    20080,
+                    19475,
+                    19854,
+                    22262,
+                    24643,
+                    22694,
+                    24522,
+                    25000,
+                    25000,
+                    25000
+                ],
+                "team_b": [
+                    5000,
+                    6354,
+                    4841,
+                    8505,
+                    8610,
+                    6189,
+                    9328,
+                    10409,
+                    9733,
+                    7353,
+                    8332,
+                    7836,
+                    10627,
+                    7975,
+                    6427,
+                    6062,
+                    3135,
+                    3638,
+                    6325,
+                    8540,
+                    9292
                 ]
             }
         }
