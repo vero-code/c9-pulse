@@ -21,8 +21,27 @@
     <div class="container">
         <a href="/" class="btn btn-secondary mb-4">&larr; Back to Matches</a>
         
+        <div class="row mb-4">
+            <div class="col-md-8">
+                <h2 class="mb-0">Live Analysis (ID: {{ match_id }})</h2>
+                <p class="text-muted">Analyzing real-time performance and economy...</p>
+            </div>
+            <div class="col-md-4 text-end">
+                <div class="coach-profile p-2 bg-dark rounded border border-info d-inline-block text-start">
+                    <div class="d-flex align-items-center">
+                        <div class="coach-avatar me-2 bg-info rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                            <span class="text-dark fw-bold">MV</span>
+                        </div>
+                        <div>
+                            <div class="fw-bold text-info" style="font-size: 0.9rem;">{{ coach_name }}</div>
+                            <div class="text-muted" style="font-size: 0.75rem;">{{ coach_personality }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2 class="mb-0">Live Analysis (ID: {{ match_id }})</h2>
             <div class="d-flex gap-3 align-items-center">
                 {% if audio_file %}
                 <audio id="analysisAudio" src="{{ url_for('static', filename='audio/' + audio_file) }}"></audio>
@@ -136,10 +155,10 @@
                                             </div>
 
                                             <div class="ai-insight p-2 rounded" style="background-color: #1a1d21; font-size: 0.9rem;">
-                                                <small class="text-muted d-block mb-1">AI Insight:</small>
-                                                {% if "Excellent" in player.insight %}
+                                                <small class="text-muted d-block mb-1">{{ coach_name }}:</small>
+                                                {% if "Good work" in player.insight or "Finally" in player.insight or "Solid" in player.insight %}
                                                     <span class="text-success">{{ player.insight }}</span>
-                                                {% elif "High death" in player.insight %}
+                                                {% elif "Listen up" in player.insight or "Too many mistakes" in player.insight or "feeding" in player.insight %}
                                                     <span class="text-danger">{{ player.insight }}</span>
                                                 {% else %}
                                                     <span class="text-info">{{ player.insight }}</span>

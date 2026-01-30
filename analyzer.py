@@ -1,4 +1,6 @@
 # analyzer.py
+from coach_config import get_random_insight
+
 class MatchAnalyzer:
     def __init__(self, data):
         """
@@ -23,11 +25,11 @@ class MatchAnalyzer:
                         ratio = round(kills / max(1, deaths), 2)
                         
                         if deaths > 10 and ratio < 0.8:
-                            return f"⚠️ Insight: High death count ({deaths}). Recommendation: Play safer."
+                            return get_random_insight("high_deaths", player=player_name, deaths=deaths)
                         if ratio > 1.5:
-                            return f"🔥 Insight: Excellent performance (K/D {ratio}). Keep playing aggressive."
+                            return get_random_insight("good_kd", player=player_name, ratio=ratio)
                         
-                        return "✅ Insight: Stable performance."
+                        return get_random_insight("stable", player=player_name)
         
         return "Player data not found in this match."
 
@@ -47,9 +49,9 @@ class MatchAnalyzer:
                     ratio = round(total_kills / max(1, total_deaths), 2)
                     
                     if ratio < 0.9:
-                        return f"📉 Macro Review: Team is losing duels (K/D {ratio}). Likely economy disadvantage."
+                        return get_random_insight("team_losing", ratio=ratio)
                     else:
-                        return "📈 Macro Review: Team winning exchanges. Economy looks strong."
+                        return get_random_insight("team_winning")
 
         return f"Team {team_name} not found."
 

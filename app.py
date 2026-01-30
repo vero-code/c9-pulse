@@ -5,6 +5,7 @@ from grid_client import GridClient
 from analyzer import MatchAnalyzer
 from history_manager import save_match_to_history, get_match_history, get_player_avg_kd, get_first_blood_victim
 from voice_engine import generate_voice_commentary, cleanup_old_audio
+from coach_config import COACH_NAME, COACH_PERSONALITY
 
 # Load environment variables
 load_dotenv()
@@ -134,7 +135,7 @@ def match_detail(match_id):
         mvp_player = analyzer.find_mvp()
 
         # Generate voice commentary
-        commentary_text = f"Match analysis complete. The potential next victim is {potential_victim or 'unknown'}. The current MVP is {mvp_player or 'unknown'}."
+        commentary_text = f"This is coach {COACH_NAME}. Match analysis complete. Potential next victim is {potential_victim['name'] if potential_victim else 'unknown'}. MVP is {mvp_player or 'unknown'}. Step it up, team!"
         audio_file = generate_voice_commentary(commentary_text)
         cleanup_old_audio()
 
@@ -147,7 +148,9 @@ def match_detail(match_id):
                            economy_history=economy_history if 'economy_history' in locals() else None,
                            potential_victim=potential_victim,
                            mvp_player=mvp_player,
-                           audio_file=audio_file)
+                           audio_file=audio_file,
+                           coach_name=COACH_NAME,
+                           coach_personality=COACH_PERSONALITY)
 
 if __name__ == '__main__':
     app.run(debug=True)
