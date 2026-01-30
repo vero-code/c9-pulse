@@ -27,7 +27,12 @@ INSIGHT_TEMPLATES = {
     "team_losing": [
         "The team is falling apart. K/D {ratio}. If we don't start winning duels, we're done.",
         "Macro state is poor. {ratio} K/D means our economy is bleeding. Discipline, people!",
-        "Losing too many exchanges. This isn't how we practiced."
+        "Losing too many exchanges. This isn't how we practiced.",
+        "Unlucky, reset mental. We can still pull this back.",
+        "Take a breath. It was a tough round, but it's over. Focus on the next one.",
+        "Don't let that loss get in your head. Reset and go again.",
+        "Shake it off. We've been in worse spots than this. Stay composed.",
+        "Flush it. New round, new start. Eyes on the prize."
     ],
     "team_winning": [
         "Strong presence on the map. Winning exchanges. Don't let up.",
