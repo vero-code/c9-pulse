@@ -157,6 +157,19 @@ def match_detail(match_id):
         
         cleanup_old_audio()
 
+        # CS2 match end check (one team reaches 13 rounds, or more in OT)
+        match_finished = False
+        winner_team = None
+        if len(teams) >= 2:
+            s1 = teams[0].get('score', 0)
+            s2 = teams[1].get('score', 0)
+            if s1 >= 13 and s1 > s2:
+                match_finished = True
+                winner_team = teams[0]['name']
+            elif s2 >= 13 and s2 > s1:
+                match_finished = True
+                winner_team = teams[1]['name']
+
     except (IndexError, KeyError) as e:
         return render_template('match_detail.html', match_id=match_id, error=f"Analysis error: {e}")
 
@@ -169,7 +182,9 @@ def match_detail(match_id):
                            audio_file=audio_file,
                            timeout_talk=timeout_talk,
                            coach_name=COACH_NAME,
-                           coach_personality=COACH_PERSONALITY)
+                           coach_personality=COACH_PERSONALITY,
+                           match_finished=match_finished,
+                           winner_team=winner_team)
 
 @app.route('/ask_coach', methods=['POST'])
 def ask_coach():
