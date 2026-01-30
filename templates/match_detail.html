@@ -63,6 +63,9 @@
                         </span>
                         <span class="badge bg-warning text-dark">Economy Risk: {{ team.economy_risk }}%</span>
                         <span class="badge bg-light text-dark">{{ team.economy }}</span>
+                        {% if team.opponent_strategy %}
+                        <span class="badge bg-info text-dark">{{ team.opponent_strategy }}</span>
+                        {% endif %}
                     </div>
                 </div>
                 <div class="card-body">

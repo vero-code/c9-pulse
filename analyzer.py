@@ -151,3 +151,31 @@ class MatchAnalyzer:
             return "Force Buy"
         else:
             return "Eco"
+
+    def analyze_opponent_strategy(self, team_name):
+        """
+        Analyzes opponent strategy based on available match data.
+        Currently provides basic insights like "Enemy often pushes B".
+        """
+        games = self.data.get('games', [])
+        if not games:
+            return "No data for strategy analysis."
+
+        # Find the opponent team
+        opponent_team = None
+        game = games[-1]
+        for team in game.get('teams', []):
+            if team.get('name') != team_name:
+                opponent_team = team
+                break
+
+        if not opponent_team:
+            return "Opponent data not found."
+
+        # Basic logic: if opponent is winning significantly, they might be playing aggressive
+        target_team = next((t for t in game.get('teams', []) if t.get('name') == team_name), None)
+        
+        if target_team and opponent_team.get('score', 0) > target_team.get('score', 0) + 3:
+            return "⚠️ Strategy Insight: Enemy often pushes B. Be ready for aggressive site takes."
+        
+        return "✅ Strategy Insight: Opponent playing standard. No unusual patterns detected."

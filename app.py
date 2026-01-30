@@ -95,6 +95,7 @@ def match_detail(match_id):
                 'economy': analyzer.analyze_team_economy(team['name']),
                 'economy_risk': analyzer.calculate_economy_risk(team['name']),
                 'buy_recommendation': analyzer.get_buy_recommendation(team['name']),
+                'opponent_strategy': analyzer.analyze_opponent_strategy(team['name']),
                 'players': []
             }
             for player in team.get('players', []):
