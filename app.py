@@ -136,7 +136,19 @@ def match_detail(match_id):
 
         # Generate voice commentary for critical moments only
         critical_moments = analyzer.get_critical_moments()
-        if critical_moments:
+        timeout_talk = None
+        
+        # Timeout Talk logic (Halftime summary)
+        if len(teams) >= 2:
+            team_a_score = teams[0].get('score', 0)
+            team_b_score = teams[1].get('score', 0)
+            if team_a_score + team_b_score == 12: # CS2 halftime is after 12 rounds
+                timeout_talk = analyzer.get_timeout_talk()
+
+        if timeout_talk:
+            commentary_text = f"Coach {COACH_NAME} here. {timeout_talk}"
+            audio_file = generate_voice_commentary(commentary_text)
+        elif critical_moments:
             commentary_text = f"Coach {COACH_NAME} here. Pay attention! " + " ".join(critical_moments)
             audio_file = generate_voice_commentary(commentary_text)
         else:
@@ -154,6 +166,7 @@ def match_detail(match_id):
                            potential_victim=potential_victim,
                            mvp_player=mvp_player,
                            audio_file=audio_file,
+                           timeout_talk=timeout_talk,
                            coach_name=COACH_NAME,
                            coach_personality=COACH_PERSONALITY)
 

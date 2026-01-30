@@ -289,3 +289,47 @@ class MatchAnalyzer:
                 moments.append(get_random_insight("clutch"))
 
         return moments
+
+    def get_timeout_talk(self):
+        """
+        Generates a summary for the halftime timeout.
+        Returns a string with the summary.
+        """
+        games = self.data.get('games', [])
+        if not games:
+            return None
+
+        game = games[-1]
+        teams = game.get('teams', [])
+        if len(teams) < 2:
+            return None
+
+        team_a = teams[0]
+        team_b = teams[1]
+        
+        mvp = self.find_mvp() or "Everyone"
+        
+        # Find an underperformer
+        underperformer = "No one"
+        min_kd = 100
+        for team in teams:
+            for p in team.get('players', []):
+                kills = p.get('kills', 0)
+                deaths = p.get('deaths', 1)
+                kd = kills / max(1, deaths)
+                if kd < min_kd:
+                    min_kd = kd
+                    underperformer = p.get('name')
+
+        economy_insight = self.get_buy_recommendation(team_a['name'])
+        
+        return get_random_insight(
+            "timeout_talk",
+            team_a=team_a['name'],
+            score_a=team_a.get('score', 0),
+            team_b=team_b['name'],
+            score_b=team_b.get('score', 0),
+            mvp=mvp,
+            underperformer=underperformer,
+            economy_insight=f"Economy for {team_a['name']} is {economy_insight}"
+        )
