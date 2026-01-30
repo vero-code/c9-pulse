@@ -134,9 +134,14 @@ def match_detail(match_id):
         potential_victim = analyzer.find_potential_victim()
         mvp_player = analyzer.find_mvp()
 
-        # Generate voice commentary
-        commentary_text = f"This is coach {COACH_NAME}. Match analysis complete. Potential next victim is {potential_victim['name'] if potential_victim else 'unknown'}. MVP is {mvp_player or 'unknown'}. Step it up, team!"
-        audio_file = generate_voice_commentary(commentary_text)
+        # Generate voice commentary for critical moments only
+        critical_moments = analyzer.get_critical_moments()
+        if critical_moments:
+            commentary_text = f"Coach {COACH_NAME} here. Pay attention! " + " ".join(critical_moments)
+            audio_file = generate_voice_commentary(commentary_text)
+        else:
+            audio_file = None
+        
         cleanup_old_audio()
 
     except (IndexError, KeyError) as e:

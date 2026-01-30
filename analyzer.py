@@ -253,3 +253,39 @@ class MatchAnalyzer:
                     best_player = p.get('name')
         
         return best_player
+
+    def get_critical_moments(self):
+        """
+        Detects critical moments like Aces, Clutches, and Death Streaks.
+        Returns a list of strings describing these moments.
+        """
+        moments = []
+        games = self.data.get('games', [])
+        if not games:
+            return moments
+
+        game = games[-1]
+        for team in game.get('teams', []):
+            for p in team.get('players', []):
+                name = p.get('name')
+                kills = p.get('kills', 0)
+                deaths = p.get('deaths', 0)
+
+                # Heuristic for Ace (e.g. 5+ kills in a game, since we don't have round data)
+                # In a real scenario, this would check round-specific data.
+                if kills >= 5 and kills % 5 == 0:
+                    moments.append(get_random_insight("ace", player=name))
+
+                # Heuristic for Death Streak
+                if deaths >= 5 and kills < (deaths / 2):
+                    moments.append(get_random_insight("death_streak", player=name, deaths=deaths))
+
+        # Heuristic for Clutch (e.g. if one team is winning rounds with fewer players)
+        # This is very simplified given the current schema.
+        if len(game.get('teams', [])) >= 2:
+            team_a = game['teams'][0]
+            team_b = game['teams'][1]
+            if abs(team_a.get('score', 0) - team_b.get('score', 0)) == 1:
+                moments.append(get_random_insight("clutch"))
+
+        return moments
