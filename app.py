@@ -107,6 +107,7 @@ def match_detail(match_id):
                 avg_kd = get_player_avg_kd(player_name)
                 trade_efficiency = analyzer.calculate_trade_efficiency(player_name)
                 tilt_risk = analyzer.calculate_tilt_risk(player_name)
+                is_underperformer = current_kd < 0.8 or tilt_risk > 70
 
                 team_analysis['players'].append({
                     'name': player_name,
@@ -117,6 +118,7 @@ def match_detail(match_id):
                     'avg_kd': avg_kd,
                     'trade_efficiency': trade_efficiency,
                     'tilt_risk': tilt_risk,
+                    'is_underperformer': is_underperformer,
                     'insight': analyzer.analyze_player_performance(player_name)
                 })
             analysis_results.append(team_analysis)

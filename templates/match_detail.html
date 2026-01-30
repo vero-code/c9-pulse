@@ -79,9 +79,14 @@
                                         <div class="card-body">
                                             <div class="d-flex justify-content-between align-items-start">
                                                 <h3 class="card-title text-info mb-1">{{ player.name }}</h3>
-                                                {% if player.name == mvp_player %}
-                                                <span class="badge bg-warning text-dark">MVP</span>
-                                                {% endif %}
+                                                <div class="d-flex gap-1">
+                                                    {% if player.is_underperformer %}
+                                                    <span class="badge bg-danger">Underperformer</span>
+                                                    {% endif %}
+                                                    {% if player.name == mvp_player %}
+                                                    <span class="badge bg-warning text-dark">MVP</span>
+                                                    {% endif %}
+                                                </div>
                                             </div>
                                             
                                             <div class="mb-3">
@@ -103,7 +108,8 @@
                                                     <div class="progress" style="height: 6px; background-color: #2d3238;">
                                                         <div class="progress-bar bg-danger" 
                                                              role="progressbar" 
-                                                             style="width: {{ player.tilt_risk }}%;"
+                                                             style="width: 0%"
+                                                             data-tilt="{{ player.tilt_risk }}"
                                                              aria-valuenow="{{ player.tilt_risk }}" 
                                                              aria-valuemin="0" 
                                                              aria-valuemax="100">
@@ -178,7 +184,13 @@
 
         document.querySelectorAll('.progress-bar').forEach(bar => {
             const width = bar.getAttribute('data-width');
-            bar.style.width = width + '%';
+            if (width) {
+                bar.style.width = width + '%';
+            }
+            const tilt = bar.getAttribute('data-tilt');
+            if (tilt) {
+                bar.style.width = tilt + '%';
+            }
         });
 
         {% if economy_history %}
