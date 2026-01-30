@@ -24,6 +24,9 @@
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h2 class="mb-0">Live Analysis (ID: {{ match_id }})</h2>
             <div class="d-flex gap-3 align-items-center">
+                {% if audio_file %}
+                <audio id="analysisAudio" src="{{ url_for('static', filename='audio/' + audio_file) }}"></audio>
+                {% endif %}
                 {% if potential_victim %}
                 <span class="badge bg-danger p-2">
                     💀 Potential FB Victim: {{ potential_victim.name }} ({{ potential_victim.deaths }} deaths)
@@ -179,6 +182,11 @@
                 {% if economy_history %}
                 initChart();
                 {% endif %}
+
+                const audio = document.getElementById('analysisAudio');
+                if (audio) {
+                    audio.play().catch(e => console.log("Audio play failed:", e));
+                }
             }, 1500);
         });
 

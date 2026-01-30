@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 from grid_client import GridClient
 from analyzer import MatchAnalyzer
 from history_manager import save_match_to_history, get_match_history, get_player_avg_kd, get_first_blood_victim
+from voice_engine import generate_voice_commentary, cleanup_old_audio
 
 # Load environment variables
 load_dotenv()
@@ -131,6 +132,12 @@ def match_detail(match_id):
 
         potential_victim = analyzer.find_potential_victim()
         mvp_player = analyzer.find_mvp()
+
+        # Generate voice commentary
+        commentary_text = f"Match analysis complete. The potential next victim is {potential_victim or 'unknown'}. The current MVP is {mvp_player or 'unknown'}."
+        audio_file = generate_voice_commentary(commentary_text)
+        cleanup_old_audio()
+
     except (IndexError, KeyError) as e:
         return render_template('match_detail.html', match_id=match_id, error=f"Analysis error: {e}")
 
@@ -139,7 +146,8 @@ def match_detail(match_id):
                            analysis=analysis_results,
                            economy_history=economy_history if 'economy_history' in locals() else None,
                            potential_victim=potential_victim,
-                           mvp_player=mvp_player)
+                           mvp_player=mvp_player,
+                           audio_file=audio_file)
 
 if __name__ == '__main__':
     app.run(debug=True)
