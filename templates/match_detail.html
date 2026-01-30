@@ -55,6 +55,9 @@
                     <span id="btnText">Start Analysis</span>
                     <span id="btnSpinner" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
                 </button>
+                <button id="muteCoachBtn" class="btn btn-outline-secondary">
+                    <span id="muteIcon">🔊</span> <span id="muteText">Mute Coach</span>
+                </button>
             </div>
         </div>
 
@@ -207,6 +210,27 @@
                     audio.play().catch(e => console.log("Audio play failed:", e));
                 }
             }, 1500);
+        });
+
+        document.getElementById('muteCoachBtn').addEventListener('click', function() {
+            const audio = document.getElementById('analysisAudio');
+            const muteText = document.getElementById('muteText');
+            const muteIcon = document.getElementById('muteIcon');
+            
+            if (audio) {
+                audio.muted = !audio.muted;
+                if (audio.muted) {
+                    muteText.innerText = 'Unmute Coach';
+                    muteIcon.innerText = '🔇';
+                    this.classList.remove('btn-outline-secondary');
+                    this.classList.add('btn-danger');
+                } else {
+                    muteText.innerText = 'Mute Coach';
+                    muteIcon.innerText = '🔊';
+                    this.classList.remove('btn-danger');
+                    this.classList.add('btn-outline-secondary');
+                }
+            }
         });
 
         document.querySelectorAll('.progress-bar').forEach(bar => {
