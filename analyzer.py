@@ -135,3 +135,19 @@ class MatchAnalyzer:
         
         # Clamp between 5% and 95%
         return round(max(5, min(95, risk)), 1)
+
+    def get_buy_recommendation(self, team_name):
+        """
+        Calculates buy recommendation based on economy risk.
+        Low risk -> Full Buy
+        Medium risk -> Force Buy
+        High risk -> Eco
+        """
+        risk = self.calculate_economy_risk(team_name)
+        
+        if risk < 35:
+            return "Full Buy"
+        elif risk < 65:
+            return "Force Buy"
+        else:
+            return "Eco"

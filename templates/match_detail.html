@@ -58,6 +58,9 @@
                 <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
                     <h4 class="mb-0">{{ team.team_name }}</h4>
                     <div class="d-flex align-items-center gap-2">
+                        <span class="badge {% if team.buy_recommendation == 'Full Buy' %}bg-success{% elif team.buy_recommendation == 'Force Buy' %}bg-warning text-dark{% else %}bg-danger{% endif %}">
+                            Buy: {{ team.buy_recommendation }}
+                        </span>
                         <span class="badge bg-warning text-dark">Economy Risk: {{ team.economy_risk }}%</span>
                         <span class="badge bg-light text-dark">{{ team.economy }}</span>
                     </div>

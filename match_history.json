@@ -635,6 +635,7 @@
                     "team_name": "SK Gaming",
                     "economy": "📈 Macro Review: Team winning exchanges. Economy looks strong.",
                     "economy_risk": 5,
+                    "buy_recommendation": "Full Buy",
                     "players": [
                         {
                             "name": "Irrelevant",
@@ -642,7 +643,7 @@
                             "deaths": 1,
                             "assists": 6,
                             "current_kd": 6.0,
-                            "avg_kd": null,
+                            "avg_kd": 6.0,
                             "trade_efficiency": 12.0,
                             "insight": "🔥 Insight: Excellent performance (K/D 6.0). Keep playing aggressive."
                         },
@@ -652,7 +653,7 @@
                             "deaths": 0,
                             "assists": 12,
                             "current_kd": 3.0,
-                            "avg_kd": null,
+                            "avg_kd": 3.0,
                             "trade_efficiency": 15.0,
                             "insight": "🔥 Insight: Excellent performance (K/D 3.0). Keep playing aggressive."
                         },
@@ -662,7 +663,7 @@
                             "deaths": 2,
                             "assists": 6,
                             "current_kd": 0.5,
-                            "avg_kd": null,
+                            "avg_kd": 0.5,
                             "trade_efficiency": 3.5,
                             "insight": "✅ Insight: Stable performance."
                         },
@@ -672,7 +673,7 @@
                             "deaths": 1,
                             "assists": 5,
                             "current_kd": 5.0,
-                            "avg_kd": null,
+                            "avg_kd": 5.0,
                             "trade_efficiency": 10.0,
                             "insight": "🔥 Insight: Excellent performance (K/D 5.0). Keep playing aggressive."
                         },
@@ -682,7 +683,7 @@
                             "deaths": 0,
                             "assists": 14,
                             "current_kd": 1.0,
-                            "avg_kd": null,
+                            "avg_kd": 1.0,
                             "trade_efficiency": 15.0,
                             "insight": "✅ Insight: Stable performance."
                         }
@@ -692,6 +693,7 @@
                     "team_name": "Rogue",
                     "economy": "📉 Macro Review: Team is losing duels (K/D 0.25). Likely economy disadvantage.",
                     "economy_risk": 95,
+                    "buy_recommendation": "Eco",
                     "players": [
                         {
                             "name": "Szygenda",
@@ -699,7 +701,7 @@
                             "deaths": 3,
                             "assists": 2,
                             "current_kd": 0.0,
-                            "avg_kd": 0.5,
+                            "avg_kd": 0.25,
                             "trade_efficiency": 0.67,
                             "insight": "✅ Insight: Stable performance."
                         },
@@ -709,7 +711,7 @@
                             "deaths": 3,
                             "assists": 4,
                             "current_kd": 0.0,
-                            "avg_kd": 0.25,
+                            "avg_kd": 0.12,
                             "trade_efficiency": 1.33,
                             "insight": "✅ Insight: Stable performance."
                         },
@@ -719,7 +721,7 @@
                             "deaths": 5,
                             "assists": 3,
                             "current_kd": 0.2,
-                            "avg_kd": 0.0,
+                            "avg_kd": 0.1,
                             "trade_efficiency": 0.8,
                             "insight": "✅ Insight: Stable performance."
                         },
@@ -729,7 +731,7 @@
                             "deaths": 2,
                             "assists": 0,
                             "current_kd": 1.5,
-                            "avg_kd": 0.0,
+                            "avg_kd": 0.75,
                             "trade_efficiency": 1.5,
                             "insight": "✅ Insight: Stable performance."
                         },
