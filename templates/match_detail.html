@@ -75,9 +75,14 @@
                             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
                                 {% for player in team.players %}
                                 <div class="col">
-                                    <div class="card h-100 bg-dark border-secondary shadow-sm">
+                                    <div class="card h-100 bg-dark border-secondary shadow-sm {% if player.name == mvp_player %}mvp-card{% endif %}">
                                         <div class="card-body">
-                                            <h3 class="card-title text-info mb-1">{{ player.name }}</h3>
+                                            <div class="d-flex justify-content-between align-items-start">
+                                                <h3 class="card-title text-info mb-1">{{ player.name }}</h3>
+                                                {% if player.name == mvp_player %}
+                                                <span class="badge bg-warning text-dark">MVP</span>
+                                                {% endif %}
+                                            </div>
                                             
                                             <div class="mb-3">
                                                 <div class="d-flex justify-content-between mb-1" style="font-size: 0.85rem;">

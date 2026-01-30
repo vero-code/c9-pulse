@@ -223,3 +223,31 @@ class MatchAnalyzer:
             return "⚠️ Strategy Insight: Enemy often pushes B. Be ready for aggressive site takes."
         
         return "✅ Strategy Insight: Opponent playing standard. No unusual patterns detected."
+
+    def find_mvp(self):
+        """
+        Identify the MVP of the match.
+        MVP is determined by the highest score, where score = kills + assists * 0.5 - deaths * 0.3.
+        """
+        games = self.data.get('games', [])
+        if not games:
+            return None
+        
+        game = games[-1]
+        best_player = None
+        max_score = -1000
+        
+        for team in game.get('teams', []):
+            for p in team.get('players', []):
+                kills = p.get('kills', 0)
+                deaths = p.get('deaths', 0)
+                assists = p.get('killAssistsGiven', 0)
+                
+                # Simple MVP formula
+                score = kills + (assists * 0.5) - (deaths * 0.3)
+                
+                if score > max_score:
+                    max_score = score
+                    best_player = p.get('name')
+        
+        return best_player

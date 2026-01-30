@@ -128,6 +128,7 @@ def match_detail(match_id):
         })
 
         potential_victim = analyzer.find_potential_victim()
+        mvp_player = analyzer.find_mvp()
     except (IndexError, KeyError) as e:
         return render_template('match_detail.html', match_id=match_id, error=f"Analysis error: {e}")
 
@@ -135,7 +136,8 @@ def match_detail(match_id):
                            match_id=match_id, 
                            analysis=analysis_results,
                            economy_history=economy_history if 'economy_history' in locals() else None,
-                           potential_victim=potential_victim)
+                           potential_victim=potential_victim,
+                           mvp_player=mvp_player)
 
 if __name__ == '__main__':
     app.run(debug=True)
