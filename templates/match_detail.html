@@ -189,6 +189,25 @@
         {% endif %}
     </div>
 
+    <!-- Coach Chat -->
+    <div id="coachChat" class="chat-container">
+        <div class="chat-header" id="chatHeader">
+            <span>💬 Ask Coach {{ coach_name }}</span>
+            <span id="chatToggle">−</span>
+        </div>
+        <div class="chat-body" id="chatBody">
+            <div class="chat-message coach">
+                I'm watching. You have a question or just wasting my time?
+            </div>
+        </div>
+        <div class="chat-footer">
+            <form id="chatForm" class="input-group">
+                <input type="text" id="chatInput" class="form-control" placeholder="Type your question..." autocomplete="off">
+                <button type="submit" class="btn">Send</button>
+            </form>
+        </div>
+    </div>
+
     <script>
         document.getElementById('startAnalysisBtn').addEventListener('click', function() {
             const btn = this;
@@ -312,6 +331,54 @@
             });
         }
         {% endif %}
+
+        // Chat Logic
+        const coachChat = document.getElementById('coachChat');
+        const chatHeader = document.getElementById('chatHeader');
+        const chatToggle = document.getElementById('chatToggle');
+        const chatForm = document.getElementById('chatForm');
+        const chatInput = document.getElementById('chatInput');
+        const chatBody = document.getElementById('chatBody');
+
+        chatHeader.addEventListener('click', () => {
+            coachChat.classList.toggle('chat-minimized');
+            chatToggle.innerText = coachChat.classList.contains('chat-minimized') ? '+' : '−';
+        });
+
+        chatForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const message = chatInput.value.trim();
+            if (!message) return;
+
+            // Add user message
+            addMessage(message, 'user');
+            chatInput.value = '';
+
+            try {
+                const response = await fetch('/ask_coach', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message: message })
+                });
+                const data = await response.json();
+                
+                // Simulate typing delay
+                setTimeout(() => {
+                    addMessage(data.response, 'coach');
+                }, 500);
+            } catch (err) {
+                console.error('Chat error:', err);
+                addMessage('Connection lost. I am busy anyway.', 'coach');
+            }
+        });
+
+        function addMessage(text, sender) {
+            const div = document.createElement('div');
+            div.className = `chat-message ${sender}`;
+            div.innerText = text;
+            chatBody.appendChild(div);
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
     </script>
 </body>
 </html>

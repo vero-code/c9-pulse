@@ -5,7 +5,8 @@ from grid_client import GridClient
 from analyzer import MatchAnalyzer
 from history_manager import save_match_to_history, get_match_history, get_player_avg_kd, get_first_blood_victim
 from voice_engine import generate_voice_commentary, cleanup_old_audio
-from coach_config import COACH_NAME, COACH_PERSONALITY
+from coach_config import COACH_NAME, COACH_PERSONALITY, get_chat_response
+from flask import jsonify
 
 # Load environment variables
 load_dotenv()
@@ -169,6 +170,16 @@ def match_detail(match_id):
                            timeout_talk=timeout_talk,
                            coach_name=COACH_NAME,
                            coach_personality=COACH_PERSONALITY)
+
+@app.route('/ask_coach', methods=['POST'])
+def ask_coach():
+    data = request.get_json()
+    message = data.get('message', '')
+    if not message:
+        return jsonify({'response': "Don't waste my time with empty messages."})
+    
+    response = get_chat_response(message)
+    return jsonify({'response': response})
 
 if __name__ == '__main__':
     app.run(debug=True)
