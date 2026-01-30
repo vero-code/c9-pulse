@@ -5,51 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Match Detail - C9 Pulse</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-        body { 
-            background-color: #0b0d0f; 
-            color: #ffffff;
-        }
-        .navbar {
-            background-color: #00aeef !important;
-        }
-        .navbar-brand {
-            font-weight: bold;
-            color: #ffffff !important;
-            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #00aeef, 0 0 30px #00aeef, 0 0 40px #00aeef;
-            transition: text-shadow 0.3s ease-in-out;
-        }
-        .navbar-brand:hover {
-            text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #00aeef, 0 0 40px #00aeef, 0 0 50px #00aeef, 0 0 60px #00aeef;
-        }
-        .card {
-            background-color: #1a1d21;
-            border-color: #2d3238;
-            color: #ffffff;
-        }
-        .card-header.bg-primary {
-            background-color: #00aeef !important;
-        }
-        .table {
-            color: #ffffff;
-        }
-        .table-hover tbody tr:hover {
-            color: #ffffff;
-            background-color: #25292e;
-        }
-        .btn-secondary {
-            background-color: #2d3238;
-            border-color: #40464d;
-        }
-        .btn-secondary:hover {
-            background-color: #40464d;
-        }
-        h2 {
-            color: #00aeef;
-        }
-        .insight-badge { font-size: 0.85rem; }
-    </style>
 </head>
 <body>
     <nav class="navbar navbar-dark mb-4">

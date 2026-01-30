@@ -443,5 +443,186 @@
                 ]
             }
         }
+    },
+    {
+        "match_id": "2618427",
+        "data": {
+            "analysis": [
+                {
+                    "team_name": "Rogue",
+                    "economy": "📉 Macro Review: Team is losing duels (K/D 0.13). Likely economy disadvantage.",
+                    "players": [
+                        {
+                            "name": "Szygenda",
+                            "kills": 1,
+                            "deaths": 2,
+                            "assists": 1,
+                            "current_kd": 0.5,
+                            "avg_kd": null,
+                            "trade_efficiency": 1.0,
+                            "insight": "✅ Insight: Stable performance."
+                        },
+                        {
+                            "name": "Markoon",
+                            "kills": 1,
+                            "deaths": 4,
+                            "assists": 1,
+                            "current_kd": 0.25,
+                            "avg_kd": null,
+                            "trade_efficiency": 0.5,
+                            "insight": "✅ Insight: Stable performance."
+                        },
+                        {
+                            "name": "Larssen",
+                            "kills": 0,
+                            "deaths": 1,
+                            "assists": 2,
+                            "current_kd": 0.0,
+                            "avg_kd": null,
+                            "trade_efficiency": 2.0,
+                            "insight": "✅ Insight: Stable performance."
+                        },
+                        {
+                            "name": "Comp",
+                            "kills": 0,
+                            "deaths": 4,
+                            "assists": 1,
+                            "current_kd": 0.0,
+                            "avg_kd": null,
+                            "trade_efficiency": 0.25,
+                            "insight": "✅ Insight: Stable performance."
+                        },
+                        {
+                            "name": "Zoelys",
+                            "kills": 0,
+                            "deaths": 4,
+                            "assists": 2,
+                            "current_kd": 0.0,
+                            "avg_kd": null,
+                            "trade_efficiency": 0.5,
+                            "insight": "✅ Insight: Stable performance."
+                        }
+                    ]
+                },
+                {
+                    "team_name": "Team Heretics",
+                    "economy": "📈 Macro Review: Team winning exchanges. Economy looks strong.",
+                    "players": [
+                        {
+                            "name": "Wunder",
+                            "kills": 2,
+                            "deaths": 1,
+                            "assists": 9,
+                            "current_kd": 2.0,
+                            "avg_kd": null,
+                            "trade_efficiency": 11.0,
+                            "insight": "🔥 Insight: Excellent performance (K/D 2.0). Keep playing aggressive."
+                        },
+                        {
+                            "name": "Jankos",
+                            "kills": 2,
+                            "deaths": 0,
+                            "assists": 11,
+                            "current_kd": 2.0,
+                            "avg_kd": null,
+                            "trade_efficiency": 13.0,
+                            "insight": "🔥 Insight: Excellent performance (K/D 2.0). Keep playing aggressive."
+                        },
+                        {
+                            "name": "Perkz",
+                            "kills": 3,
+                            "deaths": 0,
+                            "assists": 2,
+                            "current_kd": 3.0,
+                            "avg_kd": null,
+                            "trade_efficiency": 5.0,
+                            "insight": "🔥 Insight: Excellent performance (K/D 3.0). Keep playing aggressive."
+                        },
+                        {
+                            "name": "Flakked",
+                            "kills": 8,
+                            "deaths": 1,
+                            "assists": 4,
+                            "current_kd": 8.0,
+                            "avg_kd": null,
+                            "trade_efficiency": 12.0,
+                            "insight": "🔥 Insight: Excellent performance (K/D 8.0). Keep playing aggressive."
+                        },
+                        {
+                            "name": "Kaiser",
+                            "kills": 0,
+                            "deaths": 0,
+                            "assists": 15,
+                            "current_kd": 0.0,
+                            "avg_kd": null,
+                            "trade_efficiency": 15.0,
+                            "insight": "✅ Insight: Stable performance."
+                        }
+                    ]
+                }
+            ],
+            "economy_history": {
+                "rounds": [
+                    "R1",
+                    "R2",
+                    "R3",
+                    "R4",
+                    "R5",
+                    "R6",
+                    "R7",
+                    "R8",
+                    "R9",
+                    "R10",
+                    "R11",
+                    "R12",
+                    "R13",
+                    "R14",
+                    "R15",
+                    "R16",
+                    "R17",
+                    "R18"
+                ],
+                "team_a": [
+                    5000,
+                    4888,
+                    8003,
+                    7947,
+                    5960,
+                    5352,
+                    4760,
+                    8360,
+                    5710,
+                    3997,
+                    2000,
+                    2000,
+                    2000,
+                    2000,
+                    2000,
+                    2000,
+                    2000,
+                    2000
+                ],
+                "team_b": [
+                    5000,
+                    4127,
+                    3538,
+                    2520,
+                    5983,
+                    8428,
+                    11931,
+                    11937,
+                    15113,
+                    15265,
+                    13780,
+                    15298,
+                    18374,
+                    18364,
+                    17256,
+                    16831,
+                    17684,
+                    18524
+                ]
+            }
+        }
     }
 ]

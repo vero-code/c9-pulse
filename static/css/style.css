@@ -1,0 +1,55 @@
+body { 
+    background-color: #0b0d0f; 
+    color: #ffffff;
+}
+.navbar {
+    background-color: #00aeef !important;
+}
+.navbar-brand {
+    font-weight: bold;
+    color: #ffffff !important;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #00aeef, 0 0 30px #00aeef, 0 0 40px #00aeef;
+    transition: text-shadow 0.3s ease-in-out;
+}
+.navbar-brand:hover {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #00aeef, 0 0 40px #00aeef, 0 0 50px #00aeef, 0 0 60px #00aeef;
+}
+.card {
+    background-color: #1a1d21;
+    border-color: #2d3238;
+    color: #ffffff;
+}
+.match-card { 
+    transition: transform 0.2s, background-color 0.2s; 
+    cursor: pointer; 
+}
+.match-card:hover { 
+    transform: scale(1.02); 
+    background-color: #25292e;
+}
+.text-muted {
+    color: #a0a0a0 !important;
+}
+h2 {
+    color: #00aeef;
+}
+
+/* Match Detail specific styles */
+.card-header.bg-primary {
+    background-color: #00aeef !important;
+}
+.table {
+    color: #ffffff;
+}
+.table-hover tbody tr:hover {
+    color: #ffffff;
+    background-color: #25292e;
+}
+.btn-secondary {
+    background-color: #2d3238;
+    border-color: #40464d;
+}
+.btn-secondary:hover {
+    background-color: #40464d;
+}
+.insight-badge { font-size: 0.85rem; }
