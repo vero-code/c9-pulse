@@ -91,7 +91,22 @@
                                                 </div>
                                                 <div class="d-flex justify-content-between mb-2" style="font-size: 0.85rem;">
                                                     <span>Trade Efficiency: <strong class="text-info">{{ player.trade_efficiency }}</strong></span>
+                                                    <span>Tilt Risk: <strong class="{% if player.tilt_risk > 70 %}text-danger{% elif player.tilt_risk > 30 %}text-warning{% else %}text-success{% endif %}">{{ player.tilt_risk }}%</strong></span>
                                                 </div>
+                                                {% if player.tilt_risk > 50 %}
+                                                <div class="mb-2">
+                                                    <div class="progress" style="height: 6px; background-color: #2d3238;">
+                                                        <div class="progress-bar bg-danger" 
+                                                             role="progressbar" 
+                                                             style="width: {{ player.tilt_risk }}%;"
+                                                             aria-valuenow="{{ player.tilt_risk }}" 
+                                                             aria-valuemin="0" 
+                                                             aria-valuemax="100">
+                                                        </div>
+                                                    </div>
+                                                    <small class="text-danger" style="font-size: 0.7rem;">⚠️ HIGH TILT RISK</small>
+                                                </div>
+                                                {% endif %}
                                                 {% set total = player.kills + player.deaths %}
                                                 {% set percentage = (player.kills / total * 100) if total > 0 else 50 %}
                                                 <div class="progress" style="height: 12px; background-color: #2d3238;">

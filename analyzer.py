@@ -152,6 +152,50 @@ class MatchAnalyzer:
         else:
             return "Eco"
 
+    def calculate_tilt_risk(self, player_name):
+        """
+        Calculates Tilt Risk for a player.
+        If a player has a high death count relative to their kills and the team's progress,
+        the tilt risk increases.
+        Since we don't have round-by-round death history in the current schema,
+        we use the current game's K/D and total deaths as a proxy.
+        If deaths >= 3 and K/D < 0.5, risk starts growing.
+        """
+        games = self.data.get('games', [])
+        if not games:
+            return 0
+
+        game = games[-1]
+        for team in game.get('teams', []):
+            for p in team.get('players', []):
+                if p.get('name') == player_name:
+                    deaths = p.get('deaths', 0)
+                    kills = p.get('kills', 0)
+                    
+                    if deaths == 0:
+                        return 0
+                    
+                    kd = kills / deaths
+                    
+                    # Risk grows if deaths >= 3
+                    if deaths < 3:
+                        return 0
+                    
+                    # Base risk for 3+ deaths
+                    risk = 30
+                    
+                    # Increase risk for poor K/D
+                    if kd < 0.5:
+                        risk += 40
+                    elif kd < 1.0:
+                        risk += 20
+                        
+                    # Increase risk for every death above 3
+                    risk += (deaths - 3) * 10
+                    
+                    return min(100, risk)
+        return 0
+
     def analyze_opponent_strategy(self, team_name):
         """
         Analyzes opponent strategy based on available match data.
