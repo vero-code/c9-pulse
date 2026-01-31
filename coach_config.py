@@ -72,6 +72,13 @@ INSIGHT_TEMPLATES: Dict[str, Any] = {
         "Stop dying! That's {deaths} deaths in a row. Change your position.",
         "Death after death. You're throwing! Get it together."
     ],
+    "routine_update": [
+        "I'm keeping an eye on things. Stay focused.",
+        "Everything's under control for now. Don't get complacent.",
+        "Watching the rotation. Keep up the pressure.",
+        "Standard play so far. Keep your head in the game.",
+        "No major issues yet. Maintain your discipline."
+    ],
     "timeout_talk": [
         "Half-time report, team. {team_a} {score_a}, {team_b} {score_b}. {mvp} is carrying, while {underperformer} needs to wake up. {economy_insight}. Let's focus!",
         "Midway mark reached. {team_a} vs {team_b}. Score is {score_a} to {score_b}. {mvp} is the MVP so far. {underperformer}, we need more from you. {economy_insight}. Keep the pressure on!",

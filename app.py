@@ -9,7 +9,7 @@ from grid_client import GridClient
 from analyzer import MatchAnalyzer
 from history_manager import save_match_to_history, get_match_history, get_player_avg_kd, get_first_blood_victim
 from voice_engine import generate_voice_commentary, cleanup_old_audio
-from coach_config import COACH_NAME, COACH_PERSONALITY, get_chat_response
+from coach_config import COACH_NAME, COACH_PERSONALITY, get_chat_response, get_random_insight
 
 # Load environment variables
 load_dotenv()
@@ -249,6 +249,11 @@ def match_detail(match_id: str) -> Union[str, Tuple[str, int]]:
             audio_file = generate_voice_commentary(commentary_text)
         elif critical_moments:
             commentary_text = f"Coach {COACH_NAME} here. Pay attention! " + " ".join(critical_moments)
+            audio_file = generate_voice_commentary(commentary_text)
+        else:
+            # Routine update if nothing else is happening
+            routine_msg = get_random_insight("routine_update")
+            commentary_text = f"Coach {COACH_NAME} here. {routine_msg}"
             audio_file = generate_voice_commentary(commentary_text)
         
         cleanup_old_audio()

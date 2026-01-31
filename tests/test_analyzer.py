@@ -11,16 +11,16 @@ def sample_match_data():
                         "name": "Cloud9",
                         "score": 13,
                         "players": [
-                            {"name": "TenZ", "kills": 20, "deaths": 10, "killAssistsGiven": 5},
-                            {"name": "Mitch", "kills": 10, "deaths": 15, "killAssistsGiven": 2}
+                            {"name": "TenZ", "kills": 20, "deaths": 10, "assists": 5},
+                            {"name": "Mitch", "kills": 10, "deaths": 15, "assists": 2}
                         ]
                     },
                     {
                         "name": "Sentinels",
                         "score": 11,
                         "players": [
-                            {"name": "ShahZaM", "kills": 15, "deaths": 15, "killAssistsGiven": 3},
-                            {"name": "Sick", "kills": 12, "deaths": 12, "killAssistsGiven": 4}
+                            {"name": "ShahZaM", "kills": 15, "deaths": 15, "assists": 3},
+                            {"name": "Sick", "kills": 12, "deaths": 12, "assists": 4}
                         ]
                     }
                 ]
