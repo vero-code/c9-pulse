@@ -8,6 +8,16 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script>
+        window.matchData = {
+            matchFinished: {{ 'true' if match_finished else 'false' }},
+            {% if economy_history %}
+            economyHistory: {{ economy_history | tojson }},
+            analysis: {{ analysis | tojson }}
+            {% endif %}
+        };
+    </script>
+    <script src="{{ url_for('static', filename='js/match_detail.js') }}"></script>
 </head>
 <body>
     <nav class="navbar navbar-dark mb-4">
@@ -26,30 +36,6 @@
             <h2 class="mb-4">Congratulations to <span class="text-primary">{{ winner_team }}</span>!</h2>
             <p class="lead">What an incredible match! The hard work paid off.</p>
         </div>
-        <script>
-            window.addEventListener('DOMContentLoaded', (event) => {
-                var duration = 5 * 1000;
-                var animationEnd = Date.now() + duration;
-                var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
-
-                function randomInRange(min, max) {
-                  return Math.random() * (max - min) + min;
-                }
-
-                var interval = setInterval(function() {
-                  var timeLeft = animationEnd - Date.now();
-
-                  if (timeLeft <= 0) {
-                    return clearInterval(interval);
-                  }
-
-                  var particleCount = 50 * (timeLeft / duration);
-                  // since particles fall down, start a bit higher than random
-                  confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
-                  confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
-                }, 250);
-            });
-        </script>
         {% endif %}
 
         <a href="/" class="btn btn-secondary mb-4">&larr; Back to Matches</a>
@@ -252,177 +238,5 @@
         </div>
     </div>
 
-    <script>
-        document.getElementById('startAnalysisBtn').addEventListener('click', function() {
-            const btn = this;
-            const text = document.getElementById('btnText');
-            const spinner = document.getElementById('btnSpinner');
-            const content = document.getElementById('analysisContent');
-
-            btn.disabled = true;
-            text.innerText = 'Analyzing...';
-            spinner.classList.remove('d-none');
-
-            setTimeout(() => {
-                spinner.classList.add('d-none');
-                text.innerText = 'Analysis Complete';
-                btn.classList.remove('btn-info');
-                btn.classList.add('btn-success');
-                content.classList.remove('d-none');
-
-                {% if economy_history %}
-                initChart();
-                {% endif %}
-
-                const audio = document.getElementById('analysisAudio');
-                const ping = document.getElementById('pingSound');
-                if (ping) {
-                    ping.play().catch(e => console.log("Ping play failed:", e));
-                }
-                if (audio) {
-                    setTimeout(() => {
-                        audio.play().catch(e => console.log("Audio play failed:", e));
-                    }, 500);
-                }
-            }, 1500);
-        });
-
-        document.getElementById('muteCoachBtn').addEventListener('click', function() {
-            const audio = document.getElementById('analysisAudio');
-            const ping = document.getElementById('pingSound');
-            const muteText = document.getElementById('muteText');
-            const muteIcon = document.getElementById('muteIcon');
-            
-            const isMuted = audio ? !audio.muted : (ping ? !ping.muted : false);
-
-            if (audio) audio.muted = isMuted;
-            if (ping) ping.muted = isMuted;
-
-            if (isMuted) {
-                muteText.innerText = 'Unmute Coach';
-                muteIcon.innerText = '🔇';
-                this.classList.remove('btn-outline-secondary');
-                this.classList.add('btn-danger');
-            } else {
-                muteText.innerText = 'Mute Coach';
-                muteIcon.innerText = '🔊';
-                this.classList.remove('btn-danger');
-                this.classList.add('btn-outline-secondary');
-            }
-        });
-
-        document.querySelectorAll('.progress-bar').forEach(bar => {
-            const width = bar.getAttribute('data-width');
-            if (width) {
-                bar.style.width = width + '%';
-            }
-            const tilt = bar.getAttribute('data-tilt');
-            if (tilt) {
-                bar.style.width = tilt + '%';
-            }
-        });
-
-        {% if economy_history %}
-        function initChart() {
-            const ctx = document.getElementById('economyChart').getContext('2d');
-            new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: {{ economy_history.rounds | tojson }},
-                    datasets: [
-                        {
-                            label: '{{ analysis[0].team_name }}',
-                            data: {{ economy_history.team_a | tojson }},
-                            borderColor: '#00aeef',
-                            backgroundColor: 'rgba(0, 174, 239, 0.1)',
-                            fill: true,
-                            tension: 0.3
-                        },
-                        {
-                            label: '{{ analysis[1].team_name }}',
-                            data: {{ economy_history.team_b | tojson }},
-                            borderColor: '#ffffff',
-                            backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                            fill: true,
-                            tension: 0.3
-                        }
-                    ]
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: {
-                            labels: { color: '#ffffff' }
-                        }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            grid: { color: '#2d3238' },
-                            ticks: { color: '#ffffff' },
-                            title: {
-                                display: true,
-                                text: 'Value ($)',
-                                color: '#ffffff'
-                            }
-                        },
-                        x: {
-                            grid: { color: '#2d3238' },
-                            ticks: { color: '#ffffff' }
-                        }
-                    }
-                }
-            });
-        }
-        {% endif %}
-
-        // Chat Logic
-        const coachChat = document.getElementById('coachChat');
-        const chatHeader = document.getElementById('chatHeader');
-        const chatToggle = document.getElementById('chatToggle');
-        const chatForm = document.getElementById('chatForm');
-        const chatInput = document.getElementById('chatInput');
-        const chatBody = document.getElementById('chatBody');
-
-        chatHeader.addEventListener('click', () => {
-            coachChat.classList.toggle('chat-minimized');
-            chatToggle.innerText = coachChat.classList.contains('chat-minimized') ? '+' : '−';
-        });
-
-        chatForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const message = chatInput.value.trim();
-            if (!message) return;
-
-            // Add user message
-            addMessage(message, 'user');
-            chatInput.value = '';
-
-            try {
-                const response = await fetch('/ask_coach', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ message: message })
-                });
-                const data = await response.json();
-                
-                // Simulate typing delay
-                setTimeout(() => {
-                    addMessage(data.response, 'coach');
-                }, 500);
-            } catch (err) {
-                console.error('Chat error:', err);
-                addMessage('Connection lost. I am busy anyway.', 'coach');
-            }
-        });
-
-        function addMessage(text, sender) {
-            const div = document.createElement('div');
-            div.className = `chat-message ${sender}`;
-            div.innerText = text;
-            chatBody.appendChild(div);
-            chatBody.scrollTop = chatBody.scrollHeight;
-        }
-    </script>
 </body>
 </html>
