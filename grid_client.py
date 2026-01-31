@@ -1,23 +1,24 @@
 # grid_client.py
 import requests
 import json
+from typing import Dict, Any, Optional, List, Union
 
 class GridClient:
     # Open Platform Endpoints
-    API_URL = "https://api-op.grid.gg/central-data/graphql"
-    LIVE_URL = "https://api-op.grid.gg/live-data-feed/series-state/graphql"
+    API_URL: str = "https://api-op.grid.gg/central-data/graphql"
+    LIVE_URL: str = "https://api-op.grid.gg/live-data-feed/series-state/graphql"
 
-    def __init__(self, api_key):
+    def __init__(self, api_key: str) -> None:
         if not api_key:
             raise ValueError("API Key is missing!")
 
-        self.api_key = api_key
-        self.headers = {
+        self.api_key: str = api_key
+        self.headers: Dict[str, str] = {
             "Content-Type": "application/json",
             "x-api-key": self.api_key
         }
 
-    def _execute_query(self, query, variables=None, url=None):
+    def _execute_query(self, query: str, variables: Optional[Dict[str, Any]] = None, url: Optional[str] = None) -> Optional[Dict[str, Any]]:
         """Internal method to execute GraphQL queries."""
         if url is None:
             url = self.API_URL
@@ -43,7 +44,7 @@ class GridClient:
             print(f"❌ Connection Error: {e}")
             return None
 
-    def get_tournaments(self, limit=3):
+    def get_tournaments(self, limit: int = 3) -> Optional[Dict[str, Any]]:
         """Retrieves a list of tournaments."""
         query = f"""
         query GetTournaments {{
@@ -60,7 +61,7 @@ class GridClient:
         """
         return self._execute_query(query)
 
-    def get_recent_series(self, limit=5):
+    def get_recent_series(self, limit: int = 5) -> Optional[Dict[str, Any]]:
         """Retrieves a list of recent series (matches) from any tournament."""
         # Using 'baseInfo' as discovered in the GQL Playground documentation
         query = f"""
@@ -89,7 +90,7 @@ class GridClient:
         """
         return self._execute_query(query)
 
-    def get_match_details(self, series_id):
+    def get_match_details(self, series_id: Union[int, str]) -> Optional[Dict[str, Any]]:
         """
         Retrieves detailed information for a specific series.
         Includes games, teams, players, and performance stats.
@@ -128,7 +129,7 @@ class GridClient:
         variables = {"id": series_id}
         return self._execute_query(query, variables)
 
-    def get_team_stats(self, team_id="83"):
+    def get_team_stats(self, team_id: str = "83") -> Optional[Dict[str, Any]]:
         """Retrieves statistics for a specific team over the last three months."""
         query = f"""
         query TeamStatisticsForLastThreeMonths {{
@@ -157,7 +158,7 @@ class GridClient:
         """
         return self._execute_query(query)
 
-    def get_series_state(self, series_id):
+    def get_series_state(self, series_id: Union[int, str]) -> Optional[Dict[str, Any]]:
         """
         Retrieves live series state including real-time player stats.
         Uses the Live Data Feed endpoint.

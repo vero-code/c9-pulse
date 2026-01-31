@@ -1,37 +1,40 @@
+from typing import List, Dict, Any, Optional, Union, Tuple
+from flask import Flask, render_template, request, redirect, url_for, Response, jsonify
+
+# app.py
 import os
-from flask import Flask, render_template, request, redirect, url_for
 from dotenv import load_dotenv
 from grid_client import GridClient
 from analyzer import MatchAnalyzer
 from history_manager import save_match_to_history, get_match_history, get_player_avg_kd, get_first_blood_victim
 from voice_engine import generate_voice_commentary, cleanup_old_audio
 from coach_config import COACH_NAME, COACH_PERSONALITY, get_chat_response
-from flask import jsonify
 
 # Load environment variables
 load_dotenv()
 
-app = Flask(__name__)
+app: Flask = Flask(__name__)
 
 # Initialize GridClient
-api_key = os.getenv("GRID_API_KEY")
-client = None
+api_key: Optional[str] = os.getenv("GRID_API_KEY")
+client: Optional[GridClient] = None
 if api_key:
     client = GridClient(api_key)
 
 @app.route('/')
-def index():
+def index() -> Union[str, Tuple[str, int]]:
     if not client:
         return "Error: GRID_API_KEY not found in environment.", 500
     
     series_data = client.get_recent_series(limit=10)
-    matches = []
+    matches: List[Dict[str, Any]] = []
     if series_data:
         all_series = series_data.get('allSeries', {})
         for edge in all_series.get('edges', []):
             node = edge['node']
             match_id = node['id']
             teams = node.get('teams', [])
+            versus: str
             if teams and len(teams) >= 2:
                 team_a = teams[0].get('baseInfo', {}).get('name', 'Unknown')
                 team_b = teams[1].get('baseInfo', {}).get('name', 'Unknown')
@@ -52,7 +55,7 @@ def index():
     return render_template('index.html', matches=matches, history=history, fb_victim=fb_victim)
 
 @app.route('/match/<match_id>')
-def match_detail(match_id):
+def match_detail(match_id: str) -> Union[str, Tuple[str, int]]:
     if not client:
         return "Error: GRID_API_KEY not found in environment.", 500
     
@@ -61,12 +64,12 @@ def match_detail(match_id):
         return render_template('match_detail.html', match_id=match_id, error="No live data available for this match.")
     
     analyzer = MatchAnalyzer(state_data)
-    analysis_results = []
+    analysis_results: List[Dict[str, Any]] = []
     
     # Simple analysis for the first game
     try:
         first_game = state_data['games'][0]
-        economy_history = {
+        economy_history: Dict[str, Any] = {
             'rounds': [],
             'team_a': [],
             'team_b': []
@@ -93,7 +96,7 @@ def match_detail(match_id):
                 val_b = max(2000, min(25000, val_b + random.randint(-3000, 4000)))
 
         for team in teams:
-            team_analysis = {
+            team_analysis: Dict[str, Any] = {
                 'team_name': team['name'],
                 'economy': analyzer.analyze_team_economy(team['name']),
                 'economy_risk': analyzer.calculate_economy_risk(team['name']),
@@ -129,7 +132,7 @@ def match_detail(match_id):
         # Save to history
         save_match_to_history(match_id, {
             'analysis': analysis_results,
-            'economy_history': economy_history if 'economy_history' in locals() else None
+            'economy_history': economy_history
         })
 
         potential_victim = analyzer.find_potential_victim()
@@ -137,7 +140,7 @@ def match_detail(match_id):
 
         # Generate voice commentary for critical moments only
         critical_moments = analyzer.get_critical_moments()
-        timeout_talk = None
+        timeout_talk: Optional[str] = None
         
         # Timeout Talk logic (Halftime summary)
         if len(teams) >= 2:
@@ -146,20 +149,19 @@ def match_detail(match_id):
             if team_a_score + team_b_score == 12: # CS2 halftime is after 12 rounds
                 timeout_talk = analyzer.get_timeout_talk()
 
+        audio_file: Optional[str] = None
         if timeout_talk:
             commentary_text = f"Coach {COACH_NAME} here. {timeout_talk}"
             audio_file = generate_voice_commentary(commentary_text)
         elif critical_moments:
             commentary_text = f"Coach {COACH_NAME} here. Pay attention! " + " ".join(critical_moments)
             audio_file = generate_voice_commentary(commentary_text)
-        else:
-            audio_file = None
         
         cleanup_old_audio()
 
         # CS2 match end check (one team reaches 13 rounds, or more in OT)
         match_finished = False
-        winner_team = None
+        winner_team: Optional[str] = None
         if len(teams) >= 2:
             s1 = teams[0].get('score', 0)
             s2 = teams[1].get('score', 0)
@@ -176,7 +178,7 @@ def match_detail(match_id):
     return render_template('match_detail.html', 
                            match_id=match_id, 
                            analysis=analysis_results,
-                           economy_history=economy_history if 'economy_history' in locals() else None,
+                           economy_history=economy_history,
                            potential_victim=potential_victim,
                            mvp_player=mvp_player,
                            audio_file=audio_file,
@@ -187,14 +189,14 @@ def match_detail(match_id):
                            winner_team=winner_team)
 
 @app.route('/ask_coach', methods=['POST'])
-def ask_coach():
-    data = request.get_json()
-    message = data.get('message', '')
+def ask_coach() -> Response:
+    data: Dict[str, Any] = request.get_json()
+    message: str = data.get('message', '')
     if not message:
         return jsonify({'response': "Don't waste my time with empty messages."})
     
-    response = get_chat_response(message)
-    return jsonify({'response': response})
+    response_text: str = get_chat_response(message)
+    return jsonify({'response': response_text})
 
 if __name__ == '__main__':
     app.run(debug=True)

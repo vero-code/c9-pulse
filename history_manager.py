@@ -1,14 +1,15 @@
 import json
 import os
+from typing import List, Dict, Any, Optional, Union, Tuple
 
-HISTORY_FILE = 'match_history.json'
+HISTORY_FILE: str = 'match_history.json'
 
-def save_match_to_history(match_id, analysis_data):
+def save_match_to_history(match_id: Union[int, str], analysis_data: Dict[str, Any]) -> bool:
     """
     Saves match analysis results to a JSON file.
     If the match already exists, it updates the record.
     """
-    history = []
+    history: List[Dict[str, Any]] = []
     if os.path.exists(HISTORY_FILE):
         try:
             with open(HISTORY_FILE, 'r', encoding='utf-8') as f:
@@ -17,7 +18,7 @@ def save_match_to_history(match_id, analysis_data):
             history = []
 
     # Check if match already exists
-    match_exists = False
+    match_exists: bool = False
     for i, entry in enumerate(history):
         if entry.get('match_id') == match_id:
             history[i] = {
@@ -41,34 +42,35 @@ def save_match_to_history(match_id, analysis_data):
         print(f"Error saving history: {e}")
         return False
 
-def get_match_history():
+def get_match_history() -> List[Dict[str, Any]]:
     """
     Retrieves the full match history from the JSON file.
     """
     if os.path.exists(HISTORY_FILE):
         try:
             with open(HISTORY_FILE, 'r', encoding='utf-8') as f:
-                return json.load(f)
+                data: List[Dict[str, Any]] = json.load(f)
+                return data
         except (json.JSONDecodeError, IOError):
             return []
     return []
 
-def get_player_avg_kd(player_name):
+def get_player_avg_kd(player_name: str) -> Optional[float]:
     """
     Calculates the average K/D ratio for a player based on history.
     """
-    history = get_match_history()
-    total_kd = 0
-    match_count = 0
+    history: List[Dict[str, Any]] = get_match_history()
+    total_kd: float = 0.0
+    match_count: int = 0
 
     for entry in history:
-        analysis = entry.get('data', {}).get('analysis', [])
+        analysis: List[Dict[str, Any]] = entry.get('data', {}).get('analysis', [])
         for team in analysis:
             for player in team.get('players', []):
                 if player.get('name') == player_name:
-                    kills = player.get('kills', 0)
-                    deaths = player.get('deaths', 0)
-                    kd = kills / max(1, deaths)
+                    kills: int = player.get('kills', 0)
+                    deaths: int = player.get('deaths', 0)
+                    kd: float = kills / max(1, deaths)
                     total_kd += kd
                     match_count += 1
                     break # Found player in this match, move to next match
@@ -76,18 +78,18 @@ def get_player_avg_kd(player_name):
     if match_count == 0:
         return None
     
-    return round(total_kd / match_count, 2)
+    return float(round(total_kd / match_count, 2))
 
-def get_first_blood_victim():
+def get_first_blood_victim() -> Optional[Dict[str, Union[str, int]]]:
     """
     Identifies the player who most frequently has the highest death count in matches.
     """
-    history = get_match_history()
-    victim_counts = {}
+    history: List[Dict[str, Any]] = get_match_history()
+    victim_counts: Dict[str, int] = {}
 
     for entry in history:
-        analysis = entry.get('data', {}).get('analysis', [])
-        all_players = []
+        analysis: List[Dict[str, Any]] = entry.get('data', {}).get('analysis', [])
+        all_players: List[Dict[str, Any]] = []
         for team in analysis:
             for player in team.get('players', []):
                 all_players.append(player)
@@ -96,17 +98,17 @@ def get_first_blood_victim():
             continue
 
         # Find player(s) with maximum deaths in this match
-        max_deaths = max(p.get('deaths', 0) for p in all_players)
+        max_deaths: int = max(p.get('deaths', 0) for p in all_players)
         if max_deaths > 0:
             for p in all_players:
                 if p.get('deaths', 0) == max_deaths:
-                    name = p.get('name')
+                    name: str = p.get('name')
                     victim_counts[name] = victim_counts.get(name, 0) + 1
 
     if not victim_counts:
         return None
 
     # Sort by count descending
-    sorted_victims = sorted(victim_counts.items(), key=lambda x: x[1], reverse=True)
+    sorted_victims: List[Tuple[str, int]] = sorted(victim_counts.items(), key=lambda x: x[1], reverse=True)
     top_victim, count = sorted_victims[0]
     return {"name": top_victim, "count": count}

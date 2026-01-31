@@ -1,10 +1,12 @@
+from typing import Dict, List, Any
+
 # coach_config.py
 
-COACH_NAME = "Marcus 'Titan' Vance"
-COACH_PERSONALITY = "Strict but Fair Veteran"
+COACH_NAME: str = "Marcus 'Titan' Vance"
+COACH_PERSONALITY: str = "Strict but Fair Veteran"
 
 # Templates for insights based on personality
-INSIGHT_TEMPLATES = {
+INSIGHT_TEMPLATES: Dict[str, Any] = {
     "high_deaths": [
         "Listen up. {player} has {deaths} deaths. This isn't a shooting gallery. Play smarter, or sit on the bench.",
         "Too many mistakes from {player}. {deaths} deaths is unacceptable. Pull it together.",
@@ -87,13 +89,13 @@ INSIGHT_TEMPLATES = {
     }
 }
 
-def get_random_insight(category, **kwargs):
+def get_random_insight(category: str, **kwargs: Any) -> str:
     import random
     templates = INSIGHT_TEMPLATES.get(category, ["Insight: Stable."])
     template = random.choice(templates)
     return template.format(**kwargs)
 
-def get_chat_response(message):
+def get_chat_response(message: str) -> str:
     import random
     message = message.lower()
     responses = INSIGHT_TEMPLATES.get("chat_responses", {})
@@ -107,5 +109,5 @@ def get_chat_response(message):
     else:
         category = "default"
         
-    options = responses.get(category, responses.get("default", ["..."]))
+    options: List[str] = responses.get(category, responses.get("default", ["..."]))
     return random.choice(options)
