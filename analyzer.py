@@ -123,7 +123,7 @@ class MatchAnalyzer:
         if p:
             kills = p.get('kills', 0)
             deaths = p.get('deaths', 0)
-            assists = p.get('killAssistsGiven', 0)
+            assists = p.get('assists', 0)
             efficiency = round((kills + assists) / max(1, deaths), 2)
             return efficiency
         return 0.0

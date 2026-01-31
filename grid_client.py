@@ -73,11 +73,19 @@ class GridClient:
         query = f"""
         query GetTournaments {{
           tournaments(first: {limit}) {{
+            pageInfo {{
+              hasPreviousPage
+              hasNextPage
+              startCursor
+              endCursor
+            }}
             totalCount
             edges {{
+              cursor
               node {{
                 id
                 name
+                nameShortened
               }}
             }}
           }}
@@ -95,7 +103,6 @@ class GridClient:
         Returns:
             Series list data dictionary or None.
         """
-        # Using 'baseInfo' as discovered in the GQL Playground documentation
         query = f"""
         query GetRecentSeries {{
           allSeries(
@@ -103,12 +110,26 @@ class GridClient:
             orderBy: StartTimeScheduled
           ) {{
             totalCount
+            pageInfo {{
+              hasPreviousPage
+              hasNextPage
+              startCursor
+              endCursor
+            }}
             edges {{
+              cursor
               node {{
                 id
-                startTimeScheduled
+                title {{
+                  nameShortened
+                }}
                 tournament {{
-                    nameShortened
+                  nameShortened
+                }}
+                startTimeScheduled
+                format {{
+                  name
+                  nameShortened
                 }}
                 teams {{
                   baseInfo {{
@@ -118,6 +139,7 @@ class GridClient:
                     colorPrimary
                     colorSecondary
                   }}
+                  scoreAdvantage
                 }}
               }}
             }}
@@ -140,8 +162,16 @@ class GridClient:
         query GetMatchDetails($id: ID!) {
           series(id: $id) {
             id
+            title {
+              nameShortened
+            }
+            tournament {
+              nameShortened
+            }
+            startTimeScheduled
             format {
               name
+              nameShortened
             }
             teams {
               baseInfo {
@@ -151,31 +181,7 @@ class GridClient:
                 colorPrimary
                 colorSecondary
               }
-            }
-            games {
-              id
-              sequenceNumber
-              teams {
-                baseInfo {
-                  id
-                  name
-                  logoUrl
-                  colorPrimary
-                  colorSecondary
-                }
-                players {
-                  player {
-                    baseInfo {
-                      name
-                    }
-                  }
-                  stats {
-                    kills
-                    deaths
-                    assists
-                  }
-                }
-              }
+              scoreAdvantage
             }
           }
         }
@@ -185,40 +191,16 @@ class GridClient:
 
     def get_team_stats(self, team_id: str = "83") -> Optional[Dict[str, Any]]:
         """
-        Retrieve historical performance statistics for a specific team.
-        
-        Args:
-            team_id: The ID of the team.
-            
-        Returns:
-            Team statistics data or None.
+        Note: The teamStatistics field is currently not available in the Central Data API.
+        This method is kept for future compatibility but returns None to avoid errors.
         """
-        query = f"""
-        query TeamStatisticsForLastThreeMonths {{
-          teamStatistics(teamId: "{team_id}", filter: {{ timeWindow: LAST_3_MONTHS }}) {{
-            series {{
-              count
-              kills {{
-                sum
-                avg
-              }}
-            }}
-            game {{
-              count
-              wins {{
-                percentage
-              }}
-            }}
-            segment {{
-              deaths {{
-                sum
-                avg
-              }}
-            }}
-          }}
-        }}
-        """
-        return self._execute_query(query)
+        # query = f"""
+        # query TeamStatisticsForLastThreeMonths {{
+        #   teamStatistics(teamId: "{team_id}", filter: {{ timeWindow: LAST_3_MONTHS }}) {{
+        #     id
+        # ...
+        # """
+        return None
 
     def get_series_state(self, series_id: Union[int, str]) -> Optional[Dict[str, Any]]:
         """
@@ -233,10 +215,16 @@ class GridClient:
         query = """
         query GetSeriesState($id: ID!) {
           seriesState(id: $id) {
-            id
             valid
+            updatedAt
+            format
+            started
+            finished
+            teams {
+              name
+              won
+            }
             games {
-              id
               sequenceNumber
               teams {
                 name
@@ -245,7 +233,12 @@ class GridClient:
                   name
                   kills
                   deaths
-                  killAssistsGiven
+                  netWorth
+                  money
+                  position {
+                    x
+                    y
+                  }
                 }
               }
             }

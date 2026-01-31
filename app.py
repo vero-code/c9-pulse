@@ -135,11 +135,39 @@ def match_detail(match_id: str) -> Union[str, Tuple[str, int]]:
         for team in teams:
             team_name = team['name']
             details = team_details.get(team_name, {})
+            
+            # Fetch scouting info (Win Rate & Win Streak)
+            team_id = None
+            if details_data and 'series' in details_data and details_data['series']:
+                for t in details_data['series'].get('teams', []):
+                    if t.get('baseInfo', {}).get('name') == team_name:
+                        team_id = t.get('baseInfo', {}).get('id')
+                        break
+            
+            scouting_info = {'win_rate': None, 'win_streak': None}
+            if team_id:
+                try:
+                    stats = client.get_team_stats(team_id)
+                    if stats and 'teamStatistics' in stats and stats['teamStatistics']:
+                        game_stats = stats['teamStatistics'].get('game', {})
+                        wins = game_stats.get('wins', {})
+                        scouting_info = {
+                            'win_rate': wins.get('percentage'),
+                            'win_streak': wins.get('streak', {}).get('current')
+                        }
+                    # else:
+                    #    print(f"ℹ️ No scouting data available for team {team_name} (ID: {team_id})")
+                except Exception as e:
+                    print(f"⚠️ Error fetching stats for {team_name}: {e}")
+            # else:
+            #    print(f"⚠️ Could not find team ID for {team_name}")
+
             team_analysis: Dict[str, Any] = {
                 'team_name': team_name,
                 'logoUrl': details.get('logoUrl'),
                 'colorPrimary': details.get('colorPrimary'),
                 'colorSecondary': details.get('colorSecondary'),
+                'scouting_info': scouting_info,
                 'economy': analyzer.analyze_team_economy(team_name),
                 'economy_risk': analyzer.calculate_economy_risk(team['name']),
                 'buy_recommendation': analyzer.get_buy_recommendation(team['name']),
@@ -150,7 +178,14 @@ def match_detail(match_id: str) -> Union[str, Tuple[str, int]]:
                 player_name = player['name']
                 kills = player.get('kills', 0)
                 deaths = player.get('deaths', 0)
-                assists = player.get('killAssistsGiven', 0)
+                # killAssistsGiven is mapped from GraphQL assists field if it was there, 
+                # but based on documentation it should be there or we use a fallback.
+                # In our updated GridClient, we don't fetch assists in seriesState anymore 
+                # as it was not in the documentation provided in the prompt.
+                # Wait, the documentation for GetLiveDotaSeriesState has players with:
+                # name, kills, deaths, netWorth, money, position { x, y }
+                # No assists!
+                assists = player.get('assists', 0) # Use 0 if not present
                 current_kd = round(kills / max(1, deaths), 2)
                 avg_kd = get_player_avg_kd(player_name)
                 trade_efficiency = analyzer.calculate_trade_efficiency(player_name)

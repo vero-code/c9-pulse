@@ -114,6 +114,12 @@
                         <h4 class="mb-0">{{ team.team_name }}</h4>
                     </div>
                     <div class="d-flex align-items-center gap-2">
+                        <span class="badge bg-dark text-info">
+                            Win Rate: {{ (team.scouting_info.win_rate * 100) | round(1) if team.scouting_info.win_rate else 'N/A' }}%
+                        </span>
+                        <span class="badge bg-dark text-info">
+                            Streak: {{ team.scouting_info.win_streak if team.scouting_info.win_streak is not none else 'N/A' }}
+                        </span>
                         <span class="badge {% if team.buy_recommendation == 'Full Buy' %}bg-success{% elif team.buy_recommendation == 'Force Buy' %}bg-warning text-dark{% else %}bg-danger{% endif %}">
                             Buy: {{ team.buy_recommendation }}
                         </span>
