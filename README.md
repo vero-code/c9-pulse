@@ -66,6 +66,48 @@ C9 Pulse now features a "voice" with a distinct personality to keep the team foc
 
 ---
 
+## 🏗️ Architecture
+
+C9 Pulse is designed as a modular analytical platform. Below is a high-level overview of the system's data flow and components.
+
+```mermaid
+graph TD
+    subgraph External ["External Services"]
+        User([User / Browser])
+        GRID_API[(GRID Data API)]
+        Gemini[(Google Gemini AI)]
+    end
+
+    subgraph C9_Pulse ["C9 Pulse Application"]
+        Flask[Web Interface<br/>app.py]
+        GRID[Data Client<br/>grid_client.py]
+        Analyzer[Analytical Engine<br/>analyzer.py]
+        Coach[Coach Logic<br/>coach_config.py]
+        Voice[Voice Engine<br/>voice_engine.py]
+        History[History Manager<br/>history_manager.py]
+        Storage[(JSON Storage)]
+    end
+
+    User <--> Flask
+    
+    Flask <--> GRID
+    GRID <--> GRID_API
+    
+    Flask <--> Analyzer
+    Analyzer <--> Coach
+    Coach <--> Gemini
+    
+    Coach --> Voice
+    Voice --> Flask
+    
+    Analyzer <--> History
+    History <--> Storage
+```
+
+For a more detailed technical breakdown, please refer to the [ARCHITECTURE.md](ARCHITECTURE.md) file.
+
+---
+
 ## 🛠️ Tech Stack
 
 * **Frontend:** HTML5, CSS3 (Custom C9 Theme), Bootstrap 5, Chart.js
