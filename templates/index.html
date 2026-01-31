@@ -52,7 +52,7 @@
                         </div>
                         <h5 class="card-title">{{ match.versus }}</h5>
                         <p class="card-text text-muted">{{ match.tournament }}</p>
-                        <p class="card-text"><small class="text-muted">{{ match.time }}</small></p>
+                        <p class="card-text"><small class="text-muted">{{ match.time | format_datetime }}</small></p>
                     </div>
                 </div>
             </div>

@@ -3,6 +3,7 @@ from flask import Flask, render_template, request, redirect, url_for, Response, 
 
 # app.py
 import os
+from datetime import datetime
 from dotenv import load_dotenv
 from grid_client import GridClient
 from analyzer import MatchAnalyzer
@@ -20,6 +21,22 @@ api_key: Optional[str] = os.getenv("GRID_API_KEY")
 client: Optional[GridClient] = None
 if api_key:
     client = GridClient(api_key)
+
+@app.template_filter('format_datetime')
+def format_datetime(value: str) -> str:
+    """
+    Format a timestamp string to a more readable format.
+    Input: 2024-01-13T16:00:00Z
+    Output: 13.01.2024 16:00
+    """
+    if not value or value == 'N/A':
+        return value
+    try:
+        # Replace Z with +00:00 for fromisoformat compatibility in Python < 3.11
+        dt = datetime.fromisoformat(value.replace('Z', '+00:00'))
+        return dt.strftime('%d.%m.%Y %H:%M')
+    except (ValueError, TypeError):
+        return value
 
 @app.route('/')
 def index() -> Union[str, Tuple[str, int]]:
