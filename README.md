@@ -28,12 +28,33 @@ We have moved away from the console-only interface to a full-featured **Web Dash
 
 ## 🧠 Advanced Analytics (Moneyball "Brain")
 
-The core engine has been upgraded with deep analytical metrics:
+The core engine has been upgraded with deep analytical metrics (v0.3.0):
 
+* **Economic Risk Assessment:** AI calculates the risk of losing the current round based on player K/D and team economy.
+* **Purchasing Advice:** Real-time recommendations on when to "Save", "Force Buy", or "Full Buy".
+* **Tilt Meter:** Detects psychological instability in players by analyzing death streaks and sudden performance drops.
+* **Opponent Analysis:** Identifies enemy playstyles (aggressive vs. passive) and highlights their most dangerous players.
+* **Match MVP & Underperformer:** Automatically highlights the top-performing player with a **Gold Frame** and flags struggling teammates for targeted support.
 * **Match History Persistence:** All analyzed matches are saved to `match_history.json` for long-term tracking.
 * **Historical K/D Comparison:** Compare current performance (`Current K/D`) against the player's historical average (`Avg K/D`).
-* **Trade Efficiency Metric:** Measures how effectively players are traded during exchanges: `(Kills + Assists) / Deaths`.
-* **First Blood Victim Detector:** Identifies players who are dying first most frequently, allowing teams to adjust their positioning.
+* **Trade Efficiency Metric:** Measures how effectively players are traded during exchanges.
+
+---
+
+## 🎙️ Hype Man (Audio & AI Coach)
+
+C9 Pulse now features a "voice" with a distinct personality to keep the team focused.
+
+* **Coach Marcus 'Titan' Vance:** A strict but fair veteran personality who provides feedback based on match events.
+* **Voice Synthesis:** Powered by **gTTS (Google Text-to-Speech)** for high-quality audio commentary.
+* **Adaptive Feedback:**
+    * **Praise:** Dynamic phrases for Aces, clutches, and high K/D.
+    * **Emotional Support:** Calming "Down Phrases" to prevent tilt after tough losses.
+    * **Critical Alerts:** Only the most important moments (Aces, Death Streaks, Economy Shifts) are voiced to avoid distraction.
+* **Timeout Talk Mode:** A comprehensive mid-match strategy breakdown provided during breaks.
+* **Interactive Text Chat:** Talk directly to Coach Titan to get specific advice or performance updates.
+* **Mute Coach Toggle:** Full control over audio feedback with a dedicated mute button.
+* **Sound Effects:** "Ping" alerts for critical events and victory congratulations.
 
 ---
 
@@ -49,6 +70,7 @@ The core engine has been upgraded with deep analytical metrics:
 
 * **Frontend:** HTML5, CSS3 (Custom C9 Theme), Bootstrap 5, Chart.js
 * **Backend:** Flask (Python)
+* **Voice:** gTTS (Google Text-to-Speech)
 * **Data Source:** [GRID Open Platform API](https://grid.gg/platform) (GraphQL)
 * **Storage:** JSON-based persistence
 * **AI Co-Pilot:** Junie (JetBrains AI Agent)
@@ -101,7 +123,7 @@ One of the biggest technical challenges was accessing granular player statistics
 Using **Junie (JetBrains AI)**, I reverse-engineered the query structure and identified the access point for the **Live Data Feed** (`series-state`). 
 I wrote a custom GraphQL client in Python that bypasses the static data limitations, fetching real-time game states directly.
 
-```python
+```graphql
 # Example of the Live Data Query utilized
 query GetSeriesState($id: ID!) {
   seriesState(id: $id) {
@@ -122,9 +144,10 @@ query GetSeriesState($id: ID!) {
 
 ## 🔮 Future Roadmap
 
--   [x] **Flask Web Dashboard:** Visual dashboard for economy graphs and stats.
--   [ ] **Voice Synthesis (TTS):** Allowing the AI Coach to speak during timeouts.
--   [ ] **Predictive Models:** Using historical data to predict enemy eco-rounds.
+- [x] **Flask Web Dashboard:** Visual dashboard for economy graphs and stats.
+- [x] **Voice Synthesis (TTS):** Coach personality with real-time audio commentary.
+- [ ] **Predictive Models:** Using historical data to predict enemy eco-rounds.
+- [ ] **Advanced Tactical Overlay:** Real-time map positioning advice.
 
 ---
 
