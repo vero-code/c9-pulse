@@ -21,11 +21,11 @@
     <script src="{{ url_for('static', filename='js/match_detail.js') }}"></script>
 </head>
 <body>
-    <nav class="navbar navbar-dark mb-4">
+    <nav class="navbar navbar-dark mb-4 py-3">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="/">
-                <img src="{{ url_for('static', filename='img/logo.png') }}" alt="C9 Logo" width="30" height="30" class="d-inline-block align-top me-2">
-                C9 Pulse
+                <img src="{{ url_for('static', filename='img/logo.png') }}" alt="C9 Logo" width="40" height="40" class="d-inline-block align-top me-3">
+                <span style="font-size: 1.5rem;">C9 PULSE</span>
             </a>
         </div>
     </nav>
@@ -41,20 +41,23 @@
 
         <a href="/" class="btn btn-secondary mb-4">&larr; Back to Matches</a>
         
-        <div class="row mb-4">
-            <div class="col-md-8">
-                <h2 class="mb-0">Live Analysis (ID: {{ match_id }})</h2>
-                <p class="text-muted">Analyzing real-time performance and economy...</p>
+        <div class="row mb-4 align-items-center">
+            <div class="col-md-7">
+                <div class="d-flex align-items-center gap-2">
+                    <div class="live-indicator"></div>
+                    <h2 class="mb-0">Broadcast Analysis</h2>
+                </div>
+                <p class="text-muted small">Match ID: {{ match_id }} | Analyzing performance and economy...</p>
             </div>
-            <div class="col-md-4 text-end">
-                <div class="coach-profile p-2 bg-dark rounded border border-info d-inline-block text-start">
+            <div class="col-md-5 text-end">
+                <div class="coach-profile p-2 d-inline-block text-start">
                     <div class="d-flex align-items-center">
-                        <div class="coach-avatar me-2 bg-info rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
-                            <span class="text-dark fw-bold">MV</span>
+                        <div class="coach-avatar me-2 bg-info rounded-circle d-flex align-items-center justify-content-center" style="width: 45px; height: 45px; border: 2px solid white;">
+                            <span class="text-dark fw-bold">TITAN</span>
                         </div>
                         <div>
-                            <div class="fw-bold text-info" style="font-size: 0.9rem;">{{ coach_name }}</div>
-                            <div class="text-muted" style="font-size: 0.75rem;">{{ coach_personality }}</div>
+                            <div class="fw-bold text-info" style="font-size: 1rem;">{{ coach_name }}</div>
+                            <div class="text-muted" style="font-size: 0.7rem;">Head Coach | C9 Pulse</div>
                         </div>
                     </div>
                 </div>
@@ -138,13 +141,13 @@
                             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
                                 {% for player in team.players %}
                                 <div class="col">
-                                    <div class="card h-100 bg-dark border-secondary shadow-sm {% if player.name == mvp_player %}mvp-card{% endif %}">
-                                        <div class="card-body">
-                                            <div class="d-flex justify-content-between align-items-start">
-                                                <h3 class="card-title text-info mb-1">{{ player.name }}</h3>
+                                    <div class="card h-100 player-card {% if player.name == mvp_player %}mvp-card{% endif %}">
+                                        <div class="card-body p-3">
+                                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                                <h3 class="card-title text-info mb-0" style="font-size: 1.5rem;">{{ player.name }}</h3>
                                                 <div class="d-flex gap-1">
                                                     {% if player.is_underperformer %}
-                                                    <span class="badge bg-danger">Underperformer</span>
+                                                    <span class="badge bg-danger">SLUMPING</span>
                                                     {% endif %}
                                                     {% if player.name == mvp_player %}
                                                     <span class="badge bg-warning text-dark">MVP</span>
@@ -152,58 +155,58 @@
                                                 </div>
                                             </div>
                                             
-                                            <div class="mb-3">
-                                                <div class="d-flex justify-content-between mb-1" style="font-size: 0.85rem;">
-                                                    <span>Kills: <strong>{{ player.kills }}</strong></span>
-                                                    <span>Assists: <strong>{{ player.assists }}</strong></span>
-                                                    <span>Deaths: <strong>{{ player.deaths }}</strong></span>
+                                            <div class="row g-2 mb-3">
+                                                <div class="col-4">
+                                                    <div class="stat-label">Kills</div>
+                                                    <div class="stat-value text-white">{{ player.kills }}</div>
                                                 </div>
-                                                <div class="d-flex justify-content-between mb-1" style="font-size: 0.85rem;">
-                                                    <span>Current K/D: <strong class="{% if player.current_kd >= 1.0 %}text-success{% else %}text-warning{% endif %}">{{ player.current_kd }}</strong></span>
-                                                    <span>Avg K/D: <strong>{{ player.avg_kd if player.avg_kd else 'N/A' }}</strong></span>
+                                                <div class="col-4 text-center">
+                                                    <div class="stat-label">Assists</div>
+                                                    <div class="stat-value text-white">{{ player.assists }}</div>
                                                 </div>
-                                                <div class="d-flex justify-content-between mb-2" style="font-size: 0.85rem;">
-                                                    <span>Trade Efficiency: <strong class="text-info">{{ player.trade_efficiency }}</strong></span>
-                                                    <span>Tilt Risk: <strong class="{% if player.tilt_risk > 70 %}text-danger{% elif player.tilt_risk > 30 %}text-warning{% else %}text-success{% endif %}">{{ player.tilt_risk }}%</strong></span>
+                                                <div class="col-4 text-end">
+                                                    <div class="stat-label">Deaths</div>
+                                                    <div class="stat-value text-white">{{ player.deaths }}</div>
                                                 </div>
-                                                {% if player.tilt_risk > 50 %}
-                                                <div class="mb-2">
-                                                    <div class="progress" style="height: 6px; background-color: #2d3238;">
-                                                        <div class="progress-bar bg-danger" 
-                                                             role="progressbar" 
-                                                             style="width: 0%"
-                                                             data-tilt="{{ player.tilt_risk }}"
-                                                             aria-valuenow="{{ player.tilt_risk }}" 
-                                                             aria-valuemin="0" 
-                                                             aria-valuemax="100">
-                                                        </div>
-                                                    </div>
-                                                    <small class="text-danger" style="font-size: 0.7rem;">⚠️ HIGH TILT RISK</small>
+                                            </div>
+
+                                            <div class="row g-2 mb-3 border-top border-secondary pt-2">
+                                                <div class="col-6">
+                                                    <div class="stat-label">Current K/D</div>
+                                                    <div class="stat-value {% if player.current_kd >= 1.0 %}text-success{% else %}text-warning{% endif %}">{{ player.current_kd }}</div>
                                                 </div>
-                                                {% endif %}
-                                                {% set total = player.kills + player.deaths %}
-                                                {% set percentage = (player.kills / total * 100) if total > 0 else 50 %}
-                                                <div class="progress" style="height: 12px; background-color: #2d3238;">
-                                                    <div class="progress-bar {% if percentage >= 50 %}bg-info{% else %}bg-secondary{% endif %}" 
+                                                <div class="col-6 text-end">
+                                                    <div class="stat-label">Tilt Risk</div>
+                                                    <div class="stat-value {% if player.tilt_risk > 70 %}text-danger{% elif player.tilt_risk > 30 %}text-warning{% else %}text-success{% endif %}">{{ player.tilt_risk }}%</div>
+                                                </div>
+                                            </div>
+
+                                            {% if player.tilt_risk > 50 %}
+                                            <div class="mb-2">
+                                                <div class="progress" style="height: 4px; background-color: #2d3238; border-radius: 0;">
+                                                    <div class="progress-bar bg-danger" 
                                                          role="progressbar" 
-                                                         data-width="{{ percentage }}"
                                                          style="width: 0%"
-                                                         aria-valuenow="{{ percentage }}" 
+                                                         data-tilt="{{ player.tilt_risk }}"
+                                                         aria-valuenow="{{ player.tilt_risk }}" 
                                                          aria-valuemin="0" 
                                                          aria-valuemax="100">
                                                     </div>
                                                 </div>
                                             </div>
+                                            {% endif %}
 
-                                            <div class="ai-insight p-2 rounded" style="background-color: #1a1d21; font-size: 0.9rem;">
-                                                <small class="text-muted d-block mb-1">{{ coach_name }}:</small>
-                                                {% if "Good work" in player.insight or "Finally" in player.insight or "Solid" in player.insight %}
-                                                    <span class="text-success">{{ player.insight }}</span>
-                                                {% elif "Listen up" in player.insight or "Too many mistakes" in player.insight or "feeding" in player.insight %}
-                                                    <span class="text-danger">{{ player.insight }}</span>
-                                                {% else %}
-                                                    <span class="text-info">{{ player.insight }}</span>
-                                                {% endif %}
+                                            <div class="ai-insight p-2 mt-2" style="background-color: rgba(0,0,0,0.3); font-size: 0.85rem; border-left: 2px solid var(--c9-blue);">
+                                                <span class="text-muted" style="font-size: 0.7rem; text-transform: uppercase;">Coach Analysis:</span>
+                                                <div class="mt-1">
+                                                    {% if "Good work" in player.insight or "Finally" in player.insight or "Solid" in player.insight %}
+                                                        <span class="text-success italic" style="font-style: italic;">"{{ player.insight }}"</span>
+                                                    {% elif "Listen up" in player.insight or "Too many mistakes" in player.insight or "feeding" in player.insight %}
+                                                        <span class="text-danger italic" style="font-style: italic;">"{{ player.insight }}"</span>
+                                                    {% else %}
+                                                        <span class="text-info italic" style="font-style: italic;">"{{ player.insight }}"</span>
+                                                    {% endif %}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

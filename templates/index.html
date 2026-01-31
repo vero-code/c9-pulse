@@ -9,19 +9,20 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <nav class="navbar navbar-dark mb-4">
+    <nav class="navbar navbar-dark mb-4 py-3">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="/">
                 <img src="{{ url_for('static', filename='img/logo.png') }}"
                      alt="C9 Logo"
-                     width="30"
-                     height="30"
-                     class="d-inline-block align-top me-2">
-                C9 Pulse
+                     width="40"
+                     height="40"
+                     class="d-inline-block align-top me-3">
+                <span style="font-size: 1.5rem;">C9 PULSE</span>
             </a>
-            <span class="navbar-text text-info fw-bold">
-                Coach: Marcus 'Titan' Vance
-            </span>
+            <div class="d-none d-md-block text-end">
+                <div class="text-info fw-bold small" style="letter-spacing: 1px;">HEAD COACH</div>
+                <div class="text-white fw-bold">{{ coach_name|default("Marcus 'Titan' Vance") }}</div>
+            </div>
         </div>
     </nav>
 
@@ -39,21 +40,28 @@
         <h2 class="mb-4">Recent Matches</h2>
         <div class="row">
             {% for match in matches %}
-            <div class="col-md-6 col-lg-4 mb-3">
-                <div class="card h-100 shadow-sm match-card" onclick="location.href='/match/{{ match.id }}'">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            {% if match.team_a_logo %}
-                                <img src="{{ match.team_a_logo }}" alt="Team A Logo" height="30">
-                            {% endif %}
-                            <span class="text-muted fw-bold">VS</span>
-                            {% if match.team_b_logo %}
-                                <img src="{{ match.team_b_logo }}" alt="Team B Logo" height="30">
-                            {% endif %}
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card h-100 match-card" onclick="location.href='/match/{{ match.id }}'">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <div class="team-slot text-center" style="width: 40%;">
+                                {% if match.team_a_logo %}
+                                    <img src="{{ match.team_a_logo }}" alt="Team A" height="40" class="mb-2">
+                                {% endif %}
+                                <div class="small fw-bold">{{ match.versus.split(' vs ')[0] }}</div>
+                            </div>
+                            <div class="vs-badge bg-dark px-2 py-1 small fw-bold text-info border border-info">VS</div>
+                            <div class="team-slot text-center" style="width: 40%;">
+                                {% if match.team_b_logo %}
+                                    <img src="{{ match.team_b_logo }}" alt="Team B" height="40" class="mb-2">
+                                {% endif %}
+                                <div class="small fw-bold">{{ match.versus.split(' vs ')[1] }}</div>
+                            </div>
                         </div>
-                        <h5 class="card-title">{{ match.versus }}</h5>
-                        <p class="card-text text-muted">{{ match.tournament }}</p>
-                        <p class="card-text"><small class="text-muted">{{ match.time | format_datetime }}</small></p>
+                        <div class="border-top border-secondary pt-3 mt-3">
+                            <p class="card-text text-muted mb-1" style="font-size: 0.8rem;">{{ match.tournament }}</p>
+                            <p class="card-text"><small class="text-info fw-bold">{{ match.time | format_datetime }}</small></p>
+                        </div>
                     </div>
                 </div>
             </div>
