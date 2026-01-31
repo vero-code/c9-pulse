@@ -85,3 +85,33 @@ def test_find_mvp(sample_match_data):
     analyzer = MatchAnalyzer(sample_match_data)
     mvp = analyzer.find_mvp()
     assert mvp == "TenZ"
+
+def test_multiple_games(mocker):
+    mocker.patch("analyzer.get_random_insight", side_effect=lambda key, **kwargs: f"{key}")
+    data = {
+        "games": [
+            {
+                "teams": [
+                    {
+                        "name": "Team1",
+                        "players": [{"name": "OldPlayer", "kills": 10, "deaths": 2}]
+                    }
+                ]
+            },
+            {
+                "teams": [
+                    {
+                        "name": "Team1",
+                        "players": [{"name": "NewPlayer", "kills": 5, "deaths": 1}]
+                    }
+                ]
+            }
+        ]
+    }
+    analyzer = MatchAnalyzer(data)
+    # NewPlayer is in the latest game
+    assert analyzer.analyze_player_performance("NewPlayer") == "good_kd"
+    # OldPlayer is NOT in the latest game, but should be found by fallback
+    assert analyzer.analyze_player_performance("OldPlayer") == "good_kd"
+    # Team1 should be found in latest game primarily
+    assert analyzer.analyze_team_economy("Team1") == "team_winning"
