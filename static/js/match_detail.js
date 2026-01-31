@@ -185,6 +185,9 @@ function initChatLogic() {
             addMessage(message, 'user');
             chatInput.value = '';
 
+            // Show thinking indicator
+            const thinkingDiv = showThinking();
+
             try {
                 const response = await fetch('/ask_coach', {
                     method: 'POST',
@@ -195,10 +198,12 @@ function initChatLogic() {
                 
                 // Simulate typing delay
                 setTimeout(() => {
+                    thinkingDiv.remove();
                     addMessage(data.response, 'coach');
                 }, 500);
             } catch (err) {
                 console.error('Chat error:', err);
+                thinkingDiv.remove();
                 addMessage('Connection lost. I am busy anyway.', 'coach');
             }
         });
@@ -210,6 +215,15 @@ function initChatLogic() {
         div.innerText = text;
         chatBody.appendChild(div);
         chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    function showThinking() {
+        const div = document.createElement('div');
+        div.className = 'chat-message coach typing-indicator';
+        div.innerHTML = '<span></span><span></span><span></span>';
+        chatBody.appendChild(div);
+        chatBody.scrollTop = chatBody.scrollHeight;
+        return div;
     }
 }
 
