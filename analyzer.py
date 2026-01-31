@@ -272,7 +272,7 @@ class MatchAnalyzer:
         target_team = self.teams_by_name.get(team_name)
         
         if target_team and opponent_team.get('score', 0) > target_team.get('score', 0) + 3:
-            return "⚠️ Strategy Insight: Enemy often pushes B. Be ready for aggressive site takes."
+            return "⚠️ Strategy Insight: Enemy often pushes sites quickly. Be ready for aggressive executes."
         
         return "✅ Strategy Insight: Opponent playing standard. No unusual patterns detected."
 

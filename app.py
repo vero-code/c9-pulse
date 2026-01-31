@@ -161,7 +161,7 @@ def match_detail(match_id: str) -> Union[str, Tuple[str, int]]:
         if len(teams) >= 2:
             team_a_score = teams[0].get('score', 0)
             team_b_score = teams[1].get('score', 0)
-            if team_a_score + team_b_score == 12: # CS2 halftime is after 12 rounds
+            if team_a_score + team_b_score == 12: # Valorant halftime is after 12 rounds
                 timeout_talk = analyzer.get_timeout_talk()
 
         audio_file: Optional[str] = None
@@ -174,7 +174,7 @@ def match_detail(match_id: str) -> Union[str, Tuple[str, int]]:
         
         cleanup_old_audio()
 
-        # CS2 match end check (one team reaches 13 rounds, or more in OT)
+        # Valorant match end check (one team reaches 13 rounds, or more in OT)
         match_finished = False
         winner_team: Optional[str] = None
         if len(teams) >= 2:
