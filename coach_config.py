@@ -90,12 +90,31 @@ INSIGHT_TEMPLATES: Dict[str, Any] = {
 }
 
 def get_random_insight(category: str, **kwargs: Any) -> str:
+    """
+    Retrieve a random formatted insight string for a given category.
+    
+    Args:
+        category: The insight category (e.g., 'good_kd', 'ace').
+        **kwargs: Values to format into the template.
+        
+    Returns:
+        A formatted insight string.
+    """
     import random
     templates = INSIGHT_TEMPLATES.get(category, ["Insight: Stable."])
     template = random.choice(templates)
     return template.format(**kwargs)
 
 def get_chat_response(message: str) -> str:
+    """
+    Select an appropriate coach response based on the user's message.
+    
+    Args:
+        message: The user's input message.
+        
+    Returns:
+        A random coach response string.
+    """
     import random
     message = message.lower()
     responses = INSIGHT_TEMPLATES.get("chat_responses", {})

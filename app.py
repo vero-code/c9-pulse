@@ -23,6 +23,12 @@ if api_key:
 
 @app.route('/')
 def index() -> Union[str, Tuple[str, int]]:
+    """
+    Render the home page with recent matches and history.
+    
+    Returns:
+        Rendered HTML template or error tuple.
+    """
     if not client:
         return "Error: GRID_API_KEY not found in environment.", 500
     
@@ -56,6 +62,15 @@ def index() -> Union[str, Tuple[str, int]]:
 
 @app.route('/match/<match_id>')
 def match_detail(match_id: str) -> Union[str, Tuple[str, int]]:
+    """
+    Render match analysis page for a specific series.
+    
+    Args:
+        match_id: The GRID series ID.
+        
+    Returns:
+        Rendered HTML template or error tuple.
+    """
     if not client:
         return "Error: GRID_API_KEY not found in environment.", 500
     
@@ -190,6 +205,12 @@ def match_detail(match_id: str) -> Union[str, Tuple[str, int]]:
 
 @app.route('/ask_coach', methods=['POST'])
 def ask_coach() -> Response:
+    """
+    Handle coach chatbot requests.
+    
+    Returns:
+        JSON Response with coach message.
+    """
     data: Dict[str, Any] = request.get_json()
     message: str = data.get('message', '')
     if not message:

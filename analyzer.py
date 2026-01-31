@@ -5,7 +5,10 @@ from coach_config import get_random_insight
 class MatchAnalyzer:
     def __init__(self, data: Dict[str, Any]) -> None:
         """
-        Initialize with raw JSON data from seriesState query.
+        Initialize analyzer with raw match data.
+        
+        Args:
+            data: Dictionary containing match series state.
         """
         self.data: Dict[str, Any] = data
         self.latest_game: Optional[Dict[str, Any]] = None
@@ -25,7 +28,15 @@ class MatchAnalyzer:
                         self.players_by_name[p_name] = p
 
     def _find_player_in_all_games(self, player_name: str) -> Optional[Dict[str, Any]]:
-        """Helper to find a player in any game, returning the first occurrence."""
+        """
+        Search for a player across all games in the series.
+        
+        Args:
+            player_name: The name of the player to find.
+            
+        Returns:
+            The player dictionary if found, otherwise None.
+        """
         for game in self.data.get('games', []):
             for team in game.get('teams', []):
                 for p in team.get('players', []):
@@ -35,7 +46,13 @@ class MatchAnalyzer:
 
     def analyze_player_performance(self, player_name: str) -> str:
         """
-        Analyze player performance based on kills and deaths.
+        Generate performance insight for a specific player.
+        
+        Args:
+            player_name: The name of the player to analyze.
+            
+        Returns:
+            A string containing a formatted performance insight.
         """
         p = self.players_by_name.get(player_name)
         if not p:
@@ -58,7 +75,13 @@ class MatchAnalyzer:
 
     def analyze_team_economy(self, team_name: str) -> str:
         """
-        Analyze team economy based on total Team K/D.
+        Generate economy insight for a specific team.
+        
+        Args:
+            team_name: The name of the team to analyze.
+            
+        Returns:
+            A string containing a formatted economy insight.
         """
         team = self.teams_by_name.get(team_name)
         if not team:
@@ -85,7 +108,13 @@ class MatchAnalyzer:
 
     def calculate_trade_efficiency(self, player_name: str) -> float:
         """
-        Calculates Trade Efficiency: (Kills + Assists) / Deaths
+        Calculate trade efficiency for a player: (Kills + Assists) / Deaths.
+        
+        Args:
+            player_name: The name of the player.
+            
+        Returns:
+            Efficiency ratio as a float.
         """
         p = self.players_by_name.get(player_name)
         if not p:
@@ -101,7 +130,10 @@ class MatchAnalyzer:
 
     def find_potential_victim(self) -> Optional[Dict[str, Any]]:
         """
-        Identify the player with the most deaths in the current game state.
+        Identify the player with the most deaths in the current game.
+        
+        Returns:
+            Dictionary of the player with the highest death count, or None.
         """
         if not self.latest_game:
             return None
@@ -117,8 +149,13 @@ class MatchAnalyzer:
 
     def calculate_economy_risk(self, team_name: str) -> float:
         """
-        Calculates "Economy Risk": The chance of losing a round due to poor buy.
-        Calculated based on recent K/D trends.
+        Estimate round loss probability due to poor economy.
+        
+        Args:
+            team_name: The name of the team to assess.
+            
+        Returns:
+            Risk percentage as a float (5.0 to 95.0).
         """
         if not self.latest_game:
             return 50.0  # Default middle risk
@@ -135,6 +172,7 @@ class MatchAnalyzer:
             return 50.0
 
         def get_team_kd(team: Dict[str, Any]) -> float:
+            """Calculate average K/D for a team."""
             players = team.get('players', [])
             kills = sum(p.get('kills', 0) for p in players)
             deaths = sum(p.get('deaths', 0) for p in players)
@@ -150,10 +188,13 @@ class MatchAnalyzer:
 
     def get_buy_recommendation(self, team_name: str) -> str:
         """
-        Calculates buy recommendation based on economy risk.
-        Low risk -> Full Buy
-        Medium risk -> Force Buy
-        High risk -> Eco
+        Get equipment purchase recommendation for a team.
+        
+        Args:
+            team_name: The name of the team.
+            
+        Returns:
+            Recommendation string: "Full Buy", "Force Buy", or "Eco".
         """
         risk = self.calculate_economy_risk(team_name)
         
@@ -166,12 +207,13 @@ class MatchAnalyzer:
 
     def calculate_tilt_risk(self, player_name: str) -> int:
         """
-        Calculates Tilt Risk for a player.
-        If a player has a high death count relative to their kills and the team's progress,
-        the tilt risk increases.
-        Since we don't have round-by-round death history in the current schema,
-        we use the current game's K/D and total deaths as a proxy.
-        If deaths >= 3 and K/D < 0.5, risk starts growing.
+        Assess probability of a player 'tilting' based on performance.
+        
+        Args:
+            player_name: The name of the player.
+            
+        Returns:
+            Risk score as an integer (0 to 100).
         """
         p = self.players_by_name.get(player_name)
         if not p:
@@ -205,8 +247,13 @@ class MatchAnalyzer:
 
     def analyze_opponent_strategy(self, team_name: str) -> str:
         """
-        Analyzes opponent strategy based on available match data.
-        Currently provides basic insights like "Enemy often pushes B".
+        Detect patterns in opponent's gameplay.
+        
+        Args:
+            team_name: The name of the team being coached.
+            
+        Returns:
+            String containing strategy insight.
         """
         if not self.latest_game:
             return "No data for strategy analysis."
@@ -231,8 +278,10 @@ class MatchAnalyzer:
 
     def find_mvp(self) -> Optional[str]:
         """
-        Identify the MVP of the match.
-        MVP is determined by the highest score, where score = kills + assists * 0.5 - deaths * 0.3.
+        Determine the Most Valuable Player based on performance score.
+        
+        Returns:
+            The name of the MVP player or None.
         """
         if not self.latest_game:
             return None
@@ -256,8 +305,10 @@ class MatchAnalyzer:
 
     def get_critical_moments(self) -> List[str]:
         """
-        Detects critical moments like Aces, Clutches, and Death Streaks.
-        Returns a list of strings describing these moments.
+        Identify high-impact events like Aces or Clutches.
+        
+        Returns:
+            A list of insight strings describing critical moments.
         """
         moments = []
         if not self.latest_game:
@@ -290,8 +341,10 @@ class MatchAnalyzer:
 
     def get_timeout_talk(self) -> Optional[str]:
         """
-        Generates a summary for the halftime timeout.
-        Returns a string with the summary.
+        Generate a tactical summary for a match timeout or halftime.
+        
+        Returns:
+            A formatted insight string for the timeout, or None.
         """
         if not self.latest_game:
             return None

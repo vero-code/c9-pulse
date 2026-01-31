@@ -6,8 +6,14 @@ HISTORY_FILE: str = 'match_history.json'
 
 def save_match_to_history(match_id: Union[int, str], analysis_data: Dict[str, Any]) -> bool:
     """
-    Saves match analysis results to a JSON file.
-    If the match already exists, it updates the record.
+    Save or update match analysis results in the local history.
+    
+    Args:
+        match_id: Unique identifier for the match.
+        analysis_data: The processed analysis results.
+        
+    Returns:
+        True if saved successfully, False otherwise.
     """
     history: List[Dict[str, Any]] = []
     if os.path.exists(HISTORY_FILE):
@@ -44,7 +50,10 @@ def save_match_to_history(match_id: Union[int, str], analysis_data: Dict[str, An
 
 def get_match_history() -> List[Dict[str, Any]]:
     """
-    Retrieves the full match history from the JSON file.
+    Retrieve the complete match history.
+    
+    Returns:
+        A list of match history entries.
     """
     if os.path.exists(HISTORY_FILE):
         try:
@@ -57,7 +66,13 @@ def get_match_history() -> List[Dict[str, Any]]:
 
 def get_player_avg_kd(player_name: str) -> Optional[float]:
     """
-    Calculates the average K/D ratio for a player based on history.
+    Calculate a player's average K/D ratio from history.
+    
+    Args:
+        player_name: The name of the player.
+        
+    Returns:
+        Average K/D as a float, or None if no history exists.
     """
     history: List[Dict[str, Any]] = get_match_history()
     total_kd: float = 0.0
@@ -82,7 +97,10 @@ def get_player_avg_kd(player_name: str) -> Optional[float]:
 
 def get_first_blood_victim() -> Optional[Dict[str, Union[str, int]]]:
     """
-    Identifies the player who most frequently has the highest death count in matches.
+    Identify the player who died most frequently across all matches.
+    
+    Returns:
+        A dictionary with 'name' and 'count', or None.
     """
     history: List[Dict[str, Any]] = get_match_history()
     victim_counts: Dict[str, int] = {}

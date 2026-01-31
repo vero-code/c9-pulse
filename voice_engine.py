@@ -5,8 +5,14 @@ from typing import Optional, List
 
 def generate_voice_commentary(text: str, lang: str = 'en') -> Optional[str]:
     """
-    Generates an MP3 file from text using gTTS and returns the filename.
-    The file is saved in the static/audio directory.
+    Generate an MP3 voice file from text using gTTS.
+    
+    Args:
+        text: The text to convert to speech.
+        lang: Language code for TTS.
+        
+    Returns:
+        The generated filename, or None if it fails.
     """
     try:
         if not text:
@@ -29,7 +35,10 @@ def generate_voice_commentary(text: str, lang: str = 'en') -> Optional[str]:
 
 def cleanup_old_audio(max_files: int = 10) -> None:
     """
-    Cleans up old audio files in the static/audio directory.
+    Remove old audio files to save space.
+    
+    Args:
+        max_files: Maximum number of files to keep.
     """
     try:
         static_audio_dir: str = os.path.join('static', 'audio')
