@@ -41,9 +41,15 @@ def index() -> Union[str, Tuple[str, int]]:
             match_id = node['id']
             teams = node.get('teams', [])
             versus: str
+            team_a_logo: Optional[str] = None
+            team_b_logo: Optional[str] = None
             if teams and len(teams) >= 2:
-                team_a = teams[0].get('baseInfo', {}).get('name', 'Unknown')
-                team_b = teams[1].get('baseInfo', {}).get('name', 'Unknown')
+                t1 = teams[0].get('baseInfo', {})
+                t2 = teams[1].get('baseInfo', {})
+                team_a = t1.get('name', 'Unknown')
+                team_b = t2.get('name', 'Unknown')
+                team_a_logo = t1.get('logoUrl')
+                team_b_logo = t2.get('logoUrl')
                 versus = f"{team_a} vs {team_b}"
             else:
                 versus = "TBD vs TBD"
@@ -51,6 +57,8 @@ def index() -> Union[str, Tuple[str, int]]:
             matches.append({
                 'id': match_id,
                 'versus': versus,
+                'team_a_logo': team_a_logo,
+                'team_b_logo': team_b_logo,
                 'tournament': node.get('tournament', {}).get('nameShortened', 'N/A'),
                 'time': node.get('startTimeScheduled', 'N/A')
             })
@@ -78,6 +86,20 @@ def match_detail(match_id: str) -> Union[str, Tuple[str, int]]:
     if not state_data or not state_data.get('games'):
         return render_template('match_detail.html', match_id=match_id, error="No live data available for this match.")
     
+    # Get team details (logos/colors) from central data since state_data might not have them
+    team_details = {}
+    details_data = client.get_match_details(match_id)
+    if details_data and 'series' in details_data and details_data['series']:
+        series_teams = details_data['series'].get('teams', [])
+        for t in series_teams:
+            bi = t.get('baseInfo', {})
+            if bi.get('name'):
+                team_details[bi['name']] = {
+                    'logoUrl': bi.get('logoUrl'),
+                    'colorPrimary': bi.get('colorPrimary'),
+                    'colorSecondary': bi.get('colorSecondary')
+                }
+
     analyzer = MatchAnalyzer(state_data)
     analysis_results: List[Dict[str, Any]] = []
     
@@ -111,9 +133,14 @@ def match_detail(match_id: str) -> Union[str, Tuple[str, int]]:
                 val_b = max(2000, min(25000, val_b + random.randint(-3000, 4000)))
 
         for team in teams:
+            team_name = team['name']
+            details = team_details.get(team_name, {})
             team_analysis: Dict[str, Any] = {
-                'team_name': team['name'],
-                'economy': analyzer.analyze_team_economy(team['name']),
+                'team_name': team_name,
+                'logoUrl': details.get('logoUrl'),
+                'colorPrimary': details.get('colorPrimary'),
+                'colorSecondary': details.get('colorSecondary'),
+                'economy': analyzer.analyze_team_economy(team_name),
                 'economy_risk': analyzer.calculate_economy_risk(team['name']),
                 'buy_recommendation': analyzer.get_buy_recommendation(team['name']),
                 'opponent_strategy': analyzer.analyze_opponent_strategy(team['name']),

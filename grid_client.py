@@ -112,7 +112,11 @@ class GridClient:
                 }}
                 teams {{
                   baseInfo {{
+                    id
                     name
+                    logoUrl
+                    colorPrimary
+                    colorSecondary
                   }}
                 }}
               }}
@@ -139,12 +143,25 @@ class GridClient:
             format {
               name
             }
+            teams {
+              baseInfo {
+                id
+                name
+                logoUrl
+                colorPrimary
+                colorSecondary
+              }
+            }
             games {
               id
               sequenceNumber
               teams {
                 baseInfo {
+                  id
                   name
+                  logoUrl
+                  colorPrimary
+                  colorSecondary
                 }
                 players {
                   player {

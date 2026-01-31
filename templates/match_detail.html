@@ -104,9 +104,15 @@
         </div>
         {% elif analysis %}
             {% for team in analysis %}
-            <div class="card mb-4 shadow-sm">
-                <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
-                    <h4 class="mb-0">{{ team.team_name }}</h4>
+            <div class="card mb-4 shadow-sm border-0">
+                <div class="card-header d-flex justify-content-between align-items-center" 
+                     style="background-color: {{ team.colorPrimary or '#007bff' }}; color: #fff;">
+                    <div class="d-flex align-items-center gap-3">
+                        {% if team.logoUrl %}
+                            <img src="{{ team.logoUrl }}" alt="{{ team.team_name }} Logo" height="40">
+                        {% endif %}
+                        <h4 class="mb-0">{{ team.team_name }}</h4>
+                    </div>
                     <div class="d-flex align-items-center gap-2">
                         <span class="badge {% if team.buy_recommendation == 'Full Buy' %}bg-success{% elif team.buy_recommendation == 'Force Buy' %}bg-warning text-dark{% else %}bg-danger{% endif %}">
                             Buy: {{ team.buy_recommendation }}
