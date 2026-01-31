@@ -170,8 +170,8 @@ function initChatLogic() {
 
     if (chatHeader && coachChat && chatToggle) {
         chatHeader.addEventListener('click', () => {
-            coachChat.classList.toggle('chat-minimized');
-            chatToggle.innerText = coachChat.classList.contains('chat-minimized') ? '+' : '−';
+            coachChat.classList.toggle('minimized');
+            chatToggle.innerText = coachChat.classList.contains('minimized') ? '+' : '−';
         });
     }
 

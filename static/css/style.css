@@ -187,9 +187,24 @@ h2, h4, h5 {
 
 /* Chat */
 .chat-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 350px;
+    max-width: calc(100vw - 40px);
+    background: var(--c9-surface);
     border: 1px solid var(--c9-blue);
     border-radius: 0;
     clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+    display: flex;
+    flex-direction: column;
+    z-index: 1050;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease;
+}
+
+.chat-container.minimized {
+    transform: translateY(calc(100% - 45px));
 }
 
 .chat-header {
@@ -198,18 +213,79 @@ h2, h4, h5 {
     text-transform: uppercase;
     font-weight: 700;
     color: var(--c9-dark);
+    padding: 10px 15px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-body {
+    height: 350px;
+    overflow-y: auto;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.chat-message {
+    padding: 8px 12px;
+    max-width: 85%;
+    font-size: 0.9rem;
 }
 
 .chat-message.coach {
+    align-self: flex-start;
     background: var(--c9-surface-light);
     border-left: 3px solid var(--c9-blue);
     border-radius: 0;
 }
 
 .chat-message.user {
+    align-self: flex-end;
     background: var(--c9-blue);
     color: var(--c9-dark);
     border-radius: 0;
+    font-weight: 600;
+}
+
+.chat-footer {
+    padding: 10px;
+    background: var(--c9-dark);
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.chat-footer .form-control {
+    background: var(--c9-surface);
+    border: 1px solid var(--c9-surface-light);
+    color: white;
+    border-radius: 0;
+}
+
+.chat-footer .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+    font-style: italic;
+}
+
+.chat-footer .form-control:focus {
+    background: var(--c9-surface-light);
+    border-color: var(--c9-blue);
+    box-shadow: none;
+    color: white;
+}
+
+.chat-footer .btn {
+    background: var(--c9-blue);
+    color: var(--c9-dark);
+    border: none;
+    clip-path: none;
+    padding: 0 15px;
+    font-size: 0.9rem;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .italic {
