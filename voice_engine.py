@@ -1,15 +1,20 @@
 import os
-from gtts import gTTS
+import asyncio
+import edge_tts
 import uuid
 from typing import Optional, List
 
-def generate_voice_commentary(text: str, lang: str = 'en') -> Optional[str]:
+async def _generate_async(text: str, voice: str, filepath: str):
+    communicate = edge_tts.Communicate(text, voice)
+    await communicate.save(filepath)
+
+def generate_voice_commentary(text: str, voice: str = 'en-US-GuyNeural') -> Optional[str]:
     """
-    Generate an MP3 voice file from text using gTTS.
+    Generate an MP3 voice file from text using edge-tts.
     
     Args:
         text: The text to convert to speech.
-        lang: Language code for TTS.
+        voice: Voice name for edge-tts (default is a male voice).
         
     Returns:
         The generated filename, or None if it fails.
@@ -25,8 +30,8 @@ def generate_voice_commentary(text: str, lang: str = 'en') -> Optional[str]:
         filename: str = f"commentary_{uuid.uuid4().hex}.mp3"
         filepath: str = os.path.join(static_audio_dir, filename)
         
-        tts: gTTS = gTTS(text=text, lang=lang)
-        tts.save(filepath)
+        # edge-tts is asynchronous, so we run it in a synchronous wrapper
+        asyncio.run(_generate_async(text, voice, filepath))
         
         return filename
     except Exception as e:
