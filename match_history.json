@@ -1,26 +1,1210 @@
 [
     {
-        "match_id": "test_match_123",
+        "match_id": "2618427",
         "data": {
             "analysis": [
                 {
-                    "team_name": "Team A",
-                    "economy": "Updated"
+                    "team_name": "Rogue",
+                    "logoUrl": "https://cdn.grid.gg/assets/team-logos/9089f72e65b99e4b08e88815fffa5576",
+                    "colorPrimary": "#1192e8",
+                    "colorSecondary": "#fbc817",
+                    "scouting_info": {
+                        "win_rate": null,
+                        "win_streak": null
+                    },
+                    "economy": "Don't let that loss get in your head. Reset and go again.",
+                    "economy_risk": 95.0,
+                    "buy_recommendation": "Eco",
+                    "opponent_strategy": "⚠️ Strategy Insight: Enemy often pushes sites quickly. Be ready for aggressive executes.",
+                    "players": [
+                        {
+                            "name": "Szygenda",
+                            "kills": 1,
+                            "deaths": 2,
+                            "assists": 0,
+                            "current_kd": 0.5,
+                            "avg_kd": 0.25,
+                            "trade_efficiency": 0.5,
+                            "tilt_risk": 0,
+                            "is_underperformer": true,
+                            "insight": "You're winning the mental battle. Stay sharp."
+                        },
+                        {
+                            "name": "Markoon",
+                            "kills": 1,
+                            "deaths": 4,
+                            "assists": 0,
+                            "current_kd": 0.25,
+                            "avg_kd": 0.12,
+                            "trade_efficiency": 0.25,
+                            "tilt_risk": 80,
+                            "is_underperformer": true,
+                            "insight": "Love the discipline. Keep playing your game."
+                        },
+                        {
+                            "name": "Larssen",
+                            "kills": 0,
+                            "deaths": 1,
+                            "assists": 0,
+                            "current_kd": 0.0,
+                            "avg_kd": 0.1,
+                            "trade_efficiency": 0.0,
+                            "tilt_risk": 0,
+                            "is_underperformer": true,
+                            "insight": "Love the discipline. Keep playing your game."
+                        },
+                        {
+                            "name": "Comp",
+                            "kills": 0,
+                            "deaths": 4,
+                            "assists": 0,
+                            "current_kd": 0.0,
+                            "avg_kd": 0.75,
+                            "trade_efficiency": 0.0,
+                            "tilt_risk": 80,
+                            "is_underperformer": true,
+                            "insight": "Perfect execution. You're in the zone."
+                        },
+                        {
+                            "name": "Zoelys",
+                            "kills": 0,
+                            "deaths": 4,
+                            "assists": 0,
+                            "current_kd": 0.0,
+                            "avg_kd": 0.0,
+                            "trade_efficiency": 0.0,
+                            "tilt_risk": 80,
+                            "is_underperformer": true,
+                            "insight": "Perfect execution. You're in the zone."
+                        }
+                    ]
                 },
                 {
-                    "team_name": "Team B",
-                    "economy": "Weak"
+                    "team_name": "Team Heretics",
+                    "logoUrl": "https://cdn.grid.gg/assets/team-logos/64b4c8501ef44ba51648a38d131d9f2e",
+                    "colorPrimary": "#ff7548",
+                    "colorSecondary": "#750e13",
+                    "scouting_info": {
+                        "win_rate": null,
+                        "win_streak": null
+                    },
+                    "economy": "Economy looks solid because you're actually hitting your shots. Good.",
+                    "economy_risk": 5.0,
+                    "buy_recommendation": "Full Buy",
+                    "opponent_strategy": "✅ Strategy Insight: Opponent playing standard. No unusual patterns detected.",
+                    "players": [
+                        {
+                            "name": "Wunder",
+                            "kills": 2,
+                            "deaths": 1,
+                            "assists": 0,
+                            "current_kd": 2.0,
+                            "avg_kd": 1.0,
+                            "trade_efficiency": 2.0,
+                            "tilt_risk": 0,
+                            "is_underperformer": false,
+                            "insight": "Absolute clinical performance, Wunder. That 2.0 K/D is pure class."
+                        },
+                        {
+                            "name": "Jankos",
+                            "kills": 2,
+                            "deaths": 0,
+                            "assists": 0,
+                            "current_kd": 2.0,
+                            "avg_kd": 1.12,
+                            "trade_efficiency": 2.0,
+                            "tilt_risk": 0,
+                            "is_underperformer": false,
+                            "insight": "That's some high-level impact, Jankos. Exactly what the team needs."
+                        },
+                        {
+                            "name": "Perkz",
+                            "kills": 3,
+                            "deaths": 0,
+                            "assists": 0,
+                            "current_kd": 3.0,
+                            "avg_kd": 1.5,
+                            "trade_efficiency": 3.0,
+                            "tilt_risk": 0,
+                            "is_underperformer": false,
+                            "insight": "You're making them look like amateurs, Perkz. Godlike."
+                        },
+                        {
+                            "name": "Flakked",
+                            "kills": 8,
+                            "deaths": 1,
+                            "assists": 0,
+                            "current_kd": 8.0,
+                            "avg_kd": 4.0,
+                            "trade_efficiency": 8.0,
+                            "tilt_risk": 0,
+                            "is_underperformer": false,
+                            "insight": "That's some high-level impact, Flakked. Exactly what the team needs."
+                        },
+                        {
+                            "name": "Kaiser",
+                            "kills": 0,
+                            "deaths": 0,
+                            "assists": 0,
+                            "current_kd": 0.0,
+                            "avg_kd": 0.0,
+                            "trade_efficiency": 0.0,
+                            "tilt_risk": 0,
+                            "is_underperformer": true,
+                            "insight": "Solid as a rock, Kaiser. You're our anchor."
+                        }
+                    ]
                 }
             ],
             "economy_history": {
                 "rounds": [
-                    "R1"
+                    "R1",
+                    "R2",
+                    "R3",
+                    "R4",
+                    "R5",
+                    "R6",
+                    "R7",
+                    "R8",
+                    "R9",
+                    "R10",
+                    "R11",
+                    "R12",
+                    "R13",
+                    "R14",
+                    "R15",
+                    "R16",
+                    "R17",
+                    "R18"
                 ],
                 "team_a": [
-                    5000
+                    5000,
+                    4888,
+                    8003,
+                    7947,
+                    5960,
+                    5352,
+                    4760,
+                    8360,
+                    5710,
+                    3997,
+                    2000,
+                    2000,
+                    2000,
+                    2000,
+                    2000,
+                    2000,
+                    2000,
+                    2000
                 ],
                 "team_b": [
-                    5000
+                    5000,
+                    4127,
+                    3538,
+                    2520,
+                    5983,
+                    8428,
+                    11931,
+                    11937,
+                    15113,
+                    15265,
+                    13780,
+                    15298,
+                    18374,
+                    18364,
+                    17256,
+                    16831,
+                    17684,
+                    18524
+                ]
+            }
+        }
+    },
+    {
+        "match_id": "2618423",
+        "data": {
+            "analysis": [
+                {
+                    "team_name": "GIANTX",
+                    "logoUrl": "https://cdn.grid.gg/assets/team-logos/af80b36401e45be0a5eb13549ff4128f",
+                    "colorPrimary": "#5b6f7e",
+                    "colorSecondary": "#ffffff",
+                    "scouting_info": {
+                        "win_rate": null,
+                        "win_streak": null
+                    },
+                    "economy": "Shake it off. We've been in worse spots than this. Stay composed.",
+                    "economy_risk": 72.8,
+                    "buy_recommendation": "Eco",
+                    "opponent_strategy": "⚠️ Strategy Insight: Enemy often pushes sites quickly. Be ready for aggressive executes.",
+                    "players": [
+                        {
+                            "name": "Odoamne",
+                            "kills": 0,
+                            "deaths": 0,
+                            "assists": 0,
+                            "current_kd": 0.0,
+                            "avg_kd": 1.0,
+                            "trade_efficiency": 0.0,
+                            "tilt_risk": 0,
+                            "is_underperformer": true,
+                            "insight": "Solid as a rock, Odoamne. You're our anchor."
+                        },
+                        {
+                            "name": "Peach",
+                            "kills": 2,
+                            "deaths": 5,
+                            "assists": 0,
+                            "current_kd": 0.4,
+                            "avg_kd": 0.45,
+                            "trade_efficiency": 0.4,
+                            "tilt_risk": 90,
+                            "is_underperformer": true,
+                            "insight": "Solid as a rock, Peach. You're our anchor."
+                        },
+                        {
+                            "name": "Jackies",
+                            "kills": 1,
+                            "deaths": 4,
+                            "assists": 0,
+                            "current_kd": 0.25,
+                            "avg_kd": 0.62,
+                            "trade_efficiency": 0.25,
+                            "tilt_risk": 80,
+                            "is_underperformer": true,
+                            "insight": "That's the consistency of a pro. Keep it rolling."
+                        },
+                        {
+                            "name": "Patrik",
+                            "kills": 6,
+                            "deaths": 3,
+                            "assists": 0,
+                            "current_kd": 2.0,
+                            "avg_kd": 2.38,
+                            "trade_efficiency": 2.0,
+                            "tilt_risk": 30,
+                            "is_underperformer": false,
+                            "insight": "Patrik is absolutely cooking today! Look at that 2.0 K/D."
+                        },
+                        {
+                            "name": "IgNar",
+                            "kills": 0,
+                            "deaths": 2,
+                            "assists": 0,
+                            "current_kd": 0.0,
+                            "avg_kd": 0.33,
+                            "trade_efficiency": 0.0,
+                            "tilt_risk": 0,
+                            "is_underperformer": true,
+                            "insight": "Love the discipline. Keep playing your game."
+                        }
+                    ]
+                },
+                {
+                    "team_name": "Team BDS",
+                    "logoUrl": null,
+                    "colorPrimary": null,
+                    "colorSecondary": null,
+                    "scouting_info": {
+                        "win_rate": null,
+                        "win_streak": null
+                    },
+                    "economy": "Economy looks solid because you're actually hitting your shots. Good.",
+                    "economy_risk": 27.2,
+                    "buy_recommendation": "Full Buy",
+                    "opponent_strategy": "✅ Strategy Insight: Opponent playing standard. No unusual patterns detected.",
+                    "players": [
+                        {
+                            "name": "Adam",
+                            "kills": 4,
+                            "deaths": 1,
+                            "assists": 0,
+                            "current_kd": 4.0,
+                            "avg_kd": 2.5,
+                            "trade_efficiency": 4.0,
+                            "tilt_risk": 0,
+                            "is_underperformer": false,
+                            "insight": "Absolute clinical performance, Adam. That 4.0 K/D is pure class."
+                        },
+                        {
+                            "name": "Sheo",
+                            "kills": 4,
+                            "deaths": 1,
+                            "assists": 0,
+                            "current_kd": 4.0,
+                            "avg_kd": 2.5,
+                            "trade_efficiency": 4.0,
+                            "tilt_risk": 0,
+                            "is_underperformer": false,
+                            "insight": "Sheo is absolutely cooking today! Look at that 4.0 K/D."
+                        },
+                        {
+                            "name": "nuc",
+                            "kills": 0,
+                            "deaths": 0,
+                            "assists": 0,
+                            "current_kd": 0.0,
+                            "avg_kd": 0.33,
+                            "trade_efficiency": 0.0,
+                            "tilt_risk": 0,
+                            "is_underperformer": true,
+                            "insight": "You're winning the mental battle. Stay sharp."
+                        },
+                        {
+                            "name": "Ice",
+                            "kills": 5,
+                            "deaths": 4,
+                            "assists": 0,
+                            "current_kd": 1.25,
+                            "avg_kd": 1.12,
+                            "trade_efficiency": 1.25,
+                            "tilt_risk": 40,
+                            "is_underperformer": false,
+                            "insight": "Love the discipline. Keep playing your game."
+                        },
+                        {
+                            "name": "Labrov",
+                            "kills": 1,
+                            "deaths": 3,
+                            "assists": 0,
+                            "current_kd": 0.33,
+                            "avg_kd": 0.29,
+                            "trade_efficiency": 0.33,
+                            "tilt_risk": 70,
+                            "is_underperformer": true,
+                            "insight": "Love the discipline. Keep playing your game."
+                        }
+                    ]
+                }
+            ],
+            "economy_history": {
+                "rounds": [
+                    "R1",
+                    "R2",
+                    "R3",
+                    "R4",
+                    "R5",
+                    "R6",
+                    "R7",
+                    "R8",
+                    "R9",
+                    "R10",
+                    "R11",
+                    "R12",
+                    "R13",
+                    "R14",
+                    "R15",
+                    "R16",
+                    "R17",
+                    "R18",
+                    "R19",
+                    "R20",
+                    "R21",
+                    "R22",
+                    "R23",
+                    "R24"
+                ],
+                "team_a": [
+                    5000,
+                    3087,
+                    5183,
+                    8341,
+                    12288,
+                    13366,
+                    16113,
+                    17440,
+                    15481,
+                    13688,
+                    15297,
+                    14746,
+                    16348,
+                    16517,
+                    16877,
+                    18150,
+                    15188,
+                    16378,
+                    15161,
+                    14143,
+                    17365,
+                    20740,
+                    19093,
+                    17254
+                ],
+                "team_b": [
+                    5000,
+                    4612,
+                    3609,
+                    2000,
+                    2599,
+                    2000,
+                    2000,
+                    2784,
+                    4635,
+                    5624,
+                    7155,
+                    7591,
+                    10953,
+                    13630,
+                    14354,
+                    17285,
+                    19219,
+                    17932,
+                    19926,
+                    19114,
+                    22815,
+                    20693,
+                    22558,
+                    20007
+                ]
+            }
+        }
+    },
+    {
+        "match_id": "2618422",
+        "data": {
+            "analysis": [
+                {
+                    "team_name": "MAD Lions",
+                    "logoUrl": null,
+                    "colorPrimary": null,
+                    "colorSecondary": null,
+                    "scouting_info": {
+                        "win_rate": null,
+                        "win_streak": null
+                    },
+                    "economy": "Economy looks solid because you're actually hitting your shots. Good.",
+                    "economy_risk": 5.0,
+                    "buy_recommendation": "Full Buy",
+                    "opponent_strategy": "✅ Strategy Insight: Opponent playing standard. No unusual patterns detected.",
+                    "players": [
+                        {
+                            "name": "Myrwn",
+                            "kills": 3,
+                            "deaths": 1,
+                            "assists": 0,
+                            "current_kd": 3.0,
+                            "avg_kd": 3.0,
+                            "trade_efficiency": 3.0,
+                            "tilt_risk": 0,
+                            "is_underperformer": false,
+                            "insight": "Absolute clinical performance, Myrwn. That 3.0 K/D is pure class."
+                        },
+                        {
+                            "name": "Elyoya",
+                            "kills": 6,
+                            "deaths": 0,
+                            "assists": 0,
+                            "current_kd": 6.0,
+                            "avg_kd": 6.0,
+                            "trade_efficiency": 6.0,
+                            "tilt_risk": 0,
+                            "is_underperformer": false,
+                            "insight": "That's some high-level impact, Elyoya. Exactly what the team needs."
+                        },
+                        {
+                            "name": "Fresskowy",
+                            "kills": 5,
+                            "deaths": 0,
+                            "assists": 0,
+                            "current_kd": 5.0,
+                            "avg_kd": 5.0,
+                            "trade_efficiency": 5.0,
+                            "tilt_risk": 0,
+                            "is_underperformer": false,
+                            "insight": "Fresskowy is absolutely cooking today! Look at that 5.0 K/D."
+                        },
+                        {
+                            "name": "Supa",
+                            "kills": 2,
+                            "deaths": 0,
+                            "assists": 0,
+                            "current_kd": 2.0,
+                            "avg_kd": 2.0,
+                            "trade_efficiency": 2.0,
+                            "tilt_risk": 0,
+                            "is_underperformer": false,
+                            "insight": "You're making them look like amateurs, Supa. Godlike."
+                        },
+                        {
+                            "name": "Alvaro",
+                            "kills": 1,
+                            "deaths": 0,
+                            "assists": 0,
+                            "current_kd": 1.0,
+                            "avg_kd": 1.0,
+                            "trade_efficiency": 1.0,
+                            "tilt_risk": 0,
+                            "is_underperformer": false,
+                            "insight": "Love the discipline. Keep playing your game."
+                        }
+                    ]
+                },
+                {
+                    "team_name": "Team Heretics",
+                    "logoUrl": "https://cdn.grid.gg/assets/team-logos/64b4c8501ef44ba51648a38d131d9f2e",
+                    "colorPrimary": "#ff7548",
+                    "colorSecondary": "#750e13",
+                    "scouting_info": {
+                        "win_rate": null,
+                        "win_streak": null
+                    },
+                    "economy": "Unlucky, reset mental. We can still pull this back.",
+                    "economy_risk": 95.0,
+                    "buy_recommendation": "Eco",
+                    "opponent_strategy": "⚠️ Strategy Insight: Enemy often pushes sites quickly. Be ready for aggressive executes.",
+                    "players": [
+                        {
+                            "name": "Wunder",
+                            "kills": 0,
+                            "deaths": 2,
+                            "assists": 0,
+                            "current_kd": 0.0,
+                            "avg_kd": 1.0,
+                            "trade_efficiency": 0.0,
+                            "tilt_risk": 0,
+                            "is_underperformer": true,
+                            "insight": "Love the discipline. Keep playing your game."
+                        },
+                        {
+                            "name": "Jankos",
+                            "kills": 1,
+                            "deaths": 4,
+                            "assists": 0,
+                            "current_kd": 0.25,
+                            "avg_kd": 1.12,
+                            "trade_efficiency": 0.25,
+                            "tilt_risk": 80,
+                            "is_underperformer": true,
+                            "insight": "You're winning the mental battle. Stay sharp."
+                        },
+                        {
+                            "name": "Perkz",
+                            "kills": 0,
+                            "deaths": 5,
+                            "assists": 0,
+                            "current_kd": 0.0,
+                            "avg_kd": 1.5,
+                            "trade_efficiency": 0.0,
+                            "tilt_risk": 90,
+                            "is_underperformer": true,
+                            "insight": "Solid as a rock, Perkz. You're our anchor."
+                        },
+                        {
+                            "name": "Flakked",
+                            "kills": 0,
+                            "deaths": 3,
+                            "assists": 0,
+                            "current_kd": 0.0,
+                            "avg_kd": 4.0,
+                            "trade_efficiency": 0.0,
+                            "tilt_risk": 70,
+                            "is_underperformer": true,
+                            "insight": "Love the discipline. Keep playing your game."
+                        },
+                        {
+                            "name": "Kaiser",
+                            "kills": 0,
+                            "deaths": 3,
+                            "assists": 0,
+                            "current_kd": 0.0,
+                            "avg_kd": 0.0,
+                            "trade_efficiency": 0.0,
+                            "tilt_risk": 70,
+                            "is_underperformer": true,
+                            "insight": "Love the discipline. Keep playing your game."
+                        }
+                    ]
+                }
+            ],
+            "economy_history": {
+                "rounds": [
+                    "R1",
+                    "R2",
+                    "R3",
+                    "R4",
+                    "R5",
+                    "R6",
+                    "R7",
+                    "R8",
+                    "R9",
+                    "R10",
+                    "R11",
+                    "R12",
+                    "R13",
+                    "R14",
+                    "R15",
+                    "R16",
+                    "R17",
+                    "R18",
+                    "R19"
+                ],
+                "team_a": [
+                    5000,
+                    4384,
+                    5968,
+                    3616,
+                    2359,
+                    3324,
+                    5912,
+                    9237,
+                    12824,
+                    14248,
+                    14729,
+                    17861,
+                    17092,
+                    14259,
+                    13253,
+                    13379,
+                    16886,
+                    14172,
+                    16560
+                ],
+                "team_b": [
+                    5000,
+                    5586,
+                    7168,
+                    11153,
+                    15034,
+                    15950,
+                    19228,
+                    20217,
+                    20295,
+                    17552,
+                    17085,
+                    18547,
+                    19099,
+                    21282,
+                    25000,
+                    23769,
+                    21913,
+                    21213,
+                    21312
+                ]
+            }
+        }
+    },
+    {
+        "match_id": "2618421",
+        "data": {
+            "analysis": [
+                {
+                    "team_name": "Team Vitality",
+                    "logoUrl": "https://cdn.grid.gg/assets/team-logos/195171114bca3c1f69136199f73fce14",
+                    "colorPrimary": "#FBC817",
+                    "colorSecondary": "#DA1E28",
+                    "scouting_info": {
+                        "win_rate": null,
+                        "win_streak": null
+                    },
+                    "economy": "The team is falling apart. K/D 0.75. If we don't start winning duels, we're done.",
+                    "economy_risk": 64.6,
+                    "buy_recommendation": "Force Buy",
+                    "opponent_strategy": "⚠️ Strategy Insight: Enemy often pushes sites quickly. Be ready for aggressive executes.",
+                    "players": [
+                        {
+                            "name": "Photon",
+                            "kills": 6,
+                            "deaths": 3,
+                            "assists": 0,
+                            "current_kd": 2.0,
+                            "avg_kd": 1.0,
+                            "trade_efficiency": 2.0,
+                            "tilt_risk": 30,
+                            "is_underperformer": false,
+                            "insight": "That's some high-level impact, Photon. Exactly what the team needs."
+                        },
+                        {
+                            "name": "Daglas",
+                            "kills": 0,
+                            "deaths": 6,
+                            "assists": 0,
+                            "current_kd": 0.0,
+                            "avg_kd": 0.33,
+                            "trade_efficiency": 0.0,
+                            "tilt_risk": 100,
+                            "is_underperformer": true,
+                            "insight": "Solid as a rock, Daglas. You're our anchor."
+                        },
+                        {
+                            "name": "Vetheo",
+                            "kills": 3,
+                            "deaths": 3,
+                            "assists": 0,
+                            "current_kd": 1.0,
+                            "avg_kd": 1.5,
+                            "trade_efficiency": 1.0,
+                            "tilt_risk": 30,
+                            "is_underperformer": false,
+                            "insight": "Solid as a rock, Vetheo. You're our anchor."
+                        },
+                        {
+                            "name": "Carzzy",
+                            "kills": 5,
+                            "deaths": 6,
+                            "assists": 0,
+                            "current_kd": 0.83,
+                            "avg_kd": 0.54,
+                            "trade_efficiency": 0.83,
+                            "tilt_risk": 80,
+                            "is_underperformer": true,
+                            "insight": "Solid as a rock, Carzzy. You're our anchor."
+                        },
+                        {
+                            "name": "Hylissang",
+                            "kills": 4,
+                            "deaths": 6,
+                            "assists": 0,
+                            "current_kd": 0.67,
+                            "avg_kd": 0.33,
+                            "trade_efficiency": 0.67,
+                            "tilt_risk": 80,
+                            "is_underperformer": true,
+                            "insight": "Solid as a rock, Hylissang. You're our anchor."
+                        }
+                    ]
+                },
+                {
+                    "team_name": "GIANTX",
+                    "logoUrl": "https://cdn.grid.gg/assets/team-logos/af80b36401e45be0a5eb13549ff4128f",
+                    "colorPrimary": "#5b6f7e",
+                    "colorSecondary": "#ffffff",
+                    "scouting_info": {
+                        "win_rate": null,
+                        "win_streak": null
+                    },
+                    "economy": "The momentum is ours. Close this out.",
+                    "economy_risk": 35.4,
+                    "buy_recommendation": "Force Buy",
+                    "opponent_strategy": "✅ Strategy Insight: Opponent playing standard. No unusual patterns detected.",
+                    "players": [
+                        {
+                            "name": "Odoamne",
+                            "kills": 4,
+                            "deaths": 2,
+                            "assists": 0,
+                            "current_kd": 2.0,
+                            "avg_kd": 1.0,
+                            "trade_efficiency": 2.0,
+                            "tilt_risk": 0,
+                            "is_underperformer": false,
+                            "insight": "You're making them look like amateurs, Odoamne. Godlike."
+                        },
+                        {
+                            "name": "Peach",
+                            "kills": 2,
+                            "deaths": 4,
+                            "assists": 0,
+                            "current_kd": 0.5,
+                            "avg_kd": 0.45,
+                            "trade_efficiency": 0.5,
+                            "tilt_risk": 60,
+                            "is_underperformer": true,
+                            "insight": "Love the discipline. Keep playing your game."
+                        },
+                        {
+                            "name": "Jackies",
+                            "kills": 5,
+                            "deaths": 5,
+                            "assists": 0,
+                            "current_kd": 1.0,
+                            "avg_kd": 0.62,
+                            "trade_efficiency": 1.0,
+                            "tilt_risk": 50,
+                            "is_underperformer": false,
+                            "insight": "You're winning the mental battle. Stay sharp."
+                        },
+                        {
+                            "name": "Patrik",
+                            "kills": 11,
+                            "deaths": 4,
+                            "assists": 0,
+                            "current_kd": 2.75,
+                            "avg_kd": 2.38,
+                            "trade_efficiency": 2.75,
+                            "tilt_risk": 40,
+                            "is_underperformer": false,
+                            "insight": "That's some high-level impact, Patrik. Exactly what the team needs."
+                        },
+                        {
+                            "name": "IgNar",
+                            "kills": 2,
+                            "deaths": 3,
+                            "assists": 0,
+                            "current_kd": 0.67,
+                            "avg_kd": 0.33,
+                            "trade_efficiency": 0.67,
+                            "tilt_risk": 50,
+                            "is_underperformer": true,
+                            "insight": "You're winning the mental battle. Stay sharp."
+                        }
+                    ]
+                }
+            ],
+            "economy_history": {
+                "rounds": [
+                    "R1",
+                    "R2",
+                    "R3",
+                    "R4",
+                    "R5",
+                    "R6",
+                    "R7",
+                    "R8",
+                    "R9",
+                    "R10",
+                    "R11",
+                    "R12",
+                    "R13",
+                    "R14",
+                    "R15",
+                    "R16",
+                    "R17",
+                    "R18",
+                    "R19",
+                    "R20",
+                    "R21",
+                    "R22",
+                    "R23",
+                    "R24",
+                    "R25",
+                    "R26",
+                    "R27",
+                    "R28",
+                    "R29",
+                    "R30",
+                    "R31",
+                    "R32",
+                    "R33",
+                    "R34",
+                    "R35",
+                    "R36",
+                    "R37",
+                    "R38",
+                    "R39",
+                    "R40",
+                    "R41",
+                    "R42",
+                    "R43"
+                ],
+                "team_a": [
+                    5000,
+                    6603,
+                    4162,
+                    2557,
+                    2000,
+                    5224,
+                    5591,
+                    9176,
+                    6776,
+                    7902,
+                    11462,
+                    8659,
+                    10214,
+                    7736,
+                    6006,
+                    6511,
+                    5863,
+                    7872,
+                    6166,
+                    8464,
+                    8598,
+                    8094,
+                    9669,
+                    12368,
+                    15030,
+                    17187,
+                    16881,
+                    15761,
+                    13691,
+                    15670,
+                    15552,
+                    15506,
+                    13474,
+                    15666,
+                    19428,
+                    21741,
+                    21517,
+                    24120,
+                    22697,
+                    22462,
+                    20663,
+                    24554,
+                    25000
+                ],
+                "team_b": [
+                    5000,
+                    8585,
+                    10347,
+                    12986,
+                    12631,
+                    16325,
+                    17671,
+                    20179,
+                    17983,
+                    20191,
+                    20331,
+                    21842,
+                    22790,
+                    25000,
+                    25000,
+                    25000,
+                    25000,
+                    25000,
+                    25000,
+                    25000,
+                    24362,
+                    25000,
+                    24267,
+                    25000,
+                    25000,
+                    25000,
+                    25000,
+                    25000,
+                    25000,
+                    25000,
+                    25000,
+                    22830,
+                    23879,
+                    21461,
+                    24685,
+                    23337,
+                    25000,
+                    22485,
+                    23500,
+                    25000,
+                    24037,
+                    22346,
+                    25000
+                ]
+            }
+        }
+    },
+    {
+        "match_id": "2618419",
+        "data": {
+            "analysis": [
+                {
+                    "team_name": "SK Gaming",
+                    "logoUrl": "https://cdn.grid.gg/assets/team-logos/c69f9b19774472b7b06d183c9de2a448",
+                    "colorPrimary": "#726180",
+                    "colorSecondary": "#ff509e",
+                    "scouting_info": {
+                        "win_rate": null,
+                        "win_streak": null
+                    },
+                    "economy": "Economy looks solid because you're actually hitting your shots. Good.",
+                    "economy_risk": 5.0,
+                    "buy_recommendation": "Full Buy",
+                    "opponent_strategy": "✅ Strategy Insight: Opponent playing standard. No unusual patterns detected.",
+                    "players": [
+                        {
+                            "name": "Irrelevant",
+                            "kills": 6,
+                            "deaths": 1,
+                            "assists": 0,
+                            "current_kd": 6.0,
+                            "avg_kd": 6.0,
+                            "trade_efficiency": 6.0,
+                            "tilt_risk": 0,
+                            "is_underperformer": false,
+                            "insight": "That's some high-level impact, Irrelevant. Exactly what the team needs."
+                        },
+                        {
+                            "name": "Isma",
+                            "kills": 3,
+                            "deaths": 0,
+                            "assists": 0,
+                            "current_kd": 3.0,
+                            "avg_kd": 3.0,
+                            "trade_efficiency": 3.0,
+                            "tilt_risk": 0,
+                            "is_underperformer": false,
+                            "insight": "Total dominance from Isma. Keep punishing them."
+                        },
+                        {
+                            "name": "Nisqy",
+                            "kills": 1,
+                            "deaths": 2,
+                            "assists": 0,
+                            "current_kd": 0.5,
+                            "avg_kd": 0.5,
+                            "trade_efficiency": 0.5,
+                            "tilt_risk": 0,
+                            "is_underperformer": true,
+                            "insight": "You're winning the mental battle. Stay sharp."
+                        },
+                        {
+                            "name": "Exakick",
+                            "kills": 5,
+                            "deaths": 1,
+                            "assists": 0,
+                            "current_kd": 5.0,
+                            "avg_kd": 5.0,
+                            "trade_efficiency": 5.0,
+                            "tilt_risk": 0,
+                            "is_underperformer": false,
+                            "insight": "Total dominance from Exakick. Keep punishing them."
+                        },
+                        {
+                            "name": "Doss",
+                            "kills": 1,
+                            "deaths": 0,
+                            "assists": 0,
+                            "current_kd": 1.0,
+                            "avg_kd": 1.0,
+                            "trade_efficiency": 1.0,
+                            "tilt_risk": 0,
+                            "is_underperformer": false,
+                            "insight": "Perfect execution. You're in the zone."
+                        }
+                    ]
+                },
+                {
+                    "team_name": "Rogue",
+                    "logoUrl": "https://cdn.grid.gg/assets/team-logos/9089f72e65b99e4b08e88815fffa5576",
+                    "colorPrimary": "#1192e8",
+                    "colorSecondary": "#fbc817",
+                    "scouting_info": {
+                        "win_rate": null,
+                        "win_streak": null
+                    },
+                    "economy": "Unlucky, reset mental. We can still pull this back.",
+                    "economy_risk": 95.0,
+                    "buy_recommendation": "Eco",
+                    "opponent_strategy": "⚠️ Strategy Insight: Enemy often pushes sites quickly. Be ready for aggressive executes.",
+                    "players": [
+                        {
+                            "name": "Szygenda",
+                            "kills": 0,
+                            "deaths": 3,
+                            "assists": 0,
+                            "current_kd": 0.0,
+                            "avg_kd": 0.25,
+                            "trade_efficiency": 0.0,
+                            "tilt_risk": 70,
+                            "is_underperformer": true,
+                            "insight": "You're winning the mental battle. Stay sharp."
+                        },
+                        {
+                            "name": "Markoon",
+                            "kills": 0,
+                            "deaths": 3,
+                            "assists": 0,
+                            "current_kd": 0.0,
+                            "avg_kd": 0.12,
+                            "trade_efficiency": 0.0,
+                            "tilt_risk": 70,
+                            "is_underperformer": true,
+                            "insight": "Love the discipline. Keep playing your game."
+                        },
+                        {
+                            "name": "Larssen",
+                            "kills": 1,
+                            "deaths": 5,
+                            "assists": 0,
+                            "current_kd": 0.2,
+                            "avg_kd": 0.1,
+                            "trade_efficiency": 0.2,
+                            "tilt_risk": 90,
+                            "is_underperformer": true,
+                            "insight": "Love the discipline. Keep playing your game."
+                        },
+                        {
+                            "name": "Comp",
+                            "kills": 3,
+                            "deaths": 2,
+                            "assists": 0,
+                            "current_kd": 1.5,
+                            "avg_kd": 0.75,
+                            "trade_efficiency": 1.5,
+                            "tilt_risk": 0,
+                            "is_underperformer": false,
+                            "insight": "Perfect execution. You're in the zone."
+                        },
+                        {
+                            "name": "Zoelys",
+                            "kills": 0,
+                            "deaths": 3,
+                            "assists": 0,
+                            "current_kd": 0.0,
+                            "avg_kd": 0.0,
+                            "trade_efficiency": 0.0,
+                            "tilt_risk": 70,
+                            "is_underperformer": true,
+                            "insight": "Love the discipline. Keep playing your game."
+                        }
+                    ]
+                }
+            ],
+            "economy_history": {
+                "rounds": [
+                    "R1",
+                    "R2",
+                    "R3",
+                    "R4",
+                    "R5",
+                    "R6",
+                    "R7",
+                    "R8",
+                    "R9",
+                    "R10",
+                    "R11",
+                    "R12",
+                    "R13",
+                    "R14",
+                    "R15",
+                    "R16",
+                    "R17",
+                    "R18",
+                    "R19",
+                    "R20",
+                    "R21"
+                ],
+                "team_a": [
+                    5000,
+                    2668,
+                    6550,
+                    10466,
+                    7558,
+                    11471,
+                    12175,
+                    15083,
+                    17707,
+                    19030,
+                    17455,
+                    20080,
+                    19475,
+                    19854,
+                    22262,
+                    24643,
+                    22694,
+                    24522,
+                    25000,
+                    25000,
+                    25000
+                ],
+                "team_b": [
+                    5000,
+                    6354,
+                    4841,
+                    8505,
+                    8610,
+                    6189,
+                    9328,
+                    10409,
+                    9733,
+                    7353,
+                    8332,
+                    7836,
+                    10627,
+                    7975,
+                    6427,
+                    6062,
+                    3135,
+                    3638,
+                    6325,
+                    8540,
+                    9292
                 ]
             }
         }
@@ -31,113 +1215,153 @@
             "analysis": [
                 {
                     "team_name": "Team BDS",
-                    "economy": "📉 Macro Review: Team is losing duels (K/D 0.71). Likely economy disadvantage.",
+                    "logoUrl": null,
+                    "colorPrimary": null,
+                    "colorSecondary": null,
+                    "scouting_info": {
+                        "win_rate": null,
+                        "win_streak": null
+                    },
+                    "economy": "Unlucky, reset mental. We can still pull this back.",
+                    "economy_risk": 67.1,
+                    "buy_recommendation": "Eco",
+                    "opponent_strategy": "⚠️ Strategy Insight: Enemy often pushes sites quickly. Be ready for aggressive executes.",
                     "players": [
                         {
                             "name": "Adam",
                             "kills": 3,
                             "deaths": 3,
-                            "assists": 3,
+                            "assists": 0,
                             "current_kd": 1.0,
-                            "avg_kd": 1.0,
-                            "trade_efficiency": 2.0,
-                            "insight": "✅ Insight: Stable performance."
+                            "avg_kd": 2.5,
+                            "trade_efficiency": 1.0,
+                            "tilt_risk": 30,
+                            "is_underperformer": false,
+                            "insight": "You're winning the mental battle. Stay sharp."
                         },
                         {
                             "name": "Sheo",
                             "kills": 2,
                             "deaths": 2,
-                            "assists": 2,
+                            "assists": 0,
                             "current_kd": 1.0,
-                            "avg_kd": 1.0,
-                            "trade_efficiency": 2.0,
-                            "insight": "✅ Insight: Stable performance."
+                            "avg_kd": 2.5,
+                            "trade_efficiency": 1.0,
+                            "tilt_risk": 0,
+                            "is_underperformer": false,
+                            "insight": "Perfect execution. You're in the zone."
                         },
                         {
                             "name": "nuc",
                             "kills": 2,
                             "deaths": 3,
-                            "assists": 1,
+                            "assists": 0,
                             "current_kd": 0.67,
-                            "avg_kd": 0.67,
-                            "trade_efficiency": 1.0,
-                            "insight": "✅ Insight: Stable performance."
+                            "avg_kd": 0.33,
+                            "trade_efficiency": 0.67,
+                            "tilt_risk": 50,
+                            "is_underperformer": true,
+                            "insight": "That's the consistency of a pro. Keep it rolling."
                         },
                         {
                             "name": "Ice",
                             "kills": 2,
                             "deaths": 2,
-                            "assists": 2,
+                            "assists": 0,
                             "current_kd": 1.0,
-                            "avg_kd": 1.0,
-                            "trade_efficiency": 2.0,
-                            "insight": "✅ Insight: Stable performance."
+                            "avg_kd": 1.12,
+                            "trade_efficiency": 1.0,
+                            "tilt_risk": 0,
+                            "is_underperformer": false,
+                            "insight": "Love the discipline. Keep playing your game."
                         },
                         {
                             "name": "Labrov",
                             "kills": 1,
                             "deaths": 4,
-                            "assists": 3,
+                            "assists": 0,
                             "current_kd": 0.25,
-                            "avg_kd": 0.25,
-                            "trade_efficiency": 1.0,
-                            "insight": "✅ Insight: Stable performance."
+                            "avg_kd": 0.29,
+                            "trade_efficiency": 0.25,
+                            "tilt_risk": 80,
+                            "is_underperformer": true,
+                            "insight": "You're winning the mental battle. Stay sharp."
                         }
                     ]
                 },
                 {
                     "team_name": "G2 Esports",
-                    "economy": "📈 Macro Review: Team winning exchanges. Economy looks strong.",
+                    "logoUrl": "https://cdn.grid.gg/assets/team-logos/94a774753c28adb6602d3c36e428a849",
+                    "colorPrimary": "#de8636",
+                    "colorSecondary": "#0072c3",
+                    "scouting_info": {
+                        "win_rate": null,
+                        "win_streak": null
+                    },
+                    "economy": "Economy looks solid because you're actually hitting your shots. Good.",
+                    "economy_risk": 32.9,
+                    "buy_recommendation": "Full Buy",
+                    "opponent_strategy": "✅ Strategy Insight: Opponent playing standard. No unusual patterns detected.",
                     "players": [
                         {
                             "name": "BrokenBlade",
                             "kills": 4,
                             "deaths": 3,
-                            "assists": 2,
+                            "assists": 0,
                             "current_kd": 1.33,
-                            "avg_kd": 1.33,
-                            "trade_efficiency": 2.0,
-                            "insight": "✅ Insight: Stable performance."
+                            "avg_kd": 1.67,
+                            "trade_efficiency": 1.33,
+                            "tilt_risk": 30,
+                            "is_underperformer": false,
+                            "insight": "You're winning the mental battle. Stay sharp."
                         },
                         {
                             "name": "Yike",
                             "kills": 4,
                             "deaths": 1,
-                            "assists": 5,
+                            "assists": 0,
                             "current_kd": 4.0,
-                            "avg_kd": 4.0,
-                            "trade_efficiency": 9.0,
-                            "insight": "🔥 Insight: Excellent performance (K/D 4.0). Keep playing aggressive."
+                            "avg_kd": 3.75,
+                            "trade_efficiency": 4.0,
+                            "tilt_risk": 0,
+                            "is_underperformer": false,
+                            "insight": "You're making them look like amateurs, Yike. Godlike."
                         },
                         {
                             "name": "Caps",
                             "kills": 2,
                             "deaths": 0,
-                            "assists": 7,
+                            "assists": 0,
                             "current_kd": 2.0,
-                            "avg_kd": 2.0,
-                            "trade_efficiency": 9.0,
-                            "insight": "🔥 Insight: Excellent performance (K/D 2.0). Keep playing aggressive."
+                            "avg_kd": 1.75,
+                            "trade_efficiency": 2.0,
+                            "tilt_risk": 0,
+                            "is_underperformer": false,
+                            "insight": "Caps is absolutely cooking today! Look at that 2.0 K/D."
                         },
                         {
                             "name": "Hans Sama",
                             "kills": 4,
                             "deaths": 2,
-                            "assists": 5,
+                            "assists": 0,
                             "current_kd": 2.0,
-                            "avg_kd": 2.0,
-                            "trade_efficiency": 4.5,
-                            "insight": "🔥 Insight: Excellent performance (K/D 2.0). Keep playing aggressive."
+                            "avg_kd": 1.17,
+                            "trade_efficiency": 2.0,
+                            "tilt_risk": 0,
+                            "is_underperformer": false,
+                            "insight": "You're making them look like amateurs, Hans Sama. Godlike."
                         },
                         {
                             "name": "Mikyx",
                             "kills": 0,
                             "deaths": 4,
-                            "assists": 7,
+                            "assists": 0,
                             "current_kd": 0.0,
-                            "avg_kd": 0.0,
-                            "trade_efficiency": 1.75,
-                            "insight": "✅ Insight: Stable performance."
+                            "avg_kd": 0.17,
+                            "trade_efficiency": 0.0,
+                            "tilt_risk": 80,
+                            "is_underperformer": true,
+                            "insight": "That's the consistency of a pro. Keep it rolling."
                         }
                     ]
                 }
@@ -228,118 +1452,636 @@
         }
     },
     {
+        "match_id": "2618425",
+        "data": {
+            "analysis": [
+                {
+                    "team_name": "Karmine Corp",
+                    "logoUrl": "https://cdn.grid.gg/assets/team-logos/0c73991760c7d80df981a06e99c7cd51",
+                    "colorPrimary": "#5b6f7e",
+                    "colorSecondary": "#ffffff",
+                    "scouting_info": {
+                        "win_rate": null,
+                        "win_streak": null
+                    },
+                    "economy": "Strong presence on the map. Winning exchanges. Don't let up.",
+                    "economy_risk": 53.5,
+                    "buy_recommendation": "Force Buy",
+                    "opponent_strategy": "✅ Strategy Insight: Opponent playing standard. No unusual patterns detected.",
+                    "players": [
+                        {
+                            "name": "Cabochard",
+                            "kills": 0,
+                            "deaths": 1,
+                            "assists": 0,
+                            "current_kd": 0.0,
+                            "avg_kd": 0.0,
+                            "trade_efficiency": 0.0,
+                            "tilt_risk": 0,
+                            "is_underperformer": true,
+                            "insight": "Love the discipline. Keep playing your game."
+                        },
+                        {
+                            "name": "Bo",
+                            "kills": 4,
+                            "deaths": 5,
+                            "assists": 0,
+                            "current_kd": 0.8,
+                            "avg_kd": 0.61,
+                            "trade_efficiency": 0.8,
+                            "tilt_risk": 70,
+                            "is_underperformer": false,
+                            "insight": "Solid as a rock, Bo. You're our anchor."
+                        },
+                        {
+                            "name": "SAKEN",
+                            "kills": 3,
+                            "deaths": 4,
+                            "assists": 0,
+                            "current_kd": 0.75,
+                            "avg_kd": 1.12,
+                            "trade_efficiency": 0.75,
+                            "tilt_risk": 60,
+                            "is_underperformer": true,
+                            "insight": "Love the discipline. Keep playing your game."
+                        },
+                        {
+                            "name": "Upset",
+                            "kills": 5,
+                            "deaths": 3,
+                            "assists": 0,
+                            "current_kd": 1.67,
+                            "avg_kd": 1.33,
+                            "trade_efficiency": 1.67,
+                            "tilt_risk": 30,
+                            "is_underperformer": false,
+                            "insight": "Total dominance from Upset. Keep punishing them."
+                        },
+                        {
+                            "name": "Targamas",
+                            "kills": 2,
+                            "deaths": 2,
+                            "assists": 0,
+                            "current_kd": 1.0,
+                            "avg_kd": 0.6,
+                            "trade_efficiency": 1.0,
+                            "tilt_risk": 0,
+                            "is_underperformer": false,
+                            "insight": "Perfect execution. You're in the zone."
+                        }
+                    ]
+                },
+                {
+                    "team_name": "G2 Esports",
+                    "logoUrl": "https://cdn.grid.gg/assets/team-logos/94a774753c28adb6602d3c36e428a849",
+                    "colorPrimary": "#de8636",
+                    "colorSecondary": "#0072c3",
+                    "scouting_info": {
+                        "win_rate": null,
+                        "win_streak": null
+                    },
+                    "economy": "Strong presence on the map. Winning exchanges. Don't let up.",
+                    "economy_risk": 46.5,
+                    "buy_recommendation": "Force Buy",
+                    "opponent_strategy": "✅ Strategy Insight: Opponent playing standard. No unusual patterns detected.",
+                    "players": [
+                        {
+                            "name": "BrokenBlade",
+                            "kills": 2,
+                            "deaths": 1,
+                            "assists": 0,
+                            "current_kd": 2.0,
+                            "avg_kd": 1.67,
+                            "trade_efficiency": 2.0,
+                            "tilt_risk": 0,
+                            "is_underperformer": false,
+                            "insight": "BrokenBlade is absolutely cooking today! Look at that 2.0 K/D."
+                        },
+                        {
+                            "name": "Yike",
+                            "kills": 7,
+                            "deaths": 2,
+                            "assists": 0,
+                            "current_kd": 3.5,
+                            "avg_kd": 3.75,
+                            "trade_efficiency": 3.5,
+                            "tilt_risk": 0,
+                            "is_underperformer": false,
+                            "insight": "You're making them look like amateurs, Yike. Godlike."
+                        },
+                        {
+                            "name": "Caps",
+                            "kills": 3,
+                            "deaths": 2,
+                            "assists": 0,
+                            "current_kd": 1.5,
+                            "avg_kd": 1.75,
+                            "trade_efficiency": 1.5,
+                            "tilt_risk": 0,
+                            "is_underperformer": false,
+                            "insight": "Perfect execution. You're in the zone."
+                        },
+                        {
+                            "name": "Hans Sama",
+                            "kills": 2,
+                            "deaths": 6,
+                            "assists": 0,
+                            "current_kd": 0.33,
+                            "avg_kd": 1.17,
+                            "trade_efficiency": 0.33,
+                            "tilt_risk": 100,
+                            "is_underperformer": true,
+                            "insight": "Love the discipline. Keep playing your game."
+                        },
+                        {
+                            "name": "Mikyx",
+                            "kills": 1,
+                            "deaths": 3,
+                            "assists": 0,
+                            "current_kd": 0.33,
+                            "avg_kd": 0.17,
+                            "trade_efficiency": 0.33,
+                            "tilt_risk": 70,
+                            "is_underperformer": true,
+                            "insight": "You're winning the mental battle. Stay sharp."
+                        }
+                    ]
+                }
+            ],
+            "economy_history": {
+                "rounds": [
+                    "R1",
+                    "R2",
+                    "R3",
+                    "R4",
+                    "R5",
+                    "R6",
+                    "R7",
+                    "R8",
+                    "R9",
+                    "R10",
+                    "R11",
+                    "R12",
+                    "R13",
+                    "R14",
+                    "R15",
+                    "R16",
+                    "R17",
+                    "R18",
+                    "R19",
+                    "R20",
+                    "R21",
+                    "R22",
+                    "R23",
+                    "R24",
+                    "R25",
+                    "R26",
+                    "R27",
+                    "R28",
+                    "R29",
+                    "R30"
+                ],
+                "team_a": [
+                    5000,
+                    4400,
+                    3953,
+                    2000,
+                    2000,
+                    2330,
+                    2000,
+                    2000,
+                    2230,
+                    2000,
+                    3856,
+                    5818,
+                    4758,
+                    7629,
+                    7253,
+                    5736,
+                    3588,
+                    4114,
+                    2678,
+                    4547,
+                    4955,
+                    3483,
+                    2000,
+                    2000,
+                    2000,
+                    2000,
+                    3890,
+                    2985,
+                    6280,
+                    7807
+                ],
+                "team_b": [
+                    5000,
+                    3172,
+                    4011,
+                    4125,
+                    3986,
+                    4596,
+                    6172,
+                    6408,
+                    5770,
+                    4751,
+                    5488,
+                    5015,
+                    4678,
+                    2576,
+                    2890,
+                    2530,
+                    3488,
+                    6148,
+                    5190,
+                    3817,
+                    3742,
+                    4923,
+                    8154,
+                    7052,
+                    4569,
+                    2000,
+                    2000,
+                    2724,
+                    4533,
+                    4176
+                ]
+            }
+        }
+    },
+    {
+        "match_id": "2618426",
+        "data": {
+            "analysis": [
+                {
+                    "team_name": "Fnatic",
+                    "logoUrl": "https://cdn.grid.gg/assets/team-logos/d5bd0cb8ca32672cd8608d2ad2cb039a",
+                    "colorPrimary": "#fe6100",
+                    "colorSecondary": "#6f7878",
+                    "scouting_info": {
+                        "win_rate": null,
+                        "win_streak": null
+                    },
+                    "economy": "Economy looks solid because you're actually hitting your shots. Good.",
+                    "economy_risk": 5.0,
+                    "buy_recommendation": "Full Buy",
+                    "opponent_strategy": "✅ Strategy Insight: Opponent playing standard. No unusual patterns detected.",
+                    "players": [
+                        {
+                            "name": "Oscarinin",
+                            "kills": 1,
+                            "deaths": 0,
+                            "assists": 0,
+                            "current_kd": 1.0,
+                            "avg_kd": 4.0,
+                            "trade_efficiency": 1.0,
+                            "tilt_risk": 0,
+                            "is_underperformer": false,
+                            "insight": "That's the consistency of a pro. Keep it rolling."
+                        },
+                        {
+                            "name": "Razork",
+                            "kills": 0,
+                            "deaths": 1,
+                            "assists": 0,
+                            "current_kd": 0.0,
+                            "avg_kd": 0.83,
+                            "trade_efficiency": 0.0,
+                            "tilt_risk": 0,
+                            "is_underperformer": true,
+                            "insight": "You're winning the mental battle. Stay sharp."
+                        },
+                        {
+                            "name": "Humanoid",
+                            "kills": 6,
+                            "deaths": 0,
+                            "assists": 0,
+                            "current_kd": 6.0,
+                            "avg_kd": 3.5,
+                            "trade_efficiency": 6.0,
+                            "tilt_risk": 0,
+                            "is_underperformer": false,
+                            "insight": "Humanoid is absolutely cooking today! Look at that 6.0 K/D."
+                        },
+                        {
+                            "name": "Noah",
+                            "kills": 5,
+                            "deaths": 2,
+                            "assists": 0,
+                            "current_kd": 2.5,
+                            "avg_kd": 2.25,
+                            "trade_efficiency": 2.5,
+                            "tilt_risk": 0,
+                            "is_underperformer": false,
+                            "insight": "Noah is absolutely cooking today! Look at that 2.5 K/D."
+                        },
+                        {
+                            "name": "Jun",
+                            "kills": 0,
+                            "deaths": 2,
+                            "assists": 0,
+                            "current_kd": 0.0,
+                            "avg_kd": 0.5,
+                            "trade_efficiency": 0.0,
+                            "tilt_risk": 0,
+                            "is_underperformer": true,
+                            "insight": "Perfect execution. You're in the zone."
+                        }
+                    ]
+                },
+                {
+                    "team_name": "Team Vitality",
+                    "logoUrl": "https://cdn.grid.gg/assets/team-logos/195171114bca3c1f69136199f73fce14",
+                    "colorPrimary": "#FBC817",
+                    "colorSecondary": "#DA1E28",
+                    "scouting_info": {
+                        "win_rate": null,
+                        "win_streak": null
+                    },
+                    "economy": "Shake it off. We've been in worse spots than this. Stay composed.",
+                    "economy_risk": 95.0,
+                    "buy_recommendation": "Eco",
+                    "opponent_strategy": "⚠️ Strategy Insight: Enemy often pushes sites quickly. Be ready for aggressive executes.",
+                    "players": [
+                        {
+                            "name": "Photon",
+                            "kills": 0,
+                            "deaths": 2,
+                            "assists": 0,
+                            "current_kd": 0.0,
+                            "avg_kd": 1.0,
+                            "trade_efficiency": 0.0,
+                            "tilt_risk": 0,
+                            "is_underperformer": true,
+                            "insight": "Solid as a rock, Photon. You're our anchor."
+                        },
+                        {
+                            "name": "Daglas",
+                            "kills": 2,
+                            "deaths": 3,
+                            "assists": 0,
+                            "current_kd": 0.67,
+                            "avg_kd": 0.33,
+                            "trade_efficiency": 0.67,
+                            "tilt_risk": 50,
+                            "is_underperformer": true,
+                            "insight": "That's the consistency of a pro. Keep it rolling."
+                        },
+                        {
+                            "name": "Vetheo",
+                            "kills": 2,
+                            "deaths": 0,
+                            "assists": 0,
+                            "current_kd": 2.0,
+                            "avg_kd": 1.5,
+                            "trade_efficiency": 2.0,
+                            "tilt_risk": 0,
+                            "is_underperformer": false,
+                            "insight": "You're making them look like amateurs, Vetheo. Godlike."
+                        },
+                        {
+                            "name": "Carzzy",
+                            "kills": 1,
+                            "deaths": 4,
+                            "assists": 0,
+                            "current_kd": 0.25,
+                            "avg_kd": 0.54,
+                            "trade_efficiency": 0.25,
+                            "tilt_risk": 80,
+                            "is_underperformer": true,
+                            "insight": "Love the discipline. Keep playing your game."
+                        },
+                        {
+                            "name": "Hylissang",
+                            "kills": 0,
+                            "deaths": 3,
+                            "assists": 0,
+                            "current_kd": 0.0,
+                            "avg_kd": 0.33,
+                            "trade_efficiency": 0.0,
+                            "tilt_risk": 70,
+                            "is_underperformer": true,
+                            "insight": "Perfect execution. You're in the zone."
+                        }
+                    ]
+                }
+            ],
+            "economy_history": {
+                "rounds": [
+                    "R1",
+                    "R2",
+                    "R3",
+                    "R4",
+                    "R5",
+                    "R6",
+                    "R7",
+                    "R8",
+                    "R9",
+                    "R10",
+                    "R11",
+                    "R12",
+                    "R13",
+                    "R14",
+                    "R15",
+                    "R16",
+                    "R17",
+                    "R18"
+                ],
+                "team_a": [
+                    5000,
+                    4067,
+                    5150,
+                    2826,
+                    2000,
+                    2000,
+                    4050,
+                    2007,
+                    4059,
+                    4586,
+                    5993,
+                    3726,
+                    2235,
+                    2000,
+                    3089,
+                    3024,
+                    5090,
+                    2884
+                ],
+                "team_b": [
+                    5000,
+                    4852,
+                    3040,
+                    3626,
+                    7547,
+                    9175,
+                    6823,
+                    6023,
+                    4601,
+                    5143,
+                    8136,
+                    6763,
+                    6627,
+                    5186,
+                    5511,
+                    6464,
+                    10136,
+                    10773
+                ]
+            }
+        }
+    },
+    {
         "match_id": "2618420",
         "data": {
             "analysis": [
                 {
                     "team_name": "Fnatic",
-                    "economy": "📈 Macro Review: Team winning exchanges. Economy looks strong.",
+                    "logoUrl": "https://cdn.grid.gg/assets/team-logos/d5bd0cb8ca32672cd8608d2ad2cb039a",
+                    "colorPrimary": "#fe6100",
+                    "colorSecondary": "#6f7878",
+                    "scouting_info": {
+                        "win_rate": null,
+                        "win_streak": null
+                    },
+                    "economy": "The momentum is ours. Close this out.",
+                    "economy_risk": 5.7,
+                    "buy_recommendation": "Full Buy",
+                    "opponent_strategy": "✅ Strategy Insight: Opponent playing standard. No unusual patterns detected.",
                     "players": [
                         {
                             "name": "Oscarinin",
                             "kills": 7,
                             "deaths": 0,
-                            "assists": 8,
+                            "assists": 0,
                             "current_kd": 7.0,
-                            "avg_kd": 7.0,
-                            "trade_efficiency": 15.0,
-                            "insight": "🔥 Insight: Excellent performance (K/D 7.0). Keep playing aggressive."
+                            "avg_kd": 1.0,
+                            "trade_efficiency": 7.0,
+                            "tilt_risk": 0,
+                            "is_underperformer": false,
+                            "insight": "Absolute clinical performance, Oscarinin. That 7.0 K/D is pure class."
                         },
                         {
                             "name": "Razork",
                             "kills": 5,
                             "deaths": 3,
-                            "assists": 11,
+                            "assists": 0,
                             "current_kd": 1.67,
-                            "avg_kd": 1.67,
-                            "trade_efficiency": 5.33,
-                            "insight": "🔥 Insight: Excellent performance (K/D 1.67). Keep playing aggressive."
+                            "avg_kd": 0.0,
+                            "trade_efficiency": 1.67,
+                            "tilt_risk": 30,
+                            "is_underperformer": false,
+                            "insight": "You're making them look like amateurs, Razork. Godlike."
                         },
                         {
                             "name": "Humanoid",
                             "kills": 3,
                             "deaths": 3,
-                            "assists": 6,
+                            "assists": 0,
                             "current_kd": 1.0,
-                            "avg_kd": 1.0,
-                            "trade_efficiency": 3.0,
-                            "insight": "✅ Insight: Stable performance."
+                            "avg_kd": 6.0,
+                            "trade_efficiency": 1.0,
+                            "tilt_risk": 30,
+                            "is_underperformer": false,
+                            "insight": "You're winning the mental battle. Stay sharp."
                         },
                         {
                             "name": "Noah",
                             "kills": 4,
                             "deaths": 2,
-                            "assists": 8,
+                            "assists": 0,
                             "current_kd": 2.0,
-                            "avg_kd": 2.0,
-                            "trade_efficiency": 6.0,
-                            "insight": "🔥 Insight: Excellent performance (K/D 2.0). Keep playing aggressive."
+                            "avg_kd": 2.5,
+                            "trade_efficiency": 2.0,
+                            "tilt_risk": 0,
+                            "is_underperformer": false,
+                            "insight": "Noah is absolutely cooking today! Look at that 2.0 K/D."
                         },
                         {
                             "name": "Jun",
                             "kills": 1,
                             "deaths": 1,
-                            "assists": 16,
+                            "assists": 0,
                             "current_kd": 1.0,
-                            "avg_kd": 1.0,
-                            "trade_efficiency": 17.0,
-                            "insight": "✅ Insight: Stable performance."
+                            "avg_kd": 0.0,
+                            "trade_efficiency": 1.0,
+                            "tilt_risk": 0,
+                            "is_underperformer": false,
+                            "insight": "Love the discipline. Keep playing your game."
                         }
                     ]
                 },
                 {
                     "team_name": "Karmine Corp",
-                    "economy": "📉 Macro Review: Team is losing duels (K/D 0.45). Likely economy disadvantage.",
+                    "logoUrl": "https://cdn.grid.gg/assets/team-logos/0c73991760c7d80df981a06e99c7cd51",
+                    "colorPrimary": "#5b6f7e",
+                    "colorSecondary": "#ffffff",
+                    "scouting_info": {
+                        "win_rate": null,
+                        "win_streak": null
+                    },
+                    "economy": "Take a breath. It was a tough round, but it's over. Focus on the next one.",
+                    "economy_risk": 94.3,
+                    "buy_recommendation": "Eco",
+                    "opponent_strategy": "⚠️ Strategy Insight: Enemy often pushes sites quickly. Be ready for aggressive executes.",
                     "players": [
                         {
                             "name": "Cabochard",
                             "kills": 0,
                             "deaths": 4,
-                            "assists": 4,
+                            "assists": 0,
                             "current_kd": 0.0,
                             "avg_kd": 0.0,
-                            "trade_efficiency": 1.0,
-                            "insight": "✅ Insight: Stable performance."
+                            "trade_efficiency": 0.0,
+                            "tilt_risk": 80,
+                            "is_underperformer": true,
+                            "insight": "That's the consistency of a pro. Keep it rolling."
                         },
                         {
                             "name": "Bo",
                             "kills": 3,
                             "deaths": 7,
-                            "assists": 1,
+                            "assists": 0,
                             "current_kd": 0.43,
-                            "avg_kd": 0.43,
-                            "trade_efficiency": 0.57,
-                            "insight": "✅ Insight: Stable performance."
+                            "avg_kd": 0.8,
+                            "trade_efficiency": 0.43,
+                            "tilt_risk": 100,
+                            "is_underperformer": true,
+                            "insight": "That's the consistency of a pro. Keep it rolling."
                         },
                         {
                             "name": "SAKEN",
                             "kills": 3,
                             "deaths": 2,
-                            "assists": 4,
+                            "assists": 0,
                             "current_kd": 1.5,
-                            "avg_kd": 1.5,
-                            "trade_efficiency": 3.5,
-                            "insight": "✅ Insight: Stable performance."
+                            "avg_kd": 0.75,
+                            "trade_efficiency": 1.5,
+                            "tilt_risk": 0,
+                            "is_underperformer": false,
+                            "insight": "Perfect execution. You're in the zone."
                         },
                         {
                             "name": "Upset",
                             "kills": 2,
                             "deaths": 2,
-                            "assists": 3,
+                            "assists": 0,
                             "current_kd": 1.0,
-                            "avg_kd": 1.0,
-                            "trade_efficiency": 2.5,
-                            "insight": "✅ Insight: Stable performance."
+                            "avg_kd": 1.67,
+                            "trade_efficiency": 1.0,
+                            "tilt_risk": 0,
+                            "is_underperformer": false,
+                            "insight": "That's the consistency of a pro. Keep it rolling."
                         },
                         {
                             "name": "Targamas",
                             "kills": 1,
                             "deaths": 5,
-                            "assists": 4,
+                            "assists": 0,
                             "current_kd": 0.2,
-                            "avg_kd": 0.2,
-                            "trade_efficiency": 1.0,
-                            "insight": "✅ Insight: Stable performance."
+                            "avg_kd": 1.0,
+                            "trade_efficiency": 0.2,
+                            "tilt_risk": 90,
+                            "is_underperformer": true,
+                            "insight": "Perfect execution. You're in the zone."
                         }
                     ]
                 }
@@ -445,305 +2187,158 @@
         }
     },
     {
-        "match_id": "2618427",
-        "data": {
-            "analysis": [
-                {
-                    "team_name": "Rogue",
-                    "economy": "📉 Macro Review: Team is losing duels (K/D 0.13). Likely economy disadvantage.",
-                    "economy_risk": 95,
-                    "players": [
-                        {
-                            "name": "Szygenda",
-                            "kills": 1,
-                            "deaths": 2,
-                            "assists": 1,
-                            "current_kd": 0.5,
-                            "avg_kd": 0.5,
-                            "trade_efficiency": 1.0,
-                            "insight": "✅ Insight: Stable performance."
-                        },
-                        {
-                            "name": "Markoon",
-                            "kills": 1,
-                            "deaths": 4,
-                            "assists": 1,
-                            "current_kd": 0.25,
-                            "avg_kd": 0.25,
-                            "trade_efficiency": 0.5,
-                            "insight": "✅ Insight: Stable performance."
-                        },
-                        {
-                            "name": "Larssen",
-                            "kills": 0,
-                            "deaths": 1,
-                            "assists": 2,
-                            "current_kd": 0.0,
-                            "avg_kd": 0.0,
-                            "trade_efficiency": 2.0,
-                            "insight": "✅ Insight: Stable performance."
-                        },
-                        {
-                            "name": "Comp",
-                            "kills": 0,
-                            "deaths": 4,
-                            "assists": 1,
-                            "current_kd": 0.0,
-                            "avg_kd": 0.0,
-                            "trade_efficiency": 0.25,
-                            "insight": "✅ Insight: Stable performance."
-                        },
-                        {
-                            "name": "Zoelys",
-                            "kills": 0,
-                            "deaths": 4,
-                            "assists": 2,
-                            "current_kd": 0.0,
-                            "avg_kd": 0.0,
-                            "trade_efficiency": 0.5,
-                            "insight": "✅ Insight: Stable performance."
-                        }
-                    ]
-                },
-                {
-                    "team_name": "Team Heretics",
-                    "economy": "📈 Macro Review: Team winning exchanges. Economy looks strong.",
-                    "economy_risk": 5,
-                    "players": [
-                        {
-                            "name": "Wunder",
-                            "kills": 2,
-                            "deaths": 1,
-                            "assists": 9,
-                            "current_kd": 2.0,
-                            "avg_kd": 2.0,
-                            "trade_efficiency": 11.0,
-                            "insight": "🔥 Insight: Excellent performance (K/D 2.0). Keep playing aggressive."
-                        },
-                        {
-                            "name": "Jankos",
-                            "kills": 2,
-                            "deaths": 0,
-                            "assists": 11,
-                            "current_kd": 2.0,
-                            "avg_kd": 2.0,
-                            "trade_efficiency": 13.0,
-                            "insight": "🔥 Insight: Excellent performance (K/D 2.0). Keep playing aggressive."
-                        },
-                        {
-                            "name": "Perkz",
-                            "kills": 3,
-                            "deaths": 0,
-                            "assists": 2,
-                            "current_kd": 3.0,
-                            "avg_kd": 3.0,
-                            "trade_efficiency": 5.0,
-                            "insight": "🔥 Insight: Excellent performance (K/D 3.0). Keep playing aggressive."
-                        },
-                        {
-                            "name": "Flakked",
-                            "kills": 8,
-                            "deaths": 1,
-                            "assists": 4,
-                            "current_kd": 8.0,
-                            "avg_kd": 8.0,
-                            "trade_efficiency": 12.0,
-                            "insight": "🔥 Insight: Excellent performance (K/D 8.0). Keep playing aggressive."
-                        },
-                        {
-                            "name": "Kaiser",
-                            "kills": 0,
-                            "deaths": 0,
-                            "assists": 15,
-                            "current_kd": 0.0,
-                            "avg_kd": 0.0,
-                            "trade_efficiency": 15.0,
-                            "insight": "✅ Insight: Stable performance."
-                        }
-                    ]
-                }
-            ],
-            "economy_history": {
-                "rounds": [
-                    "R1",
-                    "R2",
-                    "R3",
-                    "R4",
-                    "R5",
-                    "R6",
-                    "R7",
-                    "R8",
-                    "R9",
-                    "R10",
-                    "R11",
-                    "R12",
-                    "R13",
-                    "R14",
-                    "R15",
-                    "R16",
-                    "R17",
-                    "R18"
-                ],
-                "team_a": [
-                    5000,
-                    4888,
-                    8003,
-                    7947,
-                    5960,
-                    5352,
-                    4760,
-                    8360,
-                    5710,
-                    3997,
-                    2000,
-                    2000,
-                    2000,
-                    2000,
-                    2000,
-                    2000,
-                    2000,
-                    2000
-                ],
-                "team_b": [
-                    5000,
-                    4127,
-                    3538,
-                    2520,
-                    5983,
-                    8428,
-                    11931,
-                    11937,
-                    15113,
-                    15265,
-                    13780,
-                    15298,
-                    18374,
-                    18364,
-                    17256,
-                    16831,
-                    17684,
-                    18524
-                ]
-            }
-        }
-    },
-    {
-        "match_id": "2618419",
+        "match_id": "2618424",
         "data": {
             "analysis": [
                 {
                     "team_name": "SK Gaming",
-                    "economy": "📈 Macro Review: Team winning exchanges. Economy looks strong.",
-                    "economy_risk": 5,
+                    "logoUrl": "https://cdn.grid.gg/assets/team-logos/c69f9b19774472b7b06d183c9de2a448",
+                    "colorPrimary": "#726180",
+                    "colorSecondary": "#ff509e",
+                    "scouting_info": {
+                        "win_rate": null,
+                        "win_streak": null
+                    },
+                    "economy": "The momentum is ours. Close this out.",
+                    "economy_risk": 5.0,
                     "buy_recommendation": "Full Buy",
+                    "opponent_strategy": "✅ Strategy Insight: Opponent playing standard. No unusual patterns detected.",
                     "players": [
                         {
                             "name": "Irrelevant",
-                            "kills": 6,
+                            "kills": 3,
                             "deaths": 1,
-                            "assists": 6,
-                            "current_kd": 6.0,
+                            "assists": 0,
+                            "current_kd": 3.0,
                             "avg_kd": 6.0,
-                            "trade_efficiency": 12.0,
-                            "insight": "🔥 Insight: Excellent performance (K/D 6.0). Keep playing aggressive."
+                            "trade_efficiency": 3.0,
+                            "tilt_risk": 0,
+                            "is_underperformer": false,
+                            "insight": "That's some high-level impact, Irrelevant. Exactly what the team needs."
                         },
                         {
                             "name": "Isma",
-                            "kills": 3,
-                            "deaths": 0,
-                            "assists": 12,
-                            "current_kd": 3.0,
+                            "kills": 1,
+                            "deaths": 1,
+                            "assists": 0,
+                            "current_kd": 1.0,
                             "avg_kd": 3.0,
-                            "trade_efficiency": 15.0,
-                            "insight": "🔥 Insight: Excellent performance (K/D 3.0). Keep playing aggressive."
+                            "trade_efficiency": 1.0,
+                            "tilt_risk": 0,
+                            "is_underperformer": false,
+                            "insight": "You're winning the mental battle. Stay sharp."
                         },
                         {
                             "name": "Nisqy",
-                            "kills": 1,
-                            "deaths": 2,
-                            "assists": 6,
-                            "current_kd": 0.5,
+                            "kills": 6,
+                            "deaths": 4,
+                            "assists": 0,
+                            "current_kd": 1.5,
                             "avg_kd": 0.5,
-                            "trade_efficiency": 3.5,
-                            "insight": "✅ Insight: Stable performance."
+                            "trade_efficiency": 1.5,
+                            "tilt_risk": 40,
+                            "is_underperformer": false,
+                            "insight": "You're winning the mental battle. Stay sharp."
                         },
                         {
                             "name": "Exakick",
-                            "kills": 5,
+                            "kills": 11,
                             "deaths": 1,
-                            "assists": 5,
-                            "current_kd": 5.0,
+                            "assists": 0,
+                            "current_kd": 11.0,
                             "avg_kd": 5.0,
-                            "trade_efficiency": 10.0,
-                            "insight": "🔥 Insight: Excellent performance (K/D 5.0). Keep playing aggressive."
+                            "trade_efficiency": 11.0,
+                            "tilt_risk": 0,
+                            "is_underperformer": false,
+                            "insight": "Total dominance from Exakick. Keep punishing them."
                         },
                         {
                             "name": "Doss",
                             "kills": 1,
                             "deaths": 0,
-                            "assists": 14,
+                            "assists": 0,
                             "current_kd": 1.0,
                             "avg_kd": 1.0,
-                            "trade_efficiency": 15.0,
-                            "insight": "✅ Insight: Stable performance."
+                            "trade_efficiency": 1.0,
+                            "tilt_risk": 0,
+                            "is_underperformer": false,
+                            "insight": "Solid as a rock, Doss. You're our anchor."
                         }
                     ]
                 },
                 {
-                    "team_name": "Rogue",
-                    "economy": "📉 Macro Review: Team is losing duels (K/D 0.25). Likely economy disadvantage.",
-                    "economy_risk": 95,
+                    "team_name": "MAD Lions",
+                    "logoUrl": null,
+                    "colorPrimary": null,
+                    "colorSecondary": null,
+                    "scouting_info": {
+                        "win_rate": null,
+                        "win_streak": null
+                    },
+                    "economy": "Don't let that loss get in your head. Reset and go again.",
+                    "economy_risk": 95.0,
                     "buy_recommendation": "Eco",
+                    "opponent_strategy": "⚠️ Strategy Insight: Enemy often pushes sites quickly. Be ready for aggressive executes.",
                     "players": [
                         {
-                            "name": "Szygenda",
-                            "kills": 0,
+                            "name": "Myrwn",
+                            "kills": 2,
                             "deaths": 3,
-                            "assists": 2,
-                            "current_kd": 0.0,
-                            "avg_kd": 0.25,
-                            "trade_efficiency": 0.67,
-                            "insight": "✅ Insight: Stable performance."
-                        },
-                        {
-                            "name": "Markoon",
-                            "kills": 0,
-                            "deaths": 3,
-                            "assists": 4,
-                            "current_kd": 0.0,
-                            "avg_kd": 0.12,
-                            "trade_efficiency": 1.33,
-                            "insight": "✅ Insight: Stable performance."
-                        },
-                        {
-                            "name": "Larssen",
-                            "kills": 1,
-                            "deaths": 5,
-                            "assists": 3,
-                            "current_kd": 0.2,
-                            "avg_kd": 0.1,
-                            "trade_efficiency": 0.8,
-                            "insight": "✅ Insight: Stable performance."
-                        },
-                        {
-                            "name": "Comp",
-                            "kills": 3,
-                            "deaths": 2,
                             "assists": 0,
-                            "current_kd": 1.5,
-                            "avg_kd": 0.75,
-                            "trade_efficiency": 1.5,
-                            "insight": "✅ Insight: Stable performance."
+                            "current_kd": 0.67,
+                            "avg_kd": 3.0,
+                            "trade_efficiency": 0.67,
+                            "tilt_risk": 50,
+                            "is_underperformer": true,
+                            "insight": "Perfect execution. You're in the zone."
                         },
                         {
-                            "name": "Zoelys",
+                            "name": "Elyoya",
+                            "kills": 1,
+                            "deaths": 7,
+                            "assists": 0,
+                            "current_kd": 0.14,
+                            "avg_kd": 6.0,
+                            "trade_efficiency": 0.14,
+                            "tilt_risk": 100,
+                            "is_underperformer": true,
+                            "insight": "That's the consistency of a pro. Keep it rolling."
+                        },
+                        {
+                            "name": "Fresskowy",
                             "kills": 0,
                             "deaths": 3,
-                            "assists": 4,
+                            "assists": 0,
                             "current_kd": 0.0,
-                            "avg_kd": 0.0,
-                            "trade_efficiency": 1.33,
-                            "insight": "✅ Insight: Stable performance."
+                            "avg_kd": 5.0,
+                            "trade_efficiency": 0.0,
+                            "tilt_risk": 70,
+                            "is_underperformer": true,
+                            "insight": "That's the consistency of a pro. Keep it rolling."
+                        },
+                        {
+                            "name": "Supa",
+                            "kills": 4,
+                            "deaths": 5,
+                            "assists": 0,
+                            "current_kd": 0.8,
+                            "avg_kd": 2.0,
+                            "trade_efficiency": 0.8,
+                            "tilt_risk": 70,
+                            "is_underperformer": false,
+                            "insight": "Perfect execution. You're in the zone."
+                        },
+                        {
+                            "name": "Alvaro",
+                            "kills": 0,
+                            "deaths": 4,
+                            "assists": 0,
+                            "current_kd": 0.0,
+                            "avg_kd": 1.0,
+                            "trade_efficiency": 0.0,
+                            "tilt_risk": 80,
+                            "is_underperformer": true,
+                            "insight": "Love the discipline. Keep playing your game."
                         }
                     ]
                 }
@@ -770,53 +2365,80 @@
                     "R18",
                     "R19",
                     "R20",
-                    "R21"
+                    "R21",
+                    "R22",
+                    "R23",
+                    "R24",
+                    "R25",
+                    "R26",
+                    "R27",
+                    "R28",
+                    "R29",
+                    "R30"
                 ],
                 "team_a": [
                     5000,
-                    2668,
-                    6550,
-                    10466,
-                    7558,
-                    11471,
-                    12175,
-                    15083,
-                    17707,
-                    19030,
-                    17455,
-                    20080,
-                    19475,
-                    19854,
-                    22262,
-                    24643,
-                    22694,
-                    24522,
+                    2304,
+                    2300,
+                    4034,
+                    2979,
+                    2000,
+                    2000,
+                    2000,
+                    4268,
+                    4007,
+                    7412,
+                    10389,
+                    13249,
+                    10765,
+                    13907,
+                    17898,
+                    16938,
+                    17055,
+                    18932,
+                    19015,
+                    20681,
+                    23310,
+                    24752,
+                    22340,
                     25000,
-                    25000,
-                    25000
+                    24252,
+                    22109,
+                    21806,
+                    23713,
+                    22781
                 ],
                 "team_b": [
                     5000,
-                    6354,
-                    4841,
-                    8505,
-                    8610,
-                    6189,
-                    9328,
-                    10409,
-                    9733,
-                    7353,
-                    8332,
-                    7836,
-                    10627,
-                    7975,
-                    6427,
-                    6062,
-                    3135,
-                    3638,
-                    6325,
-                    8540,
-                    9292
+                    4345,
+                    7557,
+                    11549,
+                    14680,
+                    14355,
+                    17173,
+                    15327,
+                    14625,
+                    13235,
+                    10557,
+                    10839,
+                    11523,
+                    13735,
+                    13110,
+                    16006,
+                    18899,
+                    18175,
+                    16664,
+                    16420,
+                    16067,
+                    14398,
+                    13301,
+                    13666,
+                    17239,
+                    14367,
+                    16668,
+                    18141,
+                    16699,
+                    18315
                 ]
             }
         }

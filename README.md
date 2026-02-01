@@ -76,9 +76,13 @@ C9 Pulse now features a "voice" with a distinct personality to keep the team foc
 
 ## 📺 Demo Video
 
-[![C9 Pulse Demo](https://img.youtube.com/vi/Y7r9F2NEKbQ/0.jpg)](https://www.youtube.com/watch?v=Y7r9F2NEKbQ)
+### Version 0.4.0 (Latest)
+[![C9 Pulse Demo v0.4](https://img.youtube.com/vi/rxiRiyd0S-o/0.jpg)](https://www.youtube.com/watch?v=rxiRiyd0S-o)
 
-*(Click the image to watch the live demo)*
+### Version 0.1.0
+[![C9 Pulse Demo v0.1](https://img.youtube.com/vi/Y7r9F2NEKbQ/0.jpg)](https://www.youtube.com/watch?v=Y7r9F2NEKbQ)
+
+*(Click on the image to view the demo)*
 
 ---
 
