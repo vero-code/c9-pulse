@@ -7,8 +7,7 @@
 [![API](https://img.shields.io/badge/Data-GRID_Open_Platform-green?style=flat)](https://grid.gg/)
 [![AI](https://img.shields.io/badge/Powered_by-Junie_AI-purple?style=flat&logo=openai)](https://www.jetbrains.com/ai/)
 
-> **"Moneyball with a Heart"** — An intelligent analytical engine that combines real-time strategic insights with psychological support for Valorant players.
-
+> **"Moneyball with a Heart"** — An intelligent analytical engine that combines real-time strategic insights with psychological support for competitive esports players (Optimized for Valorant, Architecture supports generic GRID Data).
 ---
 
 ## 🎨 Visual Experience
@@ -224,6 +223,10 @@ query GetSeriesState($id: ID!) {
   }
 }
 ```
+
+### 🌐 Engine Versatility
+
+The core 'Titan' engine relies on universal competitive metrics (K/D, Win Streaks, Gold/Economy gaps) and psychological patterns (Tilt, Momentum). **While the current prompt tuning is specialized for Valorant tactical advice, the underlying analytical engine is game-agnostic and successfully ingests GRID data for League of Legends as demonstrated in the dashboard.**
 
 ---
 
