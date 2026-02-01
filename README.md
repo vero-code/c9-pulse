@@ -14,6 +14,18 @@
 
 Moved away from the console-only interface to a full-featured **Web Dashboard** built with **Flask**.
 
+### 1. The Command Center
+![Command Center](static/img/command-center.png)
+> *Real-time GRID match feed featuring an automated "First Blood Victim" detector for instant pre-game scouting.*
+
+### 2. Macro-Strategy View
+![Macro Strategy](static/img/macro-strategy-view.png)
+> *Dynamic Team Economy Graph tracks financial momentum to visualize game flow and predict enemy buy rounds.*
+
+### 3. Live AI Coaching
+![Live Coaching](static/img/live-coaching.png)
+> *Coach Titan analyzes a player's 2/6 slump in real-time, offering a ruthless strategy to exploit their lack of confidence.*
+
 ### ⚡ Key UI Features:
 * **Dark Mode (Cloud9 Style):** A sleek, professional interface using C9's signature black, blue, and white colors.
 * **Header & Footer:** Streamlined layout with dynamic branding and match context.
@@ -205,7 +217,7 @@ One of the biggest technical challenges was accessing granular player statistics
 
 **How I solved it:**
 Using **Junie (JetBrains AI)**, I reverse-engineered the query structure and identified the access point for the **Live Data Feed** (`series-state`). 
-I wrote a custom GraphQL client in Python that bypasses the static data limitations, fetching real-time game states directly.
+A custom GraphQL client in Python that bypasses the static data limitations, fetching real-time game states directly.
 
 ```graphql
 # Example of the Live Data Query utilized
